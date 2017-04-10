@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="@dimen/space_4dp"
+              android:layout_marginLeft="@dimen/space_8dp"
+              android:layout_marginRight="@dimen/space_8dp"
+              android:layout_marginTop="@dimen/space_4dp"
+              android:background="@color/white"
+              android:elevation="@dimen/space_6dp"
+              android:orientation="vertical"
+              android:paddingLeft="@dimen/space_32dp"
+              android:paddingRight="@dimen/space_32dp">
+
+    <TextView
+        android:id="@+id/judul_permohonan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_24dp"
+        android:text="Nama Agenda"
+        android:textColor="@color/textColorBlack"
+        android:textSize="@dimen/text_size_18sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/lokasi_dan_tanggal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lokasi dan tanggal"
+        android:textColor="@color/textColorBlack"
+        android:textSize="@dimen/space_12dp"/>
+
+    <TextView
+        android:id="@+id/keterangan_jadwal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_8dp"
+        android:text="Content Permohonan"
+        android:textColor="@color/textColorBlack"/>
+
+    <TextView
+        android:id="@+id/tempo_remaining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/space_24dp"
+        android:layout_marginTop="@dimen/space_8dp"
+        android:drawableLeft="@drawable/ic_warning"
+        android:drawablePadding="@dimen/space_8dp"
+        android:gravity="center"
+        android:text="Tempo"
+        android:textColor="@color/textColorBlack"
+        android:textStyle="bold"/>
+</LinearLayout>

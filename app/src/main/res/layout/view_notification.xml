@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/background_notif"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/notif_green"/>
+
+        <TextView
+            android:id="@+id/notif_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_16dp"
+            android:layout_marginRight="@dimen/space_16dp"
+            android:layout_marginTop="@dimen/space_12dp"
+            android:text="Notification"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/notif_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/notif_id"
+            android:layout_marginBottom="@dimen/space_12dp"
+            android:layout_marginLeft="@dimen/space_16dp"
+            android:layout_marginRight="@dimen/space_16dp"
+            android:text="Notification"/>
+    </RelativeLayout>
+</merge>

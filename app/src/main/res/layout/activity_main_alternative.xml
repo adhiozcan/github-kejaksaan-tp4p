@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="id.net.iconpln.kejaksaan.ui.MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_scrollFlags="snap">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="146dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <com.flaviofaria.kenburnsview.KenBurnsView
+                    android:id="@+id/kenburns_effect"
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/background_government_valhalla"
+                    app:layout_collapseMode="parallax"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/kenburns_effect"
+                    android:layout_marginLeft="@dimen/space_16dp"
+                    android:src="@drawable/ic_government"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/nilai_proyek"
+                    android:layout_centerInParent="true"
+                    android:text="Total Nilai Proyek"/>
+
+                <TextView
+                    android:id="@+id/nilai_proyek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/table_statistic"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="32dp"
+                    android:text="78M"
+                    android:textColor="@color/textColorWhite"
+                    android:textSize="48sp"
+                    android:textStyle="bold"/>
+
+                <TableLayout
+                    android:id="@+id/table_statistic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/kenburns_effect"
+                    android:layout_marginBottom="0.2dip"
+                    android:elevation="@dimen/space_8dp">
+
+                    <TableRow>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="92dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/button_default_white"
+                            android:elevation="@dimen/space_4dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingBottom="@dimen/space_8dp"
+                            android:paddingTop="@dimen/space_8dp">
+
+                            <TextView
+                                android:id="@+id/stat_masuk"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4"
+                                android:textColor="#91dc5a"
+                                android:textSize="@dimen/text_size_24sp"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/textView2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Permohonan \nMasuk"
+                                android:textAlignment="center"
+                                android:textColor="#91dc5a"
+                                android:textSize="@dimen/text_size_12sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="92dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/button_default_white"
+                            android:elevation="@dimen/space_4dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingBottom="@dimen/space_8dp"
+                            android:paddingTop="@dimen/space_8dp">
+
+                            <TextView
+                                android:id="@+id/stat_ditangani"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="8"
+                                android:textColor="#91dc5a"
+                                android:textSize="@dimen/text_size_24sp"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Permohonan \nDitangani"
+                                android:textAlignment="center"
+                                android:textColor="#91dc5a"
+                                android:textSize="@dimen/text_size_12sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="92dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/button_default_white"
+                            android:elevation="@dimen/space_4dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingBottom="@dimen/space_8dp"
+                            android:paddingTop="@dimen/space_8dp">
+
+
+                            <TextView
+                                android:id="@+id/stat_selesai"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12"
+                                android:textColor="#91dc5a"
+                                android:textSize="@dimen/text_size_24sp"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/textView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Permohonan \nSelesai"
+                                android:textAlignment="center"
+                                android:textColor="#91dc5a"
+                                android:textSize="@dimen/text_size_12sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="92dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/button_default_white"
+                            android:elevation="@dimen/space_4dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingBottom="@dimen/space_8dp"
+                            android:paddingTop="@dimen/space_8dp">
+
+                            <TextView
+                                android:id="@+id/stat_ditolak"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2"
+                                android:textColor="#91dc5a"
+                                android:textSize="@dimen/text_size_24sp"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Permohonan \nDitolak"
+                                android:textAlignment="center"
+                                android:textColor="#91dc5a"
+                                android:textSize="@dimen/text_size_12sp"/>
+                        </LinearLayout>
+                    </TableRow>
+                </TableLayout>
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:background="#2b000000"
+                    app:layout_collapseMode="pin"/>
+            </RelativeLayout>
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <include layout="@layout/view_dashboard_menu"/>
+
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>

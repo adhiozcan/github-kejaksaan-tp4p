@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#281916</color>
+    <color name="colorPrimaryDark">#1b110f</color>
+    <color name="colorAccent">@color/amber_A200</color>
+    <color name="textColorBlack">#ac455a64</color>
+    <color name="textColorWhite">#f4f7f7f7</color>
+
+    <!-- Res of all colors-->
+    <color name="white">#ffffff</color>
+    <color name="blue_grey_50">#ECEFF1</color>
+    <color name="red_A200">#FF5252</color>
+    <color name="pink_A200">#FF4081</color>
+    <color name="purple_A200">#E040FB</color>
+    <color name="deep_purple_A200">#7C4DFF</color>
+    <color name="indigo_A200">#536DFE</color>
+    <color name="blue_A200">#448AFF</color>
+    <color name="light_blue_A200">#40C4FF</color>
+    <color name="cyan_A200">#18FFFF</color>
+    <color name="teal_A200">#64FFDA</color>
+    <color name="green_A200">#69F0AE</color>
+    <color name="light_green_A200">#B2FF59</color>
+    <color name="light_green_500">#8BC34A</color>
+    <color name="light_green_A100">#CCFF90</color>
+    <color name="light_green_900">#33691E</color>
+    <color name="light_green_800">#558B2F</color>
+    <color name="lime_A200">#EEFF41</color>
+    <color name="yellow_A200">#FFFF00</color>
+    <color name="deep_orange_A200">#FF6E40</color>
+    <color name="grey_700">#616161</color>
+    <color name="brown_700">#5D4037</color>
+    <color name="amber_A200">#FFD740</color>
+    <color name="orange_500">#FF9800</color>
+    <color name="orange_700">#F57C00</color>
+    <color name="blue_grey_500">#607D8B</color>
+    <color name="blue_grey_700">#455A64</color>
+    <color name="valhalla">#282542</color>
+</resources>

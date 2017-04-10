@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.flaviofaria.kenburnsview.KenBurnsView
+        android:id="@+id/kenburns_effect"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background_kejaksaan_valhalla"/>
+
+    <!--<ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background_login"/>-->
+
+    <ImageView
+        android:id="@+id/logo_kejaksaan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/logo_kejaksaan"/>
+
+    <TextView
+        android:id="@+id/title_kejaksaan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo_kejaksaan"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/space_16dp"
+        android:text="KEJAKSAAN RI TP4"
+        android:textColor="@color/textColorWhite"
+        android:textSize="@dimen/text_size_18sp"
+        android:textStyle="bold"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_kejaksaan"
+        android:layout_marginLeft="64dp"
+        android:layout_marginRight="64dp"
+        android:layout_marginTop="@dimen/space_32dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_16dp"
+            android:background="#36ffffff"
+            android:drawableLeft="@drawable/ic_account"
+            android:drawablePadding="@dimen/space_8dp"
+            android:hint="Username"
+            android:paddingBottom="@dimen/space_8dp"
+            android:paddingLeft="@dimen/space_8dp"
+            android:paddingRight="@dimen/space_8dp"
+            android:paddingTop="@dimen/space_8dp"
+            android:textColor="@color/textColorWhite"
+            android:textColorHint="@color/textColorWhite"
+            android:textSize="@dimen/text_size_16sp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_16dp"
+            android:background="#36ffffff"
+            android:drawableLeft="@drawable/ic_key"
+            android:drawablePadding="@dimen/space_8dp"
+            android:hint="Password"
+            android:paddingBottom="@dimen/space_8dp"
+            android:paddingLeft="@dimen/space_8dp"
+            android:paddingRight="@dimen/space_8dp"
+            android:paddingTop="@dimen/space_8dp"
+            android:textColor="@color/textColorWhite"
+            android:textColorHint="@color/textColorWhite"
+            android:textSize="@dimen/text_size_16sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8dp"
+            android:gravity="center|end"
+            android:text="Lupa password ?"
+            android:textColor="@color/textColorWhite"/>
+
+        <TextView
+            android:id="@+id/button_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="64dp"
+            android:layout_marginRight="64dp"
+            android:layout_marginTop="@dimen/space_16dp"
+            android:background="@drawable/button_square_orange"
+            android:onClick="onLoginButtonClicked"
+            android:paddingBottom="@dimen/space_12dp"
+            android:paddingLeft="@dimen/space_16dp"
+            android:paddingRight="@dimen/space_16dp"
+            android:paddingTop="@dimen/space_12dp"
+            android:text="Login"
+            android:textAlignment="center"
+            android:textStyle="bold"/>
+    </TableLayout>
+</RelativeLayout>

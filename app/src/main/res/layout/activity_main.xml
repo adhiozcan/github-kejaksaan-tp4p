@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="id.net.iconpln.kejaksaan.ui.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/background_login"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:onClick="onNotificationButtonClicked"
+            android:padding="@dimen/space_16dp"
+            android:src="@drawable/ic_notification"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="72dp"
+            android:drawablePadding="@dimen/space_16dp"
+            android:drawableTop="@drawable/ic_capitol"
+            android:text="KEJAKSAAN RI TP4"
+            android:textSize="@dimen/text_size_24sp"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:clipToPadding="true">
+
+        <!--<TableLayout
+            android:id="@+id/table_statistic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/space_slider"
+            android:layout_marginTop="@dimen/space_8dp">
+
+            <TableRow>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="112dp"
+                    android:layout_marginBottom="@dimen/space_12dp"
+                    android:layout_marginLeft="@dimen/space_24dp"
+                    android:layout_marginRight="@dimen/space_12dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_default_white"
+                    android:elevation="@dimen/space_4dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/space_8dp"
+                    android:paddingTop="@dimen/space_8dp">
+
+
+                    <TextView
+                        android:id="@+id/stat_masuk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4"
+                        android:textColor="#91dc5a"
+                        android:textSize="@dimen/text_size_24sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Permohonan \nMasuk"
+                        android:textAlignment="center"
+                        android:textColor="#91dc5a"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="112dp"
+                    android:layout_marginBottom="@dimen/space_12dp"
+                    android:layout_marginLeft="@dimen/space_12dp"
+                    android:layout_marginRight="@dimen/space_24dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_default_white"
+                    android:elevation="@dimen/space_4dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/space_8dp"
+                    android:paddingTop="@dimen/space_8dp">
+
+                    <TextView
+                        android:id="@+id/stat_ditangani"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8"
+                        android:textColor="#91dc5a"
+                        android:textSize="@dimen/text_size_24sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Permohonan \nDitangani"
+                        android:textAlignment="center"
+                        android:textColor="#91dc5a"/>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="112dp"
+                    android:layout_marginLeft="@dimen/space_24dp"
+                    android:layout_marginRight="@dimen/space_12dp"
+                    android:layout_marginTop="@dimen/space_12dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_default_white"
+                    android:elevation="@dimen/space_4dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/space_8dp"
+                    android:paddingTop="@dimen/space_8dp">
+
+
+                    <TextView
+                        android:id="@+id/stat_selesai"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12"
+                        android:textColor="#91dc5a"
+                        android:textSize="@dimen/text_size_24sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Permohonan \nSelesai"
+                        android:textAlignment="center"
+                        android:textColor="#91dc5a"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="112dp"
+                    android:layout_marginLeft="@dimen/space_12dp"
+                    android:layout_marginRight="@dimen/space_24dp"
+                    android:layout_marginTop="@dimen/space_12dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_default_white"
+                    android:elevation="@dimen/space_4dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/space_8dp"
+                    android:paddingTop="@dimen/space_8dp">
+
+                    <TextView
+                        android:id="@+id/stat_ditolak"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:textColor="#91dc5a"
+                        android:textSize="@dimen/text_size_24sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Permohonan \nDitolak"
+                        android:textAlignment="center"
+                        android:textColor="#91dc5a"/>
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>-->
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

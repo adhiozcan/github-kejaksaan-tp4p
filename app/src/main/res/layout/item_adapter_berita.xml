@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="0.1dip"
+              android:background="@drawable/button_default_white"
+              android:gravity="center_vertical"
+              android:minHeight="100dp"
+              android:orientation="vertical"
+              android:paddingBottom="@dimen/space_24dp"
+              android:paddingLeft="@dimen/space_24dp"
+              android:paddingRight="@dimen/space_24dp"
+              android:paddingTop="@dimen/space_24dp">
+
+    <TextView
+        android:id="@+id/judul_berita"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:text="Permohonan Penangguhan Penahanan"
+        android:textColor="#d23e3d3d"
+        android:textSize="@dimen/text_size_18sp"/>
+
+    <TextView
+        android:id="@+id/tanggal_terbit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tanggal Terbit"
+        android:textColor="@color/textColorBlack"/>
+
+    <TextView
+        android:id="@+id/content_berita"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_8dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Content goes here"
+        android:textColor="#e9121212"/>
+</LinearLayout>
