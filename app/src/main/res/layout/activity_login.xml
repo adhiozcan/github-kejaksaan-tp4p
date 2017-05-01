@@ -3,13 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
     android:orientation="vertical">
 
     <com.flaviofaria.kenburnsview.KenBurnsView
         android:id="@+id/kenburns_effect"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/background_kejaksaan_valhalla"/>
+        android:src="@drawable/background_justice"/>
 
     <!--<ImageView
         android:layout_width="match_parent"
@@ -21,9 +23,10 @@
         android:id="@+id/logo_kejaksaan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="120dp"
-        android:src="@drawable/logo_kejaksaan"/>
+        android:src="@drawable/tp4_logo"/>
 
     <TextView
         android:id="@+id/title_kejaksaan"
@@ -41,9 +44,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/title_kejaksaan"
-        android:layout_marginLeft="64dp"
-        android:layout_marginRight="64dp"
-        android:layout_marginTop="@dimen/space_32dp">
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="@dimen/space_12dp">
 
         <EditText
             android:layout_width="match_parent"
@@ -53,6 +56,7 @@
             android:drawableLeft="@drawable/ic_account"
             android:drawablePadding="@dimen/space_8dp"
             android:hint="Username"
+            android:maxLines="1"
             android:paddingBottom="@dimen/space_8dp"
             android:paddingLeft="@dimen/space_8dp"
             android:paddingRight="@dimen/space_8dp"
@@ -69,6 +73,7 @@
             android:drawableLeft="@drawable/ic_key"
             android:drawablePadding="@dimen/space_8dp"
             android:hint="Password"
+            android:maxLines="1"
             android:paddingBottom="@dimen/space_8dp"
             android:paddingLeft="@dimen/space_8dp"
             android:paddingRight="@dimen/space_8dp"
@@ -91,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="64dp"
             android:layout_marginRight="64dp"
-            android:layout_marginTop="@dimen/space_16dp"
+            android:layout_marginTop="@dimen/space_24dp"
             android:background="@drawable/button_square_orange"
             android:onClick="onLoginButtonClicked"
             android:paddingBottom="@dimen/space_12dp"

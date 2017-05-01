@@ -37,7 +37,7 @@ public class ListJadwalAdapter extends KejaksaanBaseAdapter<ListJadwalAdapter.Vi
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Jadwal jadwal = jadwalList.get(position);
-        holder.namaAcara.setText(jadwal.getJudulAcara());
+        holder.namaAcara.setText(jadwal.getNamaAgenda());
         holder.lokasiTanggal.setText(jadwal.getLokasiTanggal());
         holder.keterangan.setText(jadwal.getKeterangan());
         holder.tempoRemaining.setText(jadwal.getJatuhTempo());

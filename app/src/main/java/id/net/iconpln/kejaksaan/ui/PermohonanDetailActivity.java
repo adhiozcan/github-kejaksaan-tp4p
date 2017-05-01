@@ -3,9 +3,11 @@ package id.net.iconpln.kejaksaan.ui;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import id.net.iconpln.kejaksaan.utility.CommonUtils;
 import id.net.iconpln.kejaksaan.R;
+import id.net.iconpln.kejaksaan.utility.Notif;
 
 /**
  * Created by Ozcan on 07/03/2017.

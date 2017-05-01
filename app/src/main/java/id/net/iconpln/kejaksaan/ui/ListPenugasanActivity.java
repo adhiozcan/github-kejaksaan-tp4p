@@ -42,8 +42,8 @@ public class ListPenugasanActivity extends AppCompatActivity {
         List<Penugasan> mockupList = new ArrayList<>();
 
         Penugasan penugasan = new Penugasan();
-        penugasan.setJudulPenugasan("Title Goes Here");
-        penugasan.setContentPenugasan(getString(R.string.ipsum));
+        penugasan.setNamaProject("Title Goes Here");
+        penugasan.setNilai(getString(R.string.ipsum));
 
         for (int i = 0; i < 6; i++) {
             mockupList.add(penugasan);

@@ -40,7 +40,7 @@ public class ListBeritaAdapter extends KejaksaanBaseAdapter<ListBeritaAdapter.Vi
         Berita berita = listBerita.get(position);
         holder.judulBerita.setText(berita.getJudulBerita());
         holder.tanggalTerbit.setText(berita.getTanggalTerbit());
-        holder.contentBerita.setText(berita.getContentBerita());
+        holder.contentBerita.setText(berita.getContent());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

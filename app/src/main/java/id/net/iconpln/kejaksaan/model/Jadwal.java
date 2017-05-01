@@ -6,12 +6,15 @@ package id.net.iconpln.kejaksaan.model;
 
 public class Jadwal {
     private String jadwalId;
-    private String judulAcara;
+    private String daerahKejaksaan;
+    private String namaAgenda;
     private String lokasi;
     private String tanggal;
+    private String waktu;
     private String lokasiTanggal;
     private String keterangan;
     private String jatuhTempo;
+
 
     public String getJadwalId() {
         return jadwalId;
@@ -21,12 +24,20 @@ public class Jadwal {
         this.jadwalId = jadwalId;
     }
 
-    public String getJudulAcara() {
-        return judulAcara;
+    public String getDaerahKejaksaan() {
+        return daerahKejaksaan;
     }
 
-    public void setJudulAcara(String judulAcara) {
-        this.judulAcara = judulAcara;
+    public void setDaerahKejaksaan(String daerahKejaksaan) {
+        this.daerahKejaksaan = daerahKejaksaan;
+    }
+
+    public String getNamaAgenda() {
+        return namaAgenda;
+    }
+
+    public void setNamaAgenda(String namaAgenda) {
+        this.namaAgenda = namaAgenda;
     }
 
     public String getLokasi() {
@@ -45,12 +56,20 @@ public class Jadwal {
         this.tanggal = tanggal;
     }
 
+    public String getWaktu() {
+        return waktu;
+    }
+
+    public void setWaktu(String waktu) {
+        this.waktu = waktu;
+    }
+
     public String getLokasiTanggal() {
         return lokasiTanggal;
     }
 
-    public void createLokasidanTanggal() {
-        this.lokasiTanggal = lokasi + " | " + tanggal;
+    public void setLokasiTanggal(String lokasiTanggal) {
+        this.lokasiTanggal = lokasiTanggal;
     }
 
     public String getKeterangan() {
@@ -65,7 +84,15 @@ public class Jadwal {
         return jatuhTempo;
     }
 
+    public void setJatuhTempo(String jatuhTempo) {
+        this.jatuhTempo = jatuhTempo;
+    }
+
     public void hitungJatuhTempo() {
         this.jatuhTempo = "4 hari lagi";
+    }
+
+    public void createLokasidanTanggal() {
+        setLokasiTanggal(lokasi + " | " + tanggal);
     }
 }

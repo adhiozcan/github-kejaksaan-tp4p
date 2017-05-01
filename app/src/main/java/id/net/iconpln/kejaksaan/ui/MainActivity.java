@@ -2,15 +2,23 @@ package id.net.iconpln.kejaksaan.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.flaviofaria.kenburnsview.KenBurnsView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import id.net.iconpln.kejaksaan.utility.CommonUtils;
+import id.net.iconpln.kejaksaan.KejaksaanApp;
 import id.net.iconpln.kejaksaan.R;
+import id.net.iconpln.kejaksaan.utility.CommonUtils;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -37,12 +45,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.act_notif:
                 navigateTo(NotificationActivity.class);
                 break;
-            case R.id.act_about:
-                navigateTo(AboutActivity.class);
-                break;
-            case R.id.act_profile:
-                navigateTo(ProfileActivity.class);
-                break;
             /*case R.id.act_menu:
                 ImageView arrowDrop = (ImageView) findViewById(R.id.arrow_drop);
                 if (mBottomSheet.getState() != BottomSheetBehavior.STATE_EXPANDED) {
@@ -59,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void onMenuButtonClicked(View menuId) {
         switch (menuId.getId()) {
+            case R.id.btn_detail_statistic:
+                navigateTo(RekapProyekActivity.class);
+                break;
             case R.id.menu_berita:
                 navigateTo(ListBeritaActivity.class);
                 break;
@@ -73,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.menu_data_permohonan:
                 navigateTo(ListPermohonanActivity.class);
+                break;
+            case R.id.menu_arsip:
+                navigateTo(ListArchiveActivity.class);
                 break;
         }
     }

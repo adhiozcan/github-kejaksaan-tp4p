@@ -40,12 +40,12 @@ public class ListProjectsActivity extends AppCompatActivity {
         List<Proyek> mockupList = new ArrayList<>();
 
         Proyek proyek = new Proyek();
-        proyek.setJudulProyek("Nama Proyek");
+        proyek.setNamaProject("Nama Proyek");
         proyek.setNamaPemohon("Nama Pemohon");
         proyek.setInstansiPemohon("Instansi Pemohon");
-        proyek.setTanggalMulai("23 Januari 2017");
+        proyek.setTanggalMasuk("23 Januari 2017");
         proyek.setLokasi("Alamat Proyek");
-        proyek.setContentPenjelasan(getString(R.string.ipsum));
+        proyek.setKeterangan(getString(R.string.ipsum));
         proyek.setDurasiPengerjaan("8 hari");
 
         for (int i = 0; i < 5; i++) {

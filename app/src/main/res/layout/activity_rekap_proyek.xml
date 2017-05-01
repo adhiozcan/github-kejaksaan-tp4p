@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:title="Rekapitulasi Proyek"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0.2dip"
+        android:background="@color/snow"
+        android:elevation="@dimen/space_4dp"
+        android:paddingBottom="@dimen/space_24dp"
+        android:paddingLeft="@dimen/space_16dp"
+        android:paddingRight="@dimen/space_16dp"
+        android:paddingTop="@dimen/space_24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Total Nilai Proyek"
+            android:textColor="@color/ebony"
+            android:textSize="@dimen/text_size_16sp"/>
+
+        <TextView
+            android:id="@+id/nilai_proyek"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="4M"
+            android:textColor="@color/orange_500"
+            android:textSize="@dimen/text_size_16sp"/>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_list_rekap_proyek"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"/>
+</LinearLayout>

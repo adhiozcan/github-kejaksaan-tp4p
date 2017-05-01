@@ -7,21 +7,22 @@
         android:id="@+id/bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#91dc5a"
+        android:background="#F5F4F7"
         android:clipToPadding="true"
-        android:elevation="6dp"
         app:behavior_peekHeight="52dp"
         app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
         tools:ignore="MissingPrefix">
 
         <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:id="@+id/menu_berita"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
+                android:layout_marginBottom="0.2dip"
+                android:layout_marginLeft="0.1dip"
                 android:layout_weight="1"
                 android:background="@drawable/button_default_white"
                 android:elevation="@dimen/space_2dp"
@@ -37,14 +38,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="Berita"
-                    android:textColor="#91dc5a"/>
+                    android:textColor="@color/ebony"/>
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/menu_jadwal"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
+                android:layout_marginBottom="0.2dip"
+                android:layout_marginLeft="0.1dip"
                 android:layout_weight="1"
                 android:background="@drawable/button_default_white"
                 android:elevation="@dimen/space_2dp"
@@ -60,14 +64,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Schedule"
-                    android:textColor="#91dc5a"/>
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Jadwal"
+                    android:textColor="@color/ebony"/>
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/menu_data_permohonan"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
+                android:layout_marginBottom="0.2dip"
+                android:layout_marginLeft="0.1dip"
                 android:layout_weight="1"
                 android:background="@drawable/button_default_white"
                 android:elevation="@dimen/space_2dp"
@@ -78,20 +85,24 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_folder"/>
+                    android:src="@drawable/ic_permohonan"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="Permohonan"
                     android:textAlignment="center"
-                    android:textColor="#91dc5a"/>
+                    android:textColor="@color/ebony"/>
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/menu_assignment"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
+                android:layout_marginBottom="0.2dip"
+                android:layout_marginLeft="0.1dip"
+                android:layout_marginRight="0.1dip"
                 android:layout_weight="1"
                 android:background="@drawable/button_default_white"
                 android:elevation="@dimen/space_2dp"
@@ -107,9 +118,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="Penugasan"
                     android:textAlignment="center"
-                    android:textColor="#91dc5a"/>
+                    android:textColor="@color/ebony"/>
             </LinearLayout>
         </TableRow>
 
@@ -121,6 +133,9 @@
                 android:id="@+id/menu_proyek"
                 android:layout_width="0dp"
                 android:layout_height="112dp"
+                android:layout_marginBottom="0.1dip"
+                android:layout_marginLeft="0.1dip"
+                android:layout_marginTop="0.1dip"
                 android:layout_weight="1"
                 android:background="@drawable/button_default_white"
                 android:elevation="@dimen/space_2dp"
@@ -136,13 +151,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Projects"
-                    android:textColor="#91dc5a"/>
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Proyek"
+                    android:textColor="@color/ebony"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="112dp"
+                android:layout_marginBottom="0.1dip"
+                android:layout_marginLeft="0.1dip"
+                android:layout_marginTop="0.1dip"
                 android:layout_weight="1"
                 android:background="@drawable/button_default_white"
                 android:elevation="@dimen/space_2dp"
@@ -152,40 +171,52 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_document"/>
+                    android:src="@drawable/ic_laporan"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="Laporan"
-                    android:textColor="#91dc5a"/>
+                    android:textColor="@color/ebony"/>
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/menu_arsip"
                 android:layout_width="0dp"
                 android:layout_height="112dp"
+                android:layout_marginBottom="0.1dip"
+                android:layout_marginLeft="0.1dip"
+                android:layout_marginTop="0.1dip"
                 android:layout_weight="1"
                 android:background="@drawable/button_default_white"
                 android:elevation="@dimen/space_2dp"
                 android:gravity="center"
+                android:onClick="onMenuButtonClicked"
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/imageView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_document"/>
+                    android:src="@drawable/ic_archive"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="Arsip"
                     android:textAlignment="center"
-                    android:textColor="#91dc5a"/>
+                    android:textColor="@color/ebony"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="112dp"
+                android:layout_marginBottom="0.1dip"
+                android:layout_marginLeft="0.1dip"
+                android:layout_marginRight="0.1dip"
+                android:layout_marginTop="0.1dip"
                 android:layout_weight="1"
                 android:background="@drawable/button_default_white"
                 android:elevation="@dimen/space_2dp"
@@ -196,65 +227,15 @@
                     android:id="@+id/imageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_checklist"/>
+                    android:src="@drawable/ic_profile_account"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Profile"
-                    android:textColor="#91dc5a"/>
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Akun"
+                    android:textColor="@color/ebony"/>
             </LinearLayout>
         </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="112dp"
-                android:layout_weight="1"
-                android:background="@drawable/button_default_white"
-                android:elevation="@dimen/space_2dp"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_clipboard"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pengaturan"
-                    android:textAlignment="center"
-                    android:textColor="#91dc5a"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="112dp"
-                android:layout_weight="1"
-                android:background="@drawable/button_default_white"
-                android:elevation="@dimen/space_2dp"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_information"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="About"
-                    android:textAlignment="center"
-                    android:textColor="#91dc5a"/>
-            </LinearLayout>
-        </TableRow>
-
     </TableLayout>
 </merge>

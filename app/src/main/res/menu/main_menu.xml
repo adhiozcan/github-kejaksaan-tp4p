@@ -8,9 +8,8 @@
         android:title="Notifikasi"
         app:showAsAction="always"/>
     <item
-        android:id="@+id/act_profile"
-        android:icon="@drawable/ic_menu"
-        android:title="User Profile"
+        android:id="@+id/act_setting"
+        android:title="Pengaturan"
         app:showAsAction="never"/>
     <item
         android:id="@+id/act_about"

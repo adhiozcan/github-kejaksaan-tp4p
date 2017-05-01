@@ -5,20 +5,46 @@ package id.net.iconpln.kejaksaan.model;
  */
 
 public class Proyek {
-    private String judulProyek;
+    private String noProject;
+    private String namaProject;
+    private String nilai;
+    private String keterangan;
     private String lokasi;
-    private String tanggalMulai;
+    private String tanggalMasuk;
     private String namaPemohon;
     private String instansiPemohon;
     private String durasiPengerjaan;
-    private String contentPenjelasan;
 
-    public String getJudulProyek() {
-        return judulProyek;
+    public String getNoProject() {
+        return noProject;
     }
 
-    public void setJudulProyek(String judulProyek) {
-        this.judulProyek = judulProyek;
+    public void setNoProject(String noProject) {
+        this.noProject = noProject;
+    }
+
+    public String getNamaProject() {
+        return namaProject;
+    }
+
+    public void setNamaProject(String namaProject) {
+        this.namaProject = namaProject;
+    }
+
+    public String getNilai() {
+        return nilai;
+    }
+
+    public void setNilai(String nilai) {
+        this.nilai = nilai;
+    }
+
+    public String getKeterangan() {
+        return keterangan;
+    }
+
+    public void setKeterangan(String keterangan) {
+        this.keterangan = keterangan;
     }
 
     public String getLokasi() {
@@ -29,12 +55,12 @@ public class Proyek {
         this.lokasi = lokasi;
     }
 
-    public String getTanggalMulai() {
-        return tanggalMulai;
+    public String getTanggalMasuk() {
+        return tanggalMasuk;
     }
 
-    public void setTanggalMulai(String tanggalMulai) {
-        this.tanggalMulai = tanggalMulai;
+    public void setTanggalMasuk(String tanggalMasuk) {
+        this.tanggalMasuk = tanggalMasuk;
     }
 
     public String getNamaPemohon() {
@@ -59,13 +85,5 @@ public class Proyek {
 
     public void setDurasiPengerjaan(String durasiPengerjaan) {
         this.durasiPengerjaan = durasiPengerjaan;
-    }
-
-    public String getContentPenjelasan() {
-        return contentPenjelasan;
-    }
-
-    public void setContentPenjelasan(String contentPenjelasan) {
-        this.contentPenjelasan = contentPenjelasan;
     }
 }

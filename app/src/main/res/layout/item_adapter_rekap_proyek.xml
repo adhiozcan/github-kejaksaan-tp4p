@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/snow"
+              android:paddingBottom="@dimen/space_24dp"
+              android:paddingLeft="@dimen/space_16dp"
+              android:paddingRight="@dimen/space_16dp"
+              android:paddingTop="@dimen/space_24dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Proyek"
+            android:textColor="@color/orange_500"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/nomor_proyek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:text="Nomor Proyek"
+            android:textColor="@color/ebony"
+            android:textSize="@dimen/text_size_12sp"/>
+
+        <TextView
+            android:id="@+id/nama_proyek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama Proyek"
+            android:textColor="@color/ebony"
+            android:textSize="@dimen/text_size_16sp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/nilai_proyek"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="Rp 1.000.000.000,-"
+        android:textColor="@color/orange_500"
+        android:textSize="@dimen/text_size_16sp"/>
+</LinearLayout>

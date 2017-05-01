@@ -17,8 +17,9 @@
         android:id="@+id/logo_kejaksaan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:src="@drawable/logo_kejaksaan"/>
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/tp4_logo"/>
 
     <TextView
         android:id="@+id/main_title"

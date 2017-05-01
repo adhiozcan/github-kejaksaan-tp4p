@@ -7,7 +7,8 @@ package id.net.iconpln.kejaksaan.model;
 public class Berita {
     private String judulBerita;
     private String tanggalTerbit;
-    private String contentBerita;
+    private String penulis;
+    private String content;
 
     public String getJudulBerita() {
         return judulBerita;
@@ -25,11 +26,19 @@ public class Berita {
         this.tanggalTerbit = tanggalTerbit;
     }
 
-    public String getContentBerita() {
-        return contentBerita;
+    public String getPenulis() {
+        return penulis;
     }
 
-    public void setContentBerita(String contentBerita) {
-        this.contentBerita = contentBerita;
+    public void setPenulis(String penulis) {
+        this.penulis = penulis;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

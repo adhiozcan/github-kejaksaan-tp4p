@@ -41,7 +41,7 @@ public class ListJadwalActivity extends AppCompatActivity {
 
         Jadwal jadwal1 = new Jadwal();
         jadwal1.setJadwalId("1");
-        jadwal1.setJudulAcara("Paparan Kementrian Sosial Terhadap Proyek Penutupan Seluruh Prostitusi Ilegal");
+        jadwal1.setNamaAgenda("Paparan Kementrian Sosial Terhadap Proyek Penutupan Seluruh Prostitusi Ilegal");
         jadwal1.setKeterangan("Permohonan yang diajukan Kementrian Sosial mengenai Pendampingan Hukum terhadap kebijakan yang akan dikeluarkan terhadap aturan penutupan seluruh prostitusi ilegal terfokus daerah Jakarta Selatan.");
         jadwal1.setLokasi("Aula Gd.1 Kementrian Sosial RI");
         jadwal1.setTanggal("08.00 WIB, 20 April 2017");
@@ -50,7 +50,7 @@ public class ListJadwalActivity extends AppCompatActivity {
 
         Jadwal jadwal2 = new Jadwal();
         jadwal2.setJadwalId("2");
-        jadwal2.setJudulAcara("Paparan PLN mengenai Proyek 75.000 Giga Watt");
+        jadwal2.setNamaAgenda("Paparan PLN mengenai Proyek 75.000 Giga Watt");
         jadwal2.setKeterangan("PLN mencanangkan proyek 75.000 Giga Watt untuk menerangi seluruh rakyat yang berada di Papua");
         jadwal2.setLokasi("Ruang Rapat, Lt. 10 Gd. Utama, PLN Pusat Trunojoyo");
         jadwal2.setTanggal("14.00 WIB, 20 April 2017");
@@ -59,7 +59,7 @@ public class ListJadwalActivity extends AppCompatActivity {
 
         Jadwal jadwal3 = new Jadwal();
         jadwal3.setJadwalId("3");
-        jadwal3.setJudulAcara("Pengawalan Sidang Kasus Pencurian Listrik Massive Jabar");
+        jadwal3.setNamaAgenda("Pengawalan Sidang Kasus Pencurian Listrik Massive Jabar");
         jadwal3.setKeterangan("Kuasa Hukum PLN melayangkan surat untuuk kejaksaan melakukan kawal dalam proses sidang TIPIKOR Listrik di daerah Jawa Barat");
         jadwal3.setLokasi("Pengadilan Negri Jabar");
         jadwal3.setTanggal("10.00 WIB, 08 Mei 2017");

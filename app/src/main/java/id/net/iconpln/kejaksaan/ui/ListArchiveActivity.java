@@ -8,14 +8,14 @@ import id.net.iconpln.kejaksaan.R;
 import id.net.iconpln.kejaksaan.utility.CommonUtils;
 
 /**
- * Created by Ozcan on 16/03/2017.
+ * Created by Ozcan on 21/04/2017.
  */
 
-public class WalmanInput extends AppCompatActivity {
+public class ListArchiveActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_laporan_input_walman);
+        setContentView(R.layout.activity_list_archive);
         CommonUtils.installToolbar(this);
     }
 }
