@@ -2,24 +2,15 @@ package id.net.iconpln.kejaksaan.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 
 import com.flaviofaria.kenburnsview.KenBurnsView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import id.net.iconpln.kejaksaan.utility.CommonUtils;
-import id.net.iconpln.kejaksaan.KejaksaanApp;
 import id.net.iconpln.kejaksaan.R;
-import id.net.iconpln.kejaksaan.adapter.ListBeritaAdapter;
-import id.net.iconpln.kejaksaan.model.Berita;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -45,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.act_notif:
                 navigateTo(NotificationActivity.class);
+                break;
+            case R.id.act_about:
+                navigateTo(AboutActivity.class);
+                break;
+            case R.id.act_profile:
+                navigateTo(ProfileActivity.class);
                 break;
             /*case R.id.act_menu:
                 ImageView arrowDrop = (ImageView) findViewById(R.id.arrow_drop);
