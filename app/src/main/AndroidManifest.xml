@@ -85,19 +85,17 @@
                 android:value=".ui.MainActivity"/>
         </activity>
         <activity
-            android:name=".ui.AboutActivity"
-            android:label="@string/title_activity_about">
+            android:name=".ui.AboutActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity" />
+                android:value=".ui.MainActivity"/>
         </activity>
         <activity
             android:name=".ui.ProfileActivity"
-            android:label="@string/title_activity_profile"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity" />
+                android:value=".ui.MainActivity"/>
         </activity>
     </application>
 
