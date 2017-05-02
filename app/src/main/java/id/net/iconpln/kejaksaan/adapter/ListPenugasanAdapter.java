@@ -1,6 +1,7 @@
 package id.net.iconpln.kejaksaan.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import java.util.List;
 
 import id.net.iconpln.kejaksaan.R;
 import id.net.iconpln.kejaksaan.model.Penugasan;
+import id.net.iconpln.kejaksaan.ui.PenugasanActivity;
 
 /**
  * Created by Ozcan on 10/03/2017.
@@ -38,6 +40,12 @@ public class ListPenugasanAdapter extends KejaksaanBaseAdapter<ListPenugasanAdap
         Penugasan penugasan = penugasanList.get(position);
         holder.judulPenugasan.setText(penugasan.getNamaProject());
         holder.contentPenugasan.setText(penugasan.getNilai());
+        holder.btnDetailPenugasan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context.startActivity(new Intent(context, PenugasanActivity.class));
+            }
+        });
     }
 
     @Override

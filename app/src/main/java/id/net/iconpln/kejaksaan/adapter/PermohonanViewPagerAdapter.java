@@ -26,7 +26,7 @@ public class PermohonanViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 
     @Override
@@ -37,6 +37,8 @@ public class PermohonanViewPagerAdapter extends FragmentPagerAdapter {
             case 1:
                 return "Diterima";
             case 2:
+                return "Selesai";
+            case 3:
                 return "Ditolak";
             default:
                 return "Masuk";
