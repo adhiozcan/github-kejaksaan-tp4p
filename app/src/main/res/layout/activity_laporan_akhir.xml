@@ -10,12 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        app:title="Penugasan">
-
-    </android.support.v7.widget.Toolbar>
+        app:title="Laporan Akhir"/>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_list_penugasan"
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"/>

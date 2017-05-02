@@ -19,11 +19,23 @@ import id.net.iconpln.kejaksaan.adapter.PermohonanViewPagerAdapter;
  */
 
 public class ListPermohonanActivity extends AppCompatActivity {
+    public static int TAB_PERMOHONAN_MASUK     = 0;
+    public static int TAB_PERMOHONAN_DITANGANI = 1;
+    public static int TAB_PERMOHONAN_SELESAI   = 2;
+    public static int TAB_PERMOHONAN_DITOLAK   = 3;
 
     private ViewPager                  vp;
     private PermohonanViewPagerAdapter vpAdapter;
     private TabLayout                  tabLayout;
 
+    private int mTabPosition = 0;
+
+    private void checkIntentData() {
+        if (getIntent().getExtras() != null) {
+            mTabPosition = getIntent().getExtras().getInt("tab_position", 0);
+        }
+    }
+    
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +44,8 @@ public class ListPermohonanActivity extends AppCompatActivity {
 
         List<Fragment> fragmentList = new ArrayList<>();
         fragmentList.add(new ListPermohonanMasukFragment());
-        fragmentList.add(new ListPermohonanDiterimaFragment());
+        fragmentList.add(new ListPermohonanDitanganiFragment());
+        fragmentList.add(new ListPermohonanSelesaiFragment());
         fragmentList.add(new ListPermohonanDitolakFragment());
 
         vp = (ViewPager) findViewById(R.id.view_pager);
@@ -42,6 +55,9 @@ public class ListPermohonanActivity extends AppCompatActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(vp);
-    }
 
+        checkIntentData();
+        vp.setCurrentItem(mTabPosition);
+
+    }
 }

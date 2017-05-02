@@ -98,7 +98,24 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Starting Project"
+                    android:text="Nilai Project"
+                    android:textColor="@color/textColorBlack"/>
+
+                <TextView
+                    android:id="@+id/nilai_proyek"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_16dp"
+                    android:text="120 M"
+                    android:textColor="@color/textColorBlack"/>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tanggal Mulai"
                     android:textColor="@color/textColorBlack"/>
 
                 <TextView
@@ -115,7 +132,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Elapsed Time"
+                    android:text="Waktu Terguna"
                     android:textColor="@color/textColorBlack"/>
 
                 <TextView

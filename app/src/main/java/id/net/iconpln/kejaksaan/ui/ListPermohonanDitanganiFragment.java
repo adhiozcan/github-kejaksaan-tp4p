@@ -20,7 +20,7 @@ import id.net.iconpln.kejaksaan.model.Permohonan;
  * Created by Ozcan on 13/03/2017.
  */
 
-public class ListPermohonanDiterimaFragment extends Fragment {
+public class ListPermohonanDitanganiFragment extends Fragment {
     private ListPermohonanAdapter mAdapter;
     private RecyclerView          mRecyclerView;
 

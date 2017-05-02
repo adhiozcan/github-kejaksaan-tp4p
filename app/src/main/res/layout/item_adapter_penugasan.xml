@@ -21,11 +21,16 @@
         android:paddingTop="@dimen/space_24dp">
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No Proyek"
+            android:textColor="@color/textColorBlack"/>
+
+        <TextView
             android:id="@+id/judul_penugasan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/space_8dp"
-            android:paddingTop="@dimen/space_8dp"
+            android:layout_marginBottom="@dimen/space_8dp"
             android:text="Judul Penugasan"
             android:textColor="@color/textColorBlack"
             android:textSize="@dimen/text_size_18sp"
@@ -59,7 +64,7 @@
             android:gravity="center"
             android:paddingBottom="@dimen/space_8dp"
             android:paddingTop="@dimen/space_8dp"
-            android:text="Lihat Detail"
+            android:text="Info Detail"
             android:textStyle="bold"/>
     </LinearLayout>
 </LinearLayout>

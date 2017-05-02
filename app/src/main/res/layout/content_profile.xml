@@ -15,10 +15,10 @@
         android:background="@drawable/background_kejaksaan"
         android:gravity="center">
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <ImageView
             android:layout_width="92dp"
             android:layout_height="92dp"
-            android:src="@drawable/background_login"/>
+            android:src="@drawable/ic_account"/>
     </LinearLayout>
 
     <TableLayout
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:text="Your Name"/>
+                android:text="..."/>
         </TableRow>
 
         <TableRow>
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:text="jabatan"/>
+                android:text="..."/>
         </TableRow>
 
         <TableRow>
@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:text="cabang"/>
+                android:text="..."/>
         </TableRow>
 
         <TableRow>
@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:text="status"/>
+                android:text="..."/>
         </TableRow>
     </TableLayout>
 

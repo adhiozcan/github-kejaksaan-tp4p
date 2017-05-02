@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import id.net.iconpln.kejaksaan.utility.CommonUtils;
 import id.net.iconpln.kejaksaan.R;
+import id.net.iconpln.kejaksaan.utility.CommonUtils;
 
 /**
  * Created by Ozcan on 13/03/2017.

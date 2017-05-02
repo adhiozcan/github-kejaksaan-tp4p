@@ -157,6 +157,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/menu_laporan"
                 android:layout_width="0dp"
                 android:layout_height="112dp"
                 android:layout_marginBottom="0.1dip"
@@ -166,6 +167,7 @@
                 android:background="@drawable/button_default_white"
                 android:elevation="@dimen/space_2dp"
                 android:gravity="center"
+                android:onClick="onMenuButtonClicked"
                 android:orientation="vertical">
 
                 <ImageView
@@ -211,6 +213,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/menu_user_profile"
                 android:layout_width="0dp"
                 android:layout_height="112dp"
                 android:layout_marginBottom="0.1dip"
@@ -221,6 +224,7 @@
                 android:background="@drawable/button_default_white"
                 android:elevation="@dimen/space_2dp"
                 android:gravity="center"
+                android:onClick="onMenuButtonClicked"
                 android:orientation="vertical">
 
                 <ImageView

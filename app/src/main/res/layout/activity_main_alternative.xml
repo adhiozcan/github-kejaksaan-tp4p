@@ -63,7 +63,7 @@
                     android:id="@+id/nilai_proyek"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="78M"
+                    android:text="458M"
                     android:textColor="@color/textColorWhite"
                     android:textSize="48sp"
                     android:textStyle="bold"/>
@@ -95,12 +95,14 @@
             <TableRow>
 
                 <LinearLayout
+                    android:id="@+id/menu_stat_masuk"
                     android:layout_width="0dp"
                     android:layout_height="92dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_default_white"
                     android:elevation="@dimen/space_4dp"
                     android:gravity="center"
+                    android:onClick="onRekapStatisticClicked"
                     android:orientation="vertical"
                     android:paddingBottom="@dimen/space_8dp"
                     android:paddingTop="@dimen/space_8dp">
@@ -125,12 +127,14 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/menu_stat_ditangani"
                     android:layout_width="0dp"
                     android:layout_height="92dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_default_white"
                     android:elevation="@dimen/space_4dp"
                     android:gravity="center"
+                    android:onClick="onRekapStatisticClicked"
                     android:orientation="vertical"
                     android:paddingBottom="@dimen/space_8dp"
                     android:paddingTop="@dimen/space_8dp">
@@ -154,12 +158,14 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/menu_stat_selesai"
                     android:layout_width="0dp"
                     android:layout_height="92dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_default_white"
                     android:elevation="@dimen/space_4dp"
                     android:gravity="center"
+                    android:onClick="onRekapStatisticClicked"
                     android:orientation="vertical"
                     android:paddingBottom="@dimen/space_8dp"
                     android:paddingTop="@dimen/space_8dp">
@@ -185,12 +191,14 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/menu_stat_ditolak"
                     android:layout_width="0dp"
                     android:layout_height="92dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_default_white"
                     android:elevation="@dimen/space_4dp"
                     android:gravity="center"
+                    android:onClick="onRekapStatisticClicked"
                     android:orientation="vertical"
                     android:paddingBottom="@dimen/space_8dp"
                     android:paddingTop="@dimen/space_8dp">

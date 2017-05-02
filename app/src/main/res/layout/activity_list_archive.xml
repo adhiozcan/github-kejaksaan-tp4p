@@ -3,6 +3,7 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              android:background="@color/snow"
               android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
@@ -11,13 +12,59 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         android:elevation="@dimen/space_8dp"
-        app:title="Arsip">
+        app:title="Arsip"/>
 
-    </android.support.v7.widget.Toolbar>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_list_arsip"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false"/>
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_archive_64"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12dp"
+            android:fontFamily="sans-serif-light"
+            android:text="Cari Arsip dokumen dengan mudah"
+            android:textColor="@color/ebony"
+            android:textSize="@dimen/text_size_18sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12dp"
+            android:fontFamily="sans-serif-light"
+            android:text="Tampilkan data untuk tahun"
+            android:textColor="@color/ebony"
+            android:textSize="@dimen/text_size_14sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/spinner_year"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/space_8dp"
+                android:background="@drawable/shape_round_rectangle"
+                android:dropDownSelector="@color/blue_A200"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_default_orange"
+                android:padding="@dimen/space_8dp"
+                android:src="@drawable/ic_search"/>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/snow"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="@dimen/space_24dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_laporan_akhir"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LaporanAkhir"
+                android:textColor="@color/deep_orange_A200"/>
+
+            <TextView
+                android:id="@+id/nomor_proyek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No. Proyek"
+                android:textColor="@color/ebony"/>
+
+            <TextView
+                android:id="@+id/tanggal_terbit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Diterbitkan pada tanggal "
+                android:textColor="@color/ebony"
+                android:textSize="@dimen/text_size_12sp"/>
+
+            <TextView
+                android:id="@+id/nama_proyek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_12dp"
+                android:text="Nama Proyek"
+                android:textColor="@color/ebony"
+                android:textSize="@dimen/text_size_16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/keterangan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_12dp"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/ipsum_short"
+                android:textColor="@color/ebony"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dip"
+        android:layout_marginLeft="@dimen/space_24dp"
+        android:layout_marginRight="@dimen/space_24dp"
+        android:background="#8c607d8b"/>
+</LinearLayout>
