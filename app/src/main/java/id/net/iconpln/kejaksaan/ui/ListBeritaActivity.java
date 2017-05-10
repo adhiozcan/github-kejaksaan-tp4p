@@ -6,11 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import id.net.iconpln.kejaksaan.R;
 import id.net.iconpln.kejaksaan.adapter.ListBeritaAdapter;
 import id.net.iconpln.kejaksaan.model.Berita;
+import id.net.iconpln.kejaksaan.network.RequestServer;
+import id.net.iconpln.kejaksaan.network.ResponseListener;
+import id.net.iconpln.kejaksaan.network.ServiceUrl;
 import id.net.iconpln.kejaksaan.utility.CommonUtils;
 
 /**
@@ -30,13 +34,33 @@ public class ListBeritaActivity extends AppCompatActivity {
         CommonUtils.installToolbar(this);
 
         mBeritaList = new ArrayList<>();
-        mAdapter = new ListBeritaAdapter(this, provideListBeritaMockupModel());
+
+        mAdapter = new ListBeritaAdapter(this, mBeritaList);
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_list_berita);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(CommonUtils.getVerticalLayoutManager(this));
+
+        getDataFromNetwork();
     }
 
-    private List<Berita> provideListBeritaMockupModel() {
+    private void getDataFromNetwork() {
+        RequestServer request = new RequestServer(ServiceUrl.BERITA);
+        request.execute(new ResponseListener<Berita[]>() {
+            @Override
+            public void onResponse(Berita[] response) {
+                mBeritaList.clear();
+                mBeritaList.addAll(Arrays.asList(response));
+                refreshAdapter();
+            }
+
+            @Override
+            public void onFailed(String message) {
+
+            }
+        });
+    }
+
+    private List<Berita> getDataFromLocal() {
         List<Berita> mockupList = new ArrayList<>();
         Berita       berita1    = new Berita();
         berita1.setJudulBerita("Sosialisasi TP4P Kejaksaan Agung RI Guna Mendukung Proyek Strategis di Kementrian PUPR di Surabaya");
@@ -58,5 +82,9 @@ public class ListBeritaActivity extends AppCompatActivity {
         mockupList.add(berita3);
 
         return mockupList;
+    }
+
+    private void refreshAdapter() {
+        mAdapter.notifyDataSetChanged();
     }
 }

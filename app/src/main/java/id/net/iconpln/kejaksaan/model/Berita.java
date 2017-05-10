@@ -1,13 +1,19 @@
 package id.net.iconpln.kejaksaan.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Ozcan on 15/03/2017.
  */
 
 public class Berita {
+    @SerializedName("JUDUL")
     private String judulBerita;
+    @SerializedName("TANGGAL")
     private String tanggalTerbit;
+    @SerializedName("PENULIS")
     private String penulis;
+    @SerializedName("CONTENT")
     private String content;
 
     public String getJudulBerita() {
