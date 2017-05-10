@@ -1,12 +1,13 @@
 package id.net.iconpln.kejaksaan.network;
 
 import id.net.iconpln.kejaksaan.model.ArsipResponse;
-import id.net.iconpln.kejaksaan.model.BeritaResponse;
-import id.net.iconpln.kejaksaan.model.JadwalResponse;
+import id.net.iconpln.kejaksaan.model.Berita;
+import id.net.iconpln.kejaksaan.model.Jadwal;
 import id.net.iconpln.kejaksaan.model.LaporanAkhirResponse;
 import id.net.iconpln.kejaksaan.model.LoginResponse;
 import id.net.iconpln.kejaksaan.model.PermohonanResponse;
 import id.net.iconpln.kejaksaan.model.ProyekResponse;
+import id.net.iconpln.kejaksaan.model.ProyekSummary;
 import id.net.iconpln.kejaksaan.model.RekapitulasiDetailResponse;
 import id.net.iconpln.kejaksaan.model.RekapitulasiResponse;
 import retrofit2.Call;
@@ -29,22 +30,20 @@ public interface ServiceApi {
             @Field("password") String password
     );
 
-    @FormUrlEncoded
     @POST(ServiceUrl.BERITA)
-    Call<BeritaResponse> listBerita();
+    Call<Berita[]> listBerita();
 
     @FormUrlEncoded
     @POST(ServiceUrl.PROJECT_SUMMARY)
-    Call<RekapitulasiResponse> rekapitulasi(
+    Call<ProyekSummary[]> proyekSummary(
             @Field("unitid") String unitId);
 
     @FormUrlEncoded
     @POST(ServiceUrl.PROJECT_SUMMARY_DETAIL)
     Call<RekapitulasiDetailResponse> rekapitulasiDetail();
 
-    @FormUrlEncoded
     @POST(ServiceUrl.JADWAL)
-    Call<JadwalResponse> listJadwal();
+    Call<Jadwal[]> listJadwal();
 
     @FormUrlEncoded
     @POST(ServiceUrl.PROJECT)

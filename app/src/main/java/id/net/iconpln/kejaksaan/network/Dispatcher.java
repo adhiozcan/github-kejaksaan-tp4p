@@ -5,14 +5,14 @@ import android.support.annotation.NonNull;
 import java.util.Map;
 
 import id.net.iconpln.kejaksaan.model.ArsipResponse;
-import id.net.iconpln.kejaksaan.model.BeritaResponse;
-import id.net.iconpln.kejaksaan.model.JadwalResponse;
+import id.net.iconpln.kejaksaan.model.Berita;
+import id.net.iconpln.kejaksaan.model.Jadwal;
 import id.net.iconpln.kejaksaan.model.LaporanAkhirResponse;
 import id.net.iconpln.kejaksaan.model.LoginResponse;
 import id.net.iconpln.kejaksaan.model.PermohonanResponse;
 import id.net.iconpln.kejaksaan.model.ProyekResponse;
+import id.net.iconpln.kejaksaan.model.ProyekSummary;
 import id.net.iconpln.kejaksaan.model.RekapitulasiDetailResponse;
-import id.net.iconpln.kejaksaan.model.RekapitulasiResponse;
 import retrofit2.Call;
 
 /**
@@ -32,32 +32,31 @@ class Dispatcher {
      * Define all service available using by the application.
      * ---------------------------------------------------------------------------------------------
      */
-    protected Call<LoginResponse> loginUser(@NonNull Map<String, Object> param) {
+    protected Call<LoginResponse> loginUser(@NonNull Map<String, String> param) {
         return serviceApi.loginUser(
-                String.valueOf(param.get(Param.USERNAME)),
-                String.valueOf(param.get(Param.PASSWORD)));
+                param.get(Param.USERNAME),
+                param.get(Param.PASSWORD));
     }
 
-    protected Call<RekapitulasiResponse> rekapitulasi(@NonNull Map<String, Object> param) {
-        return serviceApi.rekapitulasi(
-                String.valueOf(param.get(Param.USER_UNIT_ID)));
+    protected Call<ProyekSummary[]> proyekSummary(@NonNull Map<String, String> param) {
+        return serviceApi.proyekSummary(
+                param.get(Param.USER_UNIT_ID));
     }
 
     protected Call<RekapitulasiDetailResponse> rekapitulasiDetail() {
         return serviceApi.rekapitulasiDetail();
     }
 
-    protected Call<BeritaResponse> listBerita() {
+    protected Call<Berita[]> listBerita() {
         return serviceApi.listBerita();
     }
 
-    protected Call<JadwalResponse> listJadwal() {
+    protected Call<Jadwal[]> listJadwal() {
         return serviceApi.listJadwal();
     }
 
-    protected Call<PermohonanResponse> listPermohonan(@NonNull Map<String, Object> param) {
-        return serviceApi.listPermohonan(
-                String.valueOf(param.get(Param.USER_UNIT_ID)));
+    protected Call<PermohonanResponse> listPermohonan(@NonNull Map<String, String> param) {
+        return serviceApi.listPermohonan(param.get(Param.USER_UNIT_ID));
     }
 
     protected Call<ProyekResponse> listProyek(@NonNull Map<String, Object> param) {

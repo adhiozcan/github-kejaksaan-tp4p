@@ -6,5 +6,7 @@ package id.net.iconpln.kejaksaan.network;
 
 public class BaseUrl {
     //Define protocol/scheme for this apps
-    public static final String BASE_URL = "http://10.14.152.187:8383";
+    protected static final String BASE_URL  = "http://10.14.153.76:8080";
+    protected static final String END_POINT = "mobile/";
+
 }

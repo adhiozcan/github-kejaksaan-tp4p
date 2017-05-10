@@ -14,9 +14,13 @@ import retrofit2.Response;
 
 public class RequestServer implements ClientApi {
     private String              endPoint;
-    private Map<String, Object> parameter;
+    private Map<String, String> parameter;
 
-    public RequestServer(String endPoint, Map<String, Object> parameters) {
+    public RequestServer(String endPoint) {
+        this.endPoint = endPoint;
+    }
+
+    public RequestServer(String endPoint, Map<String, String> parameters) {
         this.endPoint = endPoint;
         this.parameter = parameters;
     }
@@ -49,6 +53,15 @@ public class RequestServer implements ClientApi {
         switch (endPoint) {
             case ServiceUrl.USER_LOGIN:
                 return mDispatcher.loginUser(parameter);
+            case ServiceUrl.PROJECT_SUMMARY:
+                return mDispatcher.proyekSummary(parameter);
+            case ServiceUrl.BERITA:
+                return mDispatcher.listBerita();
+            case ServiceUrl.JADWAL:
+                return mDispatcher.listJadwal();
+            case ServiceUrl.DAFTAR_PERMOHONAN:
+                //TODO do on this job
+                return mDispatcher.listPermohonan(parameter);
             default:
                 return null;
         }
