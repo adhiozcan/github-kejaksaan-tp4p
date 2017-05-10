@@ -3,9 +3,11 @@ package id.net.iconpln.kejaksaan.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.flaviofaria.kenburnsview.KenBurnsView;
@@ -20,6 +22,9 @@ import id.net.iconpln.kejaksaan.network.RequestServer;
 import id.net.iconpln.kejaksaan.network.ResponseListener;
 import id.net.iconpln.kejaksaan.network.ServiceUrl;
 import id.net.iconpln.kejaksaan.utility.CommonUtils;
+import id.net.iconpln.kejaksaan.utility.Formatter;
+
+import static android.R.string.no;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -31,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTxtStatDitolak;
 
     private ProyekSummary mProyekSummary;
+    private Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,15 +75,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setDataIntoView() {
-        mTxtTotalNilaiProyek.setText(mProyekSummary.getTotalNasional());
+        mTxtTotalNilaiProyek.setText(Formatter.getCurrencyFormat(mProyekSummary.getTotalNasional()));
         mTxtStatMasuk.setText(mProyekSummary.getProyekMasuk());
         mTxtStatDitangani.setText(mProyekSummary.getProyekDitangani());
         mTxtStatSelesai.setText(mProyekSummary.getProyekSelesai());
         mTxtStatDitolak.setText(mProyekSummary.getProyekDitolak());
+
+        setNotifIntoIconToolbar(10);
+        setNotifIntoView(R.id.notif_stat_akun, 18);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        this.menu = menu;
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
@@ -153,5 +163,23 @@ public class MainActivity extends AppCompatActivity {
     private void navigateTo(Class activity) {
         Intent intentActivity = new Intent(this, activity);
         startActivity(intentActivity);
+    }
+
+    private void setNotifIntoView(int viewId, int notf){
+        TextView txtNotif = (TextView) findViewById(viewId);
+        txtNotif.setVisibility(View.VISIBLE);
+        txtNotif.setText(String.valueOf(notf));
+    }
+
+    private void setNotifIntoIconToolbar(int notif){
+        View notifView = menu.findItem(R.id.act_notif).getActionView();
+        TextView txtViewCount = (TextView) notifView.findViewById(R.id.txtCount);
+        txtViewCount.setText(String.valueOf(notif));
+        notifView.findViewById(R.id.button_notif_menu).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateTo(NotificationActivity.class);
+            }
+        });
     }
 }

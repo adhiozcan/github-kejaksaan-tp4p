@@ -3,6 +3,7 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        app:actionLayout="@layout/notif_action_view"
         android:id="@+id/act_notif"
         android:icon="@drawable/ic_notification"
         android:title="Notifikasi"
