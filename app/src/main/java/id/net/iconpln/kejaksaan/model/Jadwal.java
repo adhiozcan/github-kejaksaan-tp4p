@@ -1,20 +1,29 @@
 package id.net.iconpln.kejaksaan.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Ozcan on 09/03/2017.
  */
 
 public class Jadwal {
     private String jadwalId;
+    @SerializedName("AREA_KEJAKSAAN")
     private String daerahKejaksaan;
+    @SerializedName("NAMA_AGENDA")
     private String namaAgenda;
+    @SerializedName("LOKASI")
     private String lokasi;
+    @SerializedName("TANGGAL")
     private String tanggal;
+    @SerializedName("WAKTU")
     private String waktu;
-    private String lokasiTanggal;
+    @SerializedName("KETERANGAN")
     private String keterangan;
+    @SerializedName("TIME_REMAINING")
     private String jatuhTempo;
 
+    private String lokasiTanggal;
 
     public String getJadwalId() {
         return jadwalId;

@@ -6,11 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import id.net.iconpln.kejaksaan.R;
 import id.net.iconpln.kejaksaan.adapter.ListJadwalAdapter;
 import id.net.iconpln.kejaksaan.model.Jadwal;
+import id.net.iconpln.kejaksaan.network.RequestServer;
+import id.net.iconpln.kejaksaan.network.ResponseListener;
+import id.net.iconpln.kejaksaan.network.ServiceUrl;
 import id.net.iconpln.kejaksaan.utility.CommonUtils;
 
 /**
@@ -30,13 +34,32 @@ public class ListJadwalActivity extends AppCompatActivity {
         CommonUtils.installToolbar(this);
 
         mJadwalList = new ArrayList<>();
-        mAdapter = new ListJadwalAdapter(this, provideListJadwalMockupModel());
+        mAdapter = new ListJadwalAdapter(this, mJadwalList);
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_daftar_jadwal);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(CommonUtils.getVerticalLayoutManager(this));
+
+        getDataFromNetwork();
     }
 
-    private List<Jadwal> provideListJadwalMockupModel() {
+    private void getDataFromNetwork() {
+        RequestServer request = new RequestServer(ServiceUrl.JADWAL);
+        request.execute(new ResponseListener<Jadwal[]>() {
+            @Override
+            public void onResponse(Jadwal[] response) {
+                mJadwalList.clear();
+                mJadwalList.addAll(Arrays.asList(response));
+                refrestData();
+            }
+
+            @Override
+            public void onFailed(String message) {
+
+            }
+        });
+    }
+
+    private List<Jadwal> getDataFromLocal() {
         List<Jadwal> mockupList = new ArrayList<>();
 
         Jadwal jadwal1 = new Jadwal();
@@ -71,5 +94,9 @@ public class ListJadwalActivity extends AppCompatActivity {
         mockupList.add(jadwal3);
 
         return mockupList;
+    }
+
+    private void refrestData() {
+        mAdapter.notifyDataSetChanged();
     }
 }
