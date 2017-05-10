@@ -6,14 +6,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.flaviofaria.kenburnsview.KenBurnsView;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import id.net.iconpln.kejaksaan.R;
+import id.net.iconpln.kejaksaan.model.ProyekSummary;
+import id.net.iconpln.kejaksaan.network.Param;
+import id.net.iconpln.kejaksaan.network.RequestServer;
+import id.net.iconpln.kejaksaan.network.ResponseListener;
+import id.net.iconpln.kejaksaan.network.ServiceUrl;
 import id.net.iconpln.kejaksaan.utility.CommonUtils;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
+
+    private TextView mTxtTotalNilaiProyek;
+    private TextView mTxtStatMasuk;
+    private TextView mTxtStatDitangani;
+    private TextView mTxtStatSelesai;
+    private TextView mTxtStatDitolak;
+
+    private ProyekSummary mProyekSummary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +38,42 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_alternative);
         CommonUtils.installToolbarForMain(this);
 
+        mTxtTotalNilaiProyek = (TextView) findViewById(R.id.nilai_proyek);
+        mTxtStatMasuk = (TextView) findViewById(R.id.stat_masuk);
+        mTxtStatDitangani = (TextView) findViewById(R.id.stat_ditangani);
+        mTxtStatSelesai = (TextView) findViewById(R.id.stat_selesai);
+        mTxtStatDitolak = (TextView) findViewById(R.id.stat_ditolak);
+
         KenBurnsView kbv = (KenBurnsView) findViewById(R.id.kenburns_effect);
         kbv.restart();
+
+        getDataFromNetwork();
+    }
+
+    private void getDataFromNetwork() {
+        Map<String, String> param = new HashMap<>();
+        param.put(Param.USER_UNIT_ID, "5");
+        RequestServer request = new RequestServer(ServiceUrl.PROJECT_SUMMARY, param);
+        request.execute(new ResponseListener<ProyekSummary[]>() {
+            @Override
+            public void onResponse(ProyekSummary[] response) {
+                mProyekSummary = new ProyekSummary();
+                mProyekSummary = response[0];
+                setDataIntoView();
+            }
+
+            @Override
+            public void onFailed(String message) {
+            }
+        });
+    }
+
+    private void setDataIntoView() {
+        mTxtTotalNilaiProyek.setText(mProyekSummary.getTotalNasional());
+        mTxtStatMasuk.setText(mProyekSummary.getProyekMasuk());
+        mTxtStatDitangani.setText(mProyekSummary.getProyekDitangani());
+        mTxtStatSelesai.setText(mProyekSummary.getProyekSelesai());
+        mTxtStatDitolak.setText(mProyekSummary.getProyekDitolak());
     }
 
     @Override

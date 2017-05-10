@@ -1,5 +1,6 @@
 package id.net.iconpln.kejaksaan.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,6 +20,11 @@ public class ProfileActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         CommonUtils.installToolbar(this);
+    }
+
+    public void logout(View view) {
+        finish();
+        startActivity(new Intent(this, LoginActivity.class));
     }
 
 }
