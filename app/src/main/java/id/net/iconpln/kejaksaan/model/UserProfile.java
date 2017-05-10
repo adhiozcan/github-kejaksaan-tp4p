@@ -1,18 +1,25 @@
 package id.net.iconpln.kejaksaan.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Ozcan on 27/04/2017.
  */
 
 public class UserProfile {
     private String idPetugas;
+    @SerializedName("unitid")
     private String idKejaksaan;
+    @SerializedName("namaunit")
+    private String unitKejaksaan;
+    @SerializedName("nama")
     private String nama;
+    @SerializedName("role")
     private String jabatan;
-    private String namaKejaksaan;
-    private String foto;
     private String alamat;
+    @SerializedName("email")
     private String email;
+    @SerializedName("mobile")
     private String mobile;
 
     public String getIdPetugas() {
@@ -31,6 +38,14 @@ public class UserProfile {
         this.idKejaksaan = idKejaksaan;
     }
 
+    public String getUnitKejaksaan() {
+        return unitKejaksaan;
+    }
+
+    public void setUnitKejaksaan(String unitKejaksaan) {
+        this.unitKejaksaan = unitKejaksaan;
+    }
+
     public String getNama() {
         return nama;
     }
@@ -45,22 +60,6 @@ public class UserProfile {
 
     public void setJabatan(String jabatan) {
         this.jabatan = jabatan;
-    }
-
-    public String getNamaKejaksaan() {
-        return namaKejaksaan;
-    }
-
-    public void setNamaKejaksaan(String namaKejaksaan) {
-        this.namaKejaksaan = namaKejaksaan;
-    }
-
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
     }
 
     public String getAlamat() {
@@ -85,5 +84,19 @@ public class UserProfile {
 
     public void setMobile(String mobile) {
         this.mobile = mobile;
+    }
+
+    @Override
+    public String toString() {
+        return "UserProfile{" +
+                "idPetugas='" + idPetugas + '\'' +
+                ", idKejaksaan='" + idKejaksaan + '\'' +
+                ", unitKejaksaan='" + unitKejaksaan + '\'' +
+                ", nama='" + nama + '\'' +
+                ", jabatan='" + jabatan + '\'' +
+                ", alamat='" + alamat + '\'' +
+                ", email='" + email + '\'' +
+                ", mobile='" + mobile + '\'' +
+                '}';
     }
 }
