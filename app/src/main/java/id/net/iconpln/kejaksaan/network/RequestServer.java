@@ -54,14 +54,13 @@ public class RequestServer implements ClientApi {
             case ServiceUrl.USER_LOGIN:
                 return mDispatcher.loginUser(parameter);
             case ServiceUrl.PROJECT_SUMMARY:
-                return mDispatcher.proyekSummary(parameter);
+                return mDispatcher.proyekSummary();
             case ServiceUrl.BERITA:
                 return mDispatcher.listBerita();
             case ServiceUrl.JADWAL:
                 return mDispatcher.listJadwal();
             case ServiceUrl.DAFTAR_PERMOHONAN:
-                //TODO do on this job
-                return mDispatcher.listPermohonan(parameter);
+                return mDispatcher.listPermohonan();
             default:
                 return null;
         }

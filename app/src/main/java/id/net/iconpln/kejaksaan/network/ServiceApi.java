@@ -5,11 +5,10 @@ import id.net.iconpln.kejaksaan.model.Berita;
 import id.net.iconpln.kejaksaan.model.Jadwal;
 import id.net.iconpln.kejaksaan.model.LaporanAkhirResponse;
 import id.net.iconpln.kejaksaan.model.LoginResponse;
-import id.net.iconpln.kejaksaan.model.PermohonanResponse;
+import id.net.iconpln.kejaksaan.model.Permohonan;
 import id.net.iconpln.kejaksaan.model.ProyekResponse;
 import id.net.iconpln.kejaksaan.model.ProyekSummary;
 import id.net.iconpln.kejaksaan.model.RekapitulasiDetailResponse;
-import id.net.iconpln.kejaksaan.model.RekapitulasiResponse;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -57,7 +56,7 @@ public interface ServiceApi {
 
     @FormUrlEncoded
     @POST(ServiceUrl.DAFTAR_PERMOHONAN)
-    Call<PermohonanResponse> listPermohonan(
+    Call<Permohonan[]> listPermohonan(
             @Field("unitid") String unitId);
 
     @FormUrlEncoded

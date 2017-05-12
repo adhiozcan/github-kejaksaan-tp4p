@@ -1,6 +1,5 @@
 package id.net.iconpln.kejaksaan.ui;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -112,10 +111,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private void saveUserInfo(UserProfile userProfile) {
         KejaksaanApp.PROFILE = userProfile;
-        KejaksaanApp.LOGIN_ID = userProfile.getIdPetugas();
-        KejaksaanApp.LOGIN_NAME = userProfile.getNama();
+        KejaksaanApp.USER_ID = userProfile.getNama();
         KejaksaanApp.KEJAKSAAN_ID = userProfile.getIdKejaksaan();
-        KejaksaanApp.KEJAKSAAN_NAME = userProfile.getUnitKejaksaan();
 
         Log.d("LoginActivity", "saveUserInfo: ------------------------------------------------------------");
         Log.d("LoginActivity", "saveUserInfo: " + userProfile.toString());
