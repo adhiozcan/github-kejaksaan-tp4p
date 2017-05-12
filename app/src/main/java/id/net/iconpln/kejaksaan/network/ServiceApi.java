@@ -3,6 +3,7 @@ package id.net.iconpln.kejaksaan.network;
 import id.net.iconpln.kejaksaan.model.ArsipResponse;
 import id.net.iconpln.kejaksaan.model.Berita;
 import id.net.iconpln.kejaksaan.model.Jadwal;
+import id.net.iconpln.kejaksaan.model.LaporanAkhir;
 import id.net.iconpln.kejaksaan.model.LaporanAkhirResponse;
 import id.net.iconpln.kejaksaan.model.LoginResponse;
 import id.net.iconpln.kejaksaan.model.Permohonan;
@@ -60,6 +61,6 @@ public interface ServiceApi {
 
     @FormUrlEncoded
     @POST(ServiceUrl.LAPORAN_AKHIR)
-    Call<LaporanAkhirResponse> listLaporanAkhir(
+    Call<LaporanAkhir[]> listLaporanAkhir(
             @Field("unitid") String unitId);
 }

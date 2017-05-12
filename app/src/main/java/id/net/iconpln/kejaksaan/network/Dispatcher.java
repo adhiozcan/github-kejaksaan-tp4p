@@ -8,6 +8,7 @@ import id.net.iconpln.kejaksaan.KejaksaanApp;
 import id.net.iconpln.kejaksaan.model.ArsipResponse;
 import id.net.iconpln.kejaksaan.model.Berita;
 import id.net.iconpln.kejaksaan.model.Jadwal;
+import id.net.iconpln.kejaksaan.model.LaporanAkhir;
 import id.net.iconpln.kejaksaan.model.LaporanAkhirResponse;
 import id.net.iconpln.kejaksaan.model.LoginResponse;
 import id.net.iconpln.kejaksaan.model.Permohonan;
@@ -68,7 +69,7 @@ class Dispatcher {
         return serviceApi.listArsip(KejaksaanApp.KEJAKSAAN_ID);
     }
 
-    protected Call<LaporanAkhirResponse> listLaporanAkhir() {
+    protected Call<LaporanAkhir[]> listLaporanAkhir() {
         return serviceApi.listLaporanAkhir(KejaksaanApp.KEJAKSAAN_ID);
     }
 
