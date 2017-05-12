@@ -1,5 +1,6 @@
 package id.net.iconpln.kejaksaan.ui;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -25,15 +26,17 @@ import id.net.iconpln.kejaksaan.network.Param;
 import id.net.iconpln.kejaksaan.network.RequestServer;
 import id.net.iconpln.kejaksaan.network.ResponseListener;
 import id.net.iconpln.kejaksaan.network.ServiceUrl;
+import id.net.iconpln.kejaksaan.utility.BeautifulProgressDialog;
 
 /**
  * Created by Ozcan on 07/03/2017.
  */
 
 public class LoginActivity extends AppCompatActivity {
-    private CoordinatorLayout coordinatorLayout;
-    private EditText          edUsername;
-    private EditText          edPassword;
+    private CoordinatorLayout       coordinatorLayout;
+    private EditText                edUsername;
+    private EditText                edPassword;
+    private BeautifulProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,6 +45,9 @@ public class LoginActivity extends AppCompatActivity {
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
         edUsername = (EditText) findViewById(R.id.username);
         edPassword = (EditText) findViewById(R.id.password);
+
+        mProgressDialog = new BeautifulProgressDialog(this);
+        mProgressDialog.setMessage("Autentikasi pengguna, harap tunggu ...");
 
         KenBurnsView kbv = (KenBurnsView) findViewById(R.id.kenburns_effect);
         kbv.resume();
@@ -75,6 +81,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void doLogin(String username, String password) {
+        mProgressDialog.show();
         Map<String, String> param = new HashMap<>();
         param.put(Param.USERNAME, username);
         param.put(Param.PASSWORD, password);
@@ -82,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
         request.execute(new ResponseListener<LoginResponse>() {
             @Override
             public void onResponse(LoginResponse response) {
+                mProgressDialog.dismiss();
                 if (response.getIsSuccess()) {
                     saveUserInfo(response.getUserProfile());
                     navigateTo(MainActivity.class);
@@ -94,6 +102,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailed(String message) {
+                mProgressDialog.dismiss();
                 Snackbar snackbar = Snackbar.make(coordinatorLayout, "Gagal terhubung jaringan.", Snackbar.LENGTH_LONG);
                 snackbar.getView().setBackgroundColor(ContextCompat.getColor(LoginActivity.this, R.color.pink_A200));
                 snackbar.show();
