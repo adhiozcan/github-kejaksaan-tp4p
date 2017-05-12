@@ -2,8 +2,12 @@ package id.net.iconpln.kejaksaan.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import id.net.iconpln.kejaksaan.R;
@@ -19,6 +23,7 @@ public class BeritaActivity extends AppCompatActivity {
     private TextView mTxtTanggal;
     private TextView mTxtPenulis;
     private TextView mTxtContent;
+    private CollapsingToolbarLayout mCollapsingToolbarLayout;
 
     private Berita mBerita;
 
@@ -37,6 +42,17 @@ public class BeritaActivity extends AppCompatActivity {
             getExtraContent();
             setDataIntoView();
         }
+        setToolbar();
+    }
+
+    private void setToolbar(){
+        mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsible_toolbar);
+        mCollapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.collapsedappbar);
+        mCollapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.expandedappbar);
+        mCollapsingToolbarLayout.setContentScrimColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
+        mCollapsingToolbarLayout.setStatusBarScrimColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
+        mCollapsingToolbarLayout.setTitle(mBerita.getJudulBerita());
+
     }
 
     private void setDataIntoView() {

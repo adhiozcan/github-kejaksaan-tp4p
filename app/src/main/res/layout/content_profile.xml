@@ -1,114 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
-              app:layout_behavior="@string/appbar_scrolling_view_behavior"
-              tools:context="id.net.iconpln.kejaksaan.ui.ProfileActivity"
-              tools:showIn="@layout/activity_profile">
-
+<ScrollView
+    android:scrollbars="none"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="id.net.iconpln.kejaksaan.ui.ProfileActivity"
+    tools:showIn="@layout/activity_profile">
     <LinearLayout
+        android:orientation="vertical"
+        android:scrollbars="none"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/background_kejaksaan"
-        android:gravity="center">
-
-        <ImageView
-            android:layout_width="92dp"
-            android:layout_height="92dp"
-            android:src="@drawable/ic_account"/>
-    </LinearLayout>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginTop="12dp">
-
-        <TableRow>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="10dp"
-                android:text="Nama Petugas"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="10dp"
-                android:text="..."/>
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="10dp"
-                android:text="Jabatan"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="10dp"
-                android:text="..."/>
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="10dp"
-                android:text="Cabang"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="10dp"
-                android:text="..."/>
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="10dp"
-                android:text="status"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="10dp"
-                android:text="..."/>
-        </TableRow>
-
-        <TextView
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_16dp"
-            android:background="@drawable/button_default_orange"
-            android:gravity="center"
-            android:onClick="logout"
-            android:paddingBottom="@dimen/space_8dp"
-            android:paddingLeft="@dimen/space_16dp"
-            android:paddingRight="@dimen/space_16dp"
-            android:paddingTop="@dimen/space_8dp"
-            android:text="Logout"/>
-    </TableLayout>
+            android:background="@drawable/background_kejaksaan"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="92dp"
+                android:layout_height="92dp"
+                android:src="@drawable/ic_account"/>
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_margin="@dimen/space_32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_marginTop="@dimen/space_8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Nama Petugas"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="..."/>
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="@dimen/space_8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Jabatan"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="..."/>
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="@dimen/space_8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Cabang"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="..."/>
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="@dimen/space_8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Status"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="..."/>
+            </TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16dp"
+                android:background="@drawable/button_default_orange"
+                android:gravity="center"
+                android:onClick="logout"
+                android:paddingBottom="@dimen/space_8dp"
+                android:paddingLeft="@dimen/space_16dp"
+                android:paddingRight="@dimen/space_16dp"
+                android:paddingTop="@dimen/space_8dp"
+                android:text="Logout"/>
+        </TableLayout>
+    </LinearLayout>
 
 
-</LinearLayout>
+
+
+</ScrollView>
