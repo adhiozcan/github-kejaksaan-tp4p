@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Diterbitkan pada tanggal "
-                android:textColor="@color/ebony"
+                android:textColor="@color/textColorBlack"
                 android:textSize="@dimen/text_size_12sp"/>
 
             <TextView
@@ -48,8 +48,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_12dp"
+                android:fontFamily="sans-serif-light"
                 android:text="Nama Proyek"
-                android:textColor="@color/ebony"
+                android:textColor="@color/textColorBlack"
                 android:textSize="@dimen/text_size_16sp"
                 android:textStyle="bold"/>
 
@@ -60,6 +61,17 @@
                 android:layout_marginTop="@dimen/space_12dp"
                 android:fontFamily="sans-serif-light"
                 android:text="@string/ipsum_short"
+                android:textColor="@color/textColorBlack"/>
+
+            <TextView
+                android:id="@+id/tautan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_12dp"
+                android:drawableLeft="@drawable/ic_doc"
+                android:drawablePadding="@dimen/space_16dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Unduh dokumen"
                 android:textColor="@color/ebony"/>
         </LinearLayout>
     </LinearLayout>
