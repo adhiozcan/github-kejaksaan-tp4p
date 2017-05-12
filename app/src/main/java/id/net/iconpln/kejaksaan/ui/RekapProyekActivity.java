@@ -1,6 +1,7 @@
 package id.net.iconpln.kejaksaan.ui;
 
 import android.animation.PropertyValuesHolder;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,11 +22,15 @@ import com.db.chart.tooltip.Tooltip;
 import com.db.chart.view.LineChartView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import id.net.iconpln.kejaksaan.R;
 import id.net.iconpln.kejaksaan.adapter.RekapProyekAdapter;
 import id.net.iconpln.kejaksaan.model.Rekapitulasi;
+import id.net.iconpln.kejaksaan.network.RequestServer;
+import id.net.iconpln.kejaksaan.network.ResponseListener;
+import id.net.iconpln.kejaksaan.network.ServiceUrl;
 import id.net.iconpln.kejaksaan.utility.ChartUtil;
 import id.net.iconpln.kejaksaan.utility.CommonUtils;
 
@@ -36,10 +41,12 @@ import static android.R.attr.action;
  */
 
 public class RekapProyekActivity extends AppCompatActivity {
-    private List<Rekapitulasi>      mRekapList;
-    private RekapProyekAdapter      mAdapter;
-    private RecyclerView            mRecycleView;
+
     private CollapsingToolbarLayout mCollapsingToolbarLayout;
+
+    private List<Rekapitulasi> mRekapList;
+    private RekapProyekAdapter mAdapter;
+    private RecyclerView       mRecycleView;
 
     private LineChartView mChart;
 
@@ -55,7 +62,8 @@ public class RekapProyekActivity extends AppCompatActivity {
         mRecycleView.setAdapter(mAdapter);
         mRecycleView.setLayoutManager(CommonUtils.getVerticalLayoutManager(this));
 
-        provideDummy();
+        //provideDummy();
+        getDataFromNetwork();
         initChart();
     }
 
@@ -64,8 +72,8 @@ public class RekapProyekActivity extends AppCompatActivity {
         LineSet dataset = new LineSet(ChartUtil.getShortMonthLabel(), ChartUtil.getRekapMonthValue(mRekapList));
         //dataset
         mChart.dismissAllTooltips();
-        dataset.setColor(getResources().getColor(R.color.white));
-        dataset.setDotsColor(getResources().getColor(R.color.orange_500));
+        dataset.setColor(ContextCompat.getColor(this, R.color.white));
+        dataset.setDotsColor(ContextCompat.getColor(this, R.color.orange_500));
         dataset.setSmooth(false);
         dataset.setDotsRadius(10);
         dataset.setThickness(5);
@@ -73,7 +81,7 @@ public class RekapProyekActivity extends AppCompatActivity {
         mChart.setYLabels(AxisRenderer.LabelPosition.NONE);
         mChart.setXAxis(false);
         mChart.setYAxis(false);
-        mChart.setLabelsColor(getResources().getColor(R.color.white));
+        mChart.setLabelsColor(ContextCompat.getColor(this, R.color.white));
 
 
         Runnable run = new Runnable() {
@@ -113,6 +121,24 @@ public class RekapProyekActivity extends AppCompatActivity {
         mCollapsingToolbarLayout.setStatusBarScrimColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
     }
 
+    private void getDataFromNetwork() {
+        RequestServer request = new RequestServer(ServiceUrl.PROJECT_SUMMARY_DETAIL);
+        request.execute(new ResponseListener<Rekapitulasi[]>() {
+            @Override
+            public void onResponse(Rekapitulasi[] response) {
+                mRekapList.clear();
+                mRekapList.addAll(Arrays.asList(response));
+                mAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailed(String message) {
+
+            }
+        });
+
+    }
+
     private void provideDummy() {
         for (int i = 0; i < 10; i++) {
             Rekapitulasi rekap = new Rekapitulasi();
@@ -134,12 +160,12 @@ public class RekapProyekActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
 
             mTip.setEnterAnimation(PropertyValuesHolder.ofFloat(View.ALPHA, 1),
-                                   PropertyValuesHolder.ofFloat(View.SCALE_Y, 1f),
-                                   PropertyValuesHolder.ofFloat(View.SCALE_X, 1f)).setDuration(200);
+                    PropertyValuesHolder.ofFloat(View.SCALE_Y, 1f),
+                    PropertyValuesHolder.ofFloat(View.SCALE_X, 1f)).setDuration(200);
 
             mTip.setExitAnimation(PropertyValuesHolder.ofFloat(View.ALPHA, 0),
-                                  PropertyValuesHolder.ofFloat(View.SCALE_Y, 0f),
-                                  PropertyValuesHolder.ofFloat(View.SCALE_X, 0f)).setDuration(200);
+                    PropertyValuesHolder.ofFloat(View.SCALE_Y, 0f),
+                    PropertyValuesHolder.ofFloat(View.SCALE_X, 0f)).setDuration(200);
 
             mTip.setDimensions(110, 40);
             mTip.setPivotX(Tools.fromDpToPx(65) / 2);

@@ -11,32 +11,34 @@
         android:layout_height="260dp">
 
         <android.support.design.widget.CollapsingToolbarLayout
-            app:titleEnabled="false"
             android:id="@+id/CollapsingToolbarLayout1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:titleEnabled="false">
+
             <LinearLayout
-                android:padding="@dimen/space_16dp"
-                android:layout_marginTop="60dp"
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="60dp"
                 android:orientation="vertical"
-                android:layout_height="match_parent">
+                android:padding="@dimen/space_16dp">
+
                 <TextView
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_14sp"
-                    android:text="Rekapitualasi Proyek Berdasarkan Bulan"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="Rekapitualasi Proyek Berdasarkan Bulan"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_14sp"/>
+
                 <com.db.chart.view.LineChartView
-                    android:layout_marginTop="@dimen/space_8dp"
                     xmlns:chart="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/chart1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/space_8dp"
                     />
             </LinearLayout>
-
 
 
             <android.support.v7.widget.Toolbar
@@ -45,14 +47,15 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/colorPrimary"
                 app:layout_collapseMode="pin">
+
                 <TextView
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:text="REKAPITULASI PROYEK"
-                    android:layout_marginRight="60dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="60dp"
+                    android:gravity="center"
+                    android:text="REKAPITULASI PROYEK"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"/>
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>
 
@@ -62,6 +65,6 @@
         android:id="@+id/rv_list_rekap_proyek"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:clipToPadding="false"/>
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 </android.support.design.widget.CoordinatorLayout>

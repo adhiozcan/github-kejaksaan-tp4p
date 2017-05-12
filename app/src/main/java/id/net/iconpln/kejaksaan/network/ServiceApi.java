@@ -8,7 +8,7 @@ import id.net.iconpln.kejaksaan.model.LoginResponse;
 import id.net.iconpln.kejaksaan.model.Permohonan;
 import id.net.iconpln.kejaksaan.model.ProyekResponse;
 import id.net.iconpln.kejaksaan.model.ProyekSummary;
-import id.net.iconpln.kejaksaan.model.RekapitulasiDetailResponse;
+import id.net.iconpln.kejaksaan.model.Rekapitulasi;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -37,9 +37,8 @@ public interface ServiceApi {
     Call<ProyekSummary[]> proyekSummary(
             @Field("unitid") String unitId);
 
-    @FormUrlEncoded
     @POST(ServiceUrl.PROJECT_SUMMARY_DETAIL)
-    Call<RekapitulasiDetailResponse> rekapitulasiDetail();
+    Call<Rekapitulasi[]> rekapitulasiDetail();
 
     @POST(ServiceUrl.JADWAL)
     Call<Jadwal[]> listJadwal();

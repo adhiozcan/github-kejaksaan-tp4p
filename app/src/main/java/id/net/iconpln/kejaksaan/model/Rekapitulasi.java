@@ -1,13 +1,19 @@
 package id.net.iconpln.kejaksaan.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Ozcan on 26/04/2017.
  */
 
 public class Rekapitulasi {
+    @SerializedName("NO_PROYEK")
     private String nomorProyek;
+    @SerializedName("NAMA_PROYEK")
     private String namaProyek;
+    @SerializedName("NILAI_PROYEK")
     private String nilai;
+    @SerializedName("BULAN")
     private String bulan;
 
     public String getBulan() {

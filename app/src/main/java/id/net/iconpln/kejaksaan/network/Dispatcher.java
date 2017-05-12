@@ -13,7 +13,7 @@ import id.net.iconpln.kejaksaan.model.LoginResponse;
 import id.net.iconpln.kejaksaan.model.Permohonan;
 import id.net.iconpln.kejaksaan.model.ProyekResponse;
 import id.net.iconpln.kejaksaan.model.ProyekSummary;
-import id.net.iconpln.kejaksaan.model.RekapitulasiDetailResponse;
+import id.net.iconpln.kejaksaan.model.Rekapitulasi;
 import retrofit2.Call;
 
 /**
@@ -44,7 +44,7 @@ class Dispatcher {
         return serviceApi.proyekSummary(KejaksaanApp.KEJAKSAAN_ID);
     }
 
-    protected Call<RekapitulasiDetailResponse> rekapitulasiDetail() {
+    protected Call<Rekapitulasi[]> proyekSummaryDetail() {
         return serviceApi.rekapitulasiDetail();
     }
 

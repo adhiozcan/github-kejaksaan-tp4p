@@ -55,6 +55,8 @@ public class RequestServer implements ClientApi {
                 return mDispatcher.loginUser(parameter);
             case ServiceUrl.PROJECT_SUMMARY:
                 return mDispatcher.proyekSummary();
+            case ServiceUrl.PROJECT_SUMMARY_DETAIL:
+                return mDispatcher.proyekSummaryDetail();
             case ServiceUrl.BERITA:
                 return mDispatcher.listBerita();
             case ServiceUrl.JADWAL:

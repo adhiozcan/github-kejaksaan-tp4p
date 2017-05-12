@@ -53,8 +53,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onLoginButtonClicked(View buttonId) {
-        String username = edUsername.getText().toString();
-        String password = edPassword.getText().toString();
+        //String username = edUsername.getText().toString();
+        //String password = edPassword.getText().toString();
+        String username = "petugas";
+        String password = "tp4pass";
 
         if (validateInput(username, password)) {
             doLogin(username, password);
