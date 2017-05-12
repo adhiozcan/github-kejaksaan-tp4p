@@ -11,6 +11,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/space_16dp"
         android:layout_weight="1"
         android:orientation="vertical">
 
@@ -34,6 +35,7 @@
             android:id="@+id/nama_proyek"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/space_16dp"
             android:text="Nama Proyek"
             android:textColor="@color/ebony"
             android:textSize="@dimen/text_size_16sp"/>
@@ -43,6 +45,7 @@
         android:id="@+id/nilai_proyek"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/space_16dp"
         android:gravity="center"
         android:text="Rp 1.000.000.000,-"
         android:textColor="@color/orange_500"
