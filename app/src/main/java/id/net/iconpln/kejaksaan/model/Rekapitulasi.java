@@ -8,6 +8,15 @@ public class Rekapitulasi {
     private String nomorProyek;
     private String namaProyek;
     private String nilai;
+    private String bulan;
+
+    public String getBulan() {
+        return bulan;
+    }
+
+    public void setBulan(String bulan) {
+        this.bulan = bulan;
+    }
 
     public String getNomorProyek() {
         return nomorProyek;
