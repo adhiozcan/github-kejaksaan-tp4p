@@ -63,6 +63,8 @@ public class RequestServer implements ClientApi {
                 return mDispatcher.listJadwal();
             case ServiceUrl.DAFTAR_PERMOHONAN:
                 return mDispatcher.listPermohonan();
+            case ServiceUrl.PROJECT:
+                return mDispatcher.listProyek();
             default:
                 return null;
         }

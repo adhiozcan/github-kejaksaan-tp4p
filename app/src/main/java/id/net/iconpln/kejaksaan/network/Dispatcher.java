@@ -11,7 +11,7 @@ import id.net.iconpln.kejaksaan.model.Jadwal;
 import id.net.iconpln.kejaksaan.model.LaporanAkhirResponse;
 import id.net.iconpln.kejaksaan.model.LoginResponse;
 import id.net.iconpln.kejaksaan.model.Permohonan;
-import id.net.iconpln.kejaksaan.model.ProyekResponse;
+import id.net.iconpln.kejaksaan.model.Proyek;
 import id.net.iconpln.kejaksaan.model.ProyekSummary;
 import id.net.iconpln.kejaksaan.model.Rekapitulasi;
 import retrofit2.Call;
@@ -60,7 +60,7 @@ class Dispatcher {
         return serviceApi.listPermohonan(KejaksaanApp.KEJAKSAAN_ID);
     }
 
-    protected Call<ProyekResponse> listProyek() {
+    protected Call<Proyek[]> listProyek() {
         return serviceApi.listProyek(KejaksaanApp.KEJAKSAAN_ID);
     }
 

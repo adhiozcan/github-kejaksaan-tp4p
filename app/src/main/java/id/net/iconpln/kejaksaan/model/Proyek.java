@@ -1,18 +1,28 @@
 package id.net.iconpln.kejaksaan.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Ozcan on 10/03/2017.
  */
 
 public class Proyek {
+    @SerializedName("NO_PROYEK")
     private String noProject;
+    @SerializedName("NAMA_PROYEK")
     private String namaProject;
+    @SerializedName("NILAI")
     private String nilai;
     private String keterangan;
+    @SerializedName("LOKASI")
     private String lokasi;
+    @SerializedName("TGL_MASUK")
     private String tanggalMasuk;
+    @SerializedName("PEMOHON")
     private String namaPemohon;
+    @SerializedName("INSTANSI_PEMOHON")
     private String instansiPemohon;
+    @SerializedName("ELAPSED_TIME")
     private String durasiPengerjaan;
 
     public String getNoProject() {

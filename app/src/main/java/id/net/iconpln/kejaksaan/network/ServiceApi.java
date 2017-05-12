@@ -6,7 +6,7 @@ import id.net.iconpln.kejaksaan.model.Jadwal;
 import id.net.iconpln.kejaksaan.model.LaporanAkhirResponse;
 import id.net.iconpln.kejaksaan.model.LoginResponse;
 import id.net.iconpln.kejaksaan.model.Permohonan;
-import id.net.iconpln.kejaksaan.model.ProyekResponse;
+import id.net.iconpln.kejaksaan.model.Proyek;
 import id.net.iconpln.kejaksaan.model.ProyekSummary;
 import id.net.iconpln.kejaksaan.model.Rekapitulasi;
 import retrofit2.Call;
@@ -45,7 +45,7 @@ public interface ServiceApi {
 
     @FormUrlEncoded
     @POST(ServiceUrl.PROJECT)
-    Call<ProyekResponse> listProyek(
+    Call<Proyek[]> listProyek(
             @Field("unitid") String unitId);
 
     @FormUrlEncoded
