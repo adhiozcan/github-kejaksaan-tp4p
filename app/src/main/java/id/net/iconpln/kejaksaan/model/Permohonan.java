@@ -7,17 +7,29 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class Permohonan {
+    @SerializedName("NO_PROYEK")
     private String noProject;
+    @SerializedName("JUDUL_PERMOHONAN")
     private String judul;
+    @SerializedName("TGL_PERMOHONAN")
     private String tanggalPermohonan;
+    @SerializedName("NAMA_PENGAJU")
     private String pemohon;
+    @SerializedName("INSTANSI_PENGAJU")
     private String instansi;
+    @SerializedName("TUJUAN_PERMOHONAN")
     private String tujuanPermohonan;
+    @SerializedName("CONTENT_PERMOHONAN")
     private String content;
+    @SerializedName("TGL_PAPARAN")
     private String tanggalPaparan;
+    @SerializedName("WAKTU_PAPARAN")
     private String waktuPaparan;
+    @SerializedName("KETERANGAN")
     private String keterangan;
     private String pemohonInstansi;
+    @SerializedName("STATUS")
+    private String status;
 
     public String getNoProject() {
         return noProject;
@@ -105,5 +117,13 @@ public class Permohonan {
 
     public String getPemohonInstansi() {
         return pemohonInstansi;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

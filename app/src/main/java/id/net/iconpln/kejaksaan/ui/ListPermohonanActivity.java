@@ -8,9 +8,19 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.google.gson.Gson;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import id.net.iconpln.kejaksaan.model.Permohonan;
+import id.net.iconpln.kejaksaan.network.Param;
+import id.net.iconpln.kejaksaan.network.RequestServer;
+import id.net.iconpln.kejaksaan.network.ResponseListener;
+import id.net.iconpln.kejaksaan.network.ServiceUrl;
 import id.net.iconpln.kejaksaan.utility.CommonUtils;
 import id.net.iconpln.kejaksaan.R;
 import id.net.iconpln.kejaksaan.adapter.PermohonanViewPagerAdapter;
@@ -29,6 +39,13 @@ public class ListPermohonanActivity extends AppCompatActivity {
     private PermohonanViewPagerAdapter vpAdapter;
     private TabLayout                  tabLayout;
 
+    private List<Fragment>   mFragmentList;
+    private List<Permohonan> mPermohonanList;
+    private List<Permohonan> mPermohonanMasuk;
+    private List<Permohonan> mPermohonanDitangani;
+    private List<Permohonan> mPermohonanSelesai;
+    private List<Permohonan> mPermohonanDitolak;
+
     private int mTabPosition = 0;
 
     private void checkIntentData() {
@@ -43,22 +60,77 @@ public class ListPermohonanActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list_permohonan);
         CommonUtils.installToolbar(this);
 
-        List<Fragment> fragmentList = new ArrayList<>();
-        fragmentList.add(new ListPermohonanMasukFragment());
-        fragmentList.add(new ListPermohonanDitanganiFragment());
-        fragmentList.add(new ListPermohonanSelesaiFragment());
-        fragmentList.add(new ListPermohonanDitolakFragment());
+        mFragmentList = new ArrayList<>();
+        mPermohonanMasuk = new ArrayList<>();
+        mPermohonanDitangani = new ArrayList<>();
+        mPermohonanSelesai = new ArrayList<>();
+        mPermohonanDitolak = new ArrayList<>();
 
         vp = (ViewPager) findViewById(R.id.view_pager);
-        vpAdapter = new PermohonanViewPagerAdapter(getSupportFragmentManager(), fragmentList);
-        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        vpAdapter = new PermohonanViewPagerAdapter(getSupportFragmentManager(), mFragmentList);
         vp.setAdapter(vpAdapter);
 
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(vp);
 
         checkIntentData();
+        getDataFromNetwork();
+    }
+
+    private void setupFragment() {
+        String listMasuk     = new Gson().toJson(mPermohonanMasuk);
+        String listDitangani = new Gson().toJson(mPermohonanDitangani);
+        String listSelesai   = new Gson().toJson(mPermohonanSelesai);
+        String listDitolak   = new Gson().toJson(mPermohonanDitolak);
+        mFragmentList.add(ListPermohonanMasukFragment.newInstance(listMasuk));
+        mFragmentList.add(ListPermohonanDitanganiFragment.newInstance(listDitangani));
+        mFragmentList.add(ListPermohonanSelesaiFragment.newInstance(listSelesai));
+        mFragmentList.add(ListPermohonanDitolakFragment.newInstance(listDitolak));
+        vp.getAdapter().notifyDataSetChanged();
         vp.setCurrentItem(mTabPosition);
+    }
+
+    private void getDataFromNetwork() {
+        mPermohonanList = new ArrayList<>();
+        RequestServer request = new RequestServer(ServiceUrl.DAFTAR_PERMOHONAN);
+        request.execute(new ResponseListener<Permohonan[]>() {
+            @Override
+            public void onResponse(Permohonan[] response) {
+                mPermohonanList.clear();
+                mPermohonanList.addAll(Arrays.asList(response));
+                categorizingPermohonan();
+            }
+
+            @Override
+            public void onFailed(String message) {
+            }
+        });
+    }
+
+    private void categorizingPermohonan() {
+        mPermohonanMasuk.clear();
+        mPermohonanDitangani.clear();
+        mPermohonanSelesai.clear();
+        mPermohonanDitolak.clear();
+
+        for (Permohonan permohonan : mPermohonanList) {
+            switch (permohonan.getStatus()) {
+                case "Masuk":
+                    mPermohonanMasuk.add(permohonan);
+                    break;
+                case "Ditangani":
+                    mPermohonanDitangani.add(permohonan);
+                    break;
+                case "Selesai":
+                    mPermohonanSelesai.add(permohonan);
+                    break;
+                case "Ditolak":
+                    mPermohonanDitolak.add(permohonan);
+                    break;
+            }
+        }
+
+        setupFragment();
     }
 
     @Override
@@ -70,3 +142,4 @@ public class ListPermohonanActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+

@@ -8,7 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import id.net.iconpln.kejaksaan.utility.CommonUtils;
@@ -23,19 +28,30 @@ import id.net.iconpln.kejaksaan.model.Permohonan;
 public class ListPermohonanMasukFragment extends Fragment {
     private ListPermohonanAdapter mAdapter;
     private RecyclerView          mRecyclerView;
+    private List<Permohonan>      mPermohonanList;
 
-    private List<Permohonan> mPermohonanList;
-
+    public static ListPermohonanMasukFragment newInstance(String permohonanList) {
+        Bundle args = new Bundle();
+        args.putString("permohonan_list", permohonanList);
+        ListPermohonanMasukFragment fragment = new ListPermohonanMasukFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_permohonan_masuk, container, false);
-        mPermohonanList = new ArrayList<>();
-        mAdapter = new ListPermohonanAdapter(getActivity(), provideListPermohonanMockupModel());
+
+        String       permohonanInString = getArguments().getString("permohonan_list");
+        Permohonan[] permohonanArgs     = new Gson().fromJson(permohonanInString, Permohonan[].class);
+
+        mPermohonanList = new ArrayList<>(Arrays.asList(permohonanArgs));
+        mAdapter = new ListPermohonanAdapter(getActivity(), mPermohonanList);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_permohonan_masuk);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(CommonUtils.getVerticalLayoutManager(getActivity()));
+
         return view;
     }
 

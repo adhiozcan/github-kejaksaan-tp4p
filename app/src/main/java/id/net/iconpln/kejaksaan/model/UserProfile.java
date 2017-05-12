@@ -7,7 +7,6 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class UserProfile {
-    private String idPetugas;
     @SerializedName("unitid")
     private String idKejaksaan;
     @SerializedName("namaunit")
@@ -21,14 +20,6 @@ public class UserProfile {
     private String email;
     @SerializedName("mobile")
     private String mobile;
-
-    public String getIdPetugas() {
-        return idPetugas;
-    }
-
-    public void setIdPetugas(String idPetugas) {
-        this.idPetugas = idPetugas;
-    }
 
     public String getIdKejaksaan() {
         return idKejaksaan;
@@ -89,7 +80,6 @@ public class UserProfile {
     @Override
     public String toString() {
         return "UserProfile{" +
-                "idPetugas='" + idPetugas + '\'' +
                 ", idKejaksaan='" + idKejaksaan + '\'' +
                 ", unitKejaksaan='" + unitKejaksaan + '\'' +
                 ", nama='" + nama + '\'' +
