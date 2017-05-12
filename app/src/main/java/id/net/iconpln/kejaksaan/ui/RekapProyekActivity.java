@@ -12,6 +12,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 
 import com.db.chart.Tools;
@@ -59,16 +60,16 @@ public class RekapProyekActivity extends AppCompatActivity {
         mRekapList = new ArrayList<>();
         mAdapter = new RekapProyekAdapter(mRekapList);
         mRecycleView = (RecyclerView) findViewById(R.id.rv_list_rekap_proyek);
+        mChart = (LineChartView) findViewById(R.id.chart1);
         mRecycleView.setAdapter(mAdapter);
         mRecycleView.setLayoutManager(CommonUtils.getVerticalLayoutManager(this));
 
         //provideDummy();
         getDataFromNetwork();
-        initChart();
+     //   initChart();
     }
 
     private void initChart() {
-        mChart = (LineChartView) findViewById(R.id.chart1);
         LineSet dataset = new LineSet(ChartUtil.getShortMonthLabel(), ChartUtil.getRekapMonthValue(mRekapList));
         //dataset
         mChart.dismissAllTooltips();
@@ -129,6 +130,7 @@ public class RekapProyekActivity extends AppCompatActivity {
                 mRekapList.clear();
                 mRekapList.addAll(Arrays.asList(response));
                 mAdapter.notifyDataSetChanged();
+                initChart();
             }
 
             @Override
