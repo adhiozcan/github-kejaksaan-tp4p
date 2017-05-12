@@ -116,6 +116,7 @@ public class LoginActivity extends AppCompatActivity {
         KejaksaanApp.USER_ID = userProfile.getNama();
         KejaksaanApp.KEJAKSAAN_ID = userProfile.getIdKejaksaan();
 
+
         Log.d("LoginActivity", "saveUserInfo: ------------------------------------------------------------");
         Log.d("LoginActivity", "saveUserInfo: " + userProfile.toString());
     }

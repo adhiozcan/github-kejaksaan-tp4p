@@ -18,6 +18,7 @@ import id.net.iconpln.kejaksaan.model.Rekapitulasi;
 
 public class RekapProyekAdapter extends KejaksaanBaseAdapter<RekapProyekAdapter.ViewHolder, Rekapitulasi> {
     private List<Rekapitulasi> rekapitulasiList;
+    private OnItemSelected onItemSelected;
 
     public RekapProyekAdapter(List<Rekapitulasi> rekapitulasiList) {
         this.rekapitulasiList = rekapitulasiList;
@@ -53,6 +54,23 @@ public class RekapProyekAdapter extends KejaksaanBaseAdapter<RekapProyekAdapter.
             txtNomorProyek = (TextView) itemView.findViewById(R.id.nomor_proyek);
             txtNamaProyek = (TextView) itemView.findViewById(R.id.nama_proyek);
             txtNilai = (TextView) itemView.findViewById(R.id.nilai_proyek);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (onItemSelected != null)
+                        onItemSelected.onClick(view, getAdapterPosition());
+
+                }
+            });
         }
+    }
+
+    public void setOnItemSelected(OnItemSelected onItemSelected){
+        this.onItemSelected = onItemSelected;
+    }
+
+    public interface OnItemSelected{
+        void onClick(View view, int position);
     }
 }

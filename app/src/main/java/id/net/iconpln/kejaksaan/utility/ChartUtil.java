@@ -28,7 +28,7 @@ public class ChartUtil {
         float data = 0;
         for (Rekapitulasi rekap : mRekapitulasis){
             if (Integer.valueOf(rekap.getBulan()) == index){
-                data = data + Integer.valueOf(rekap.getNilai());
+                data = data + (Long.valueOf(rekap.getNilai())/1000000);
             }
         }
         return data;
