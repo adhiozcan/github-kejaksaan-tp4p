@@ -8,10 +8,10 @@
         android:icon="@drawable/ic_notification"
         android:title="Notifikasi"
         app:showAsAction="always"/>
-    <item
+    <!--<item
         android:id="@+id/act_setting"
         android:title="Pengaturan"
-        app:showAsAction="never"/>
+        app:showAsAction="never"/>-->
     <item
         android:id="@+id/act_about"
         android:title="Tentang Aplikasi"

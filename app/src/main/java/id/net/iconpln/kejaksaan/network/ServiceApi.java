@@ -3,10 +3,11 @@ package id.net.iconpln.kejaksaan.network;
 import id.net.iconpln.kejaksaan.model.ArsipResponse;
 import id.net.iconpln.kejaksaan.model.Berita;
 import id.net.iconpln.kejaksaan.model.Jadwal;
+import id.net.iconpln.kejaksaan.model.LaporanAkhir;
 import id.net.iconpln.kejaksaan.model.LaporanAkhirResponse;
 import id.net.iconpln.kejaksaan.model.LoginResponse;
 import id.net.iconpln.kejaksaan.model.Permohonan;
-import id.net.iconpln.kejaksaan.model.ProyekResponse;
+import id.net.iconpln.kejaksaan.model.Proyek;
 import id.net.iconpln.kejaksaan.model.ProyekSummary;
 import id.net.iconpln.kejaksaan.model.Rekapitulasi;
 import retrofit2.Call;
@@ -45,7 +46,7 @@ public interface ServiceApi {
 
     @FormUrlEncoded
     @POST(ServiceUrl.PROJECT)
-    Call<ProyekResponse> listProyek(
+    Call<Proyek[]> listProyek(
             @Field("unitid") String unitId);
 
     @FormUrlEncoded
@@ -60,6 +61,6 @@ public interface ServiceApi {
 
     @FormUrlEncoded
     @POST(ServiceUrl.LAPORAN_AKHIR)
-    Call<LaporanAkhirResponse> listLaporanAkhir(
+    Call<LaporanAkhir[]> listLaporanAkhir(
             @Field("unitid") String unitId);
 }

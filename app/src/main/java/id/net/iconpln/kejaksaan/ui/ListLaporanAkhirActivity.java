@@ -6,11 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import id.net.iconpln.kejaksaan.R;
 import id.net.iconpln.kejaksaan.adapter.ListLaporanAkhirAdapter;
 import id.net.iconpln.kejaksaan.model.LaporanAkhir;
+import id.net.iconpln.kejaksaan.network.RequestServer;
+import id.net.iconpln.kejaksaan.network.ResponseListener;
+import id.net.iconpln.kejaksaan.network.ServiceUrl;
 import id.net.iconpln.kejaksaan.utility.CommonUtils;
 
 /**
@@ -34,7 +38,26 @@ public class ListLaporanAkhirActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(CommonUtils.getVerticalLayoutManager(this));
-        provideMockupDataMode();
+        //provideMockupDataMode();
+
+        getDataFromNetwork();
+    }
+
+    private void getDataFromNetwork() {
+        RequestServer request = new RequestServer(ServiceUrl.LAPORAN_AKHIR);
+        request.execute(new ResponseListener<LaporanAkhir[]>() {
+            @Override
+            public void onResponse(LaporanAkhir[] response) {
+                laporanAkhirList.clear();
+                laporanAkhirList.addAll(Arrays.asList(response));
+                mAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailed(String message) {
+
+            }
+        });
     }
 
     private void provideMockupDataMode() {

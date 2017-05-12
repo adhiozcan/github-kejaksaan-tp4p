@@ -39,6 +39,8 @@ public class ListProjectsAdapter extends KejaksaanBaseAdapter<ListProjectsAdapte
     public void onBindViewHolder(ViewHolder holder, int position) {
         Proyek proyek = proyekList.get(position);
         holder.judulProyek.setText(proyek.getNamaProject());
+        holder.namaPemohon.setText(proyek.getNamaPemohon());
+        holder.instansiPemohon.setText(proyek.getInstansiPemohon());
         holder.lokasiProyek.setText(proyek.getLokasi());
         holder.tanggalMulai.setText(proyek.getTanggalMasuk());
         holder.contentPenjelasan.setText(proyek.getKeterangan());
@@ -58,6 +60,8 @@ public class ListProjectsAdapter extends KejaksaanBaseAdapter<ListProjectsAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView judulProyek;
+        TextView namaPemohon;
+        TextView instansiPemohon;
         TextView lokasiProyek;
         TextView tanggalMulai;
         TextView contentPenjelasan;
@@ -67,6 +71,8 @@ public class ListProjectsAdapter extends KejaksaanBaseAdapter<ListProjectsAdapte
         public ViewHolder(View itemView) {
             super(itemView);
             judulProyek = (TextView) itemView.findViewById(R.id.judul_project);
+            namaPemohon = (TextView) itemView.findViewById(R.id.nama_pemohon);
+            instansiPemohon = (TextView) itemView.findViewById(R.id.instansi_pemohon);
             lokasiProyek = (TextView) itemView.findViewById(R.id.lokasi_proyek);
             tanggalMulai = (TextView) itemView.findViewById(R.id.starting_project);
             contentPenjelasan = (TextView) itemView.findViewById(R.id.content_penjelasan);

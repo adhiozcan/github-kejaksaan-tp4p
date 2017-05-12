@@ -8,10 +8,11 @@ import id.net.iconpln.kejaksaan.KejaksaanApp;
 import id.net.iconpln.kejaksaan.model.ArsipResponse;
 import id.net.iconpln.kejaksaan.model.Berita;
 import id.net.iconpln.kejaksaan.model.Jadwal;
+import id.net.iconpln.kejaksaan.model.LaporanAkhir;
 import id.net.iconpln.kejaksaan.model.LaporanAkhirResponse;
 import id.net.iconpln.kejaksaan.model.LoginResponse;
 import id.net.iconpln.kejaksaan.model.Permohonan;
-import id.net.iconpln.kejaksaan.model.ProyekResponse;
+import id.net.iconpln.kejaksaan.model.Proyek;
 import id.net.iconpln.kejaksaan.model.ProyekSummary;
 import id.net.iconpln.kejaksaan.model.Rekapitulasi;
 import retrofit2.Call;
@@ -60,7 +61,7 @@ class Dispatcher {
         return serviceApi.listPermohonan(KejaksaanApp.KEJAKSAAN_ID);
     }
 
-    protected Call<ProyekResponse> listProyek() {
+    protected Call<Proyek[]> listProyek() {
         return serviceApi.listProyek(KejaksaanApp.KEJAKSAAN_ID);
     }
 
@@ -68,7 +69,7 @@ class Dispatcher {
         return serviceApi.listArsip(KejaksaanApp.KEJAKSAAN_ID);
     }
 
-    protected Call<LaporanAkhirResponse> listLaporanAkhir() {
+    protected Call<LaporanAkhir[]> listLaporanAkhir() {
         return serviceApi.listLaporanAkhir(KejaksaanApp.KEJAKSAAN_ID);
     }
 
