@@ -47,4 +47,6 @@ public class Rekapitulasi {
     public void setNilai(String nilai) {
         this.nilai = nilai;
     }
+
+
 }

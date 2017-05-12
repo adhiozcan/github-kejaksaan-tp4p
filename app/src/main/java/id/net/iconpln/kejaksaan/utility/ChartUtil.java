@@ -17,7 +17,21 @@ public class ChartUtil {
 
     public static float[] getRekapMonthValue(List<Rekapitulasi> mRekapitulasis){
         float[] data = new float[12];
-
+        for (int i=0; i<data.length; i++){
+            data[i] = getRekap(mRekapitulasis, i+1);
+        }
         return data;
     }
+
+
+    public static float getRekap(List<Rekapitulasi> mRekapitulasis, int index){
+        float data = 0;
+        for (Rekapitulasi rekap : mRekapitulasis){
+            if (Integer.valueOf(rekap.getBulan()) == index){
+                data = data + Integer.valueOf(rekap.getNilai());
+            }
+        }
+        return data;
+    }
+
 }
