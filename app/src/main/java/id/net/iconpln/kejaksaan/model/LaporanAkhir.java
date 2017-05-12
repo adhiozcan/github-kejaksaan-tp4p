@@ -1,14 +1,22 @@
 package id.net.iconpln.kejaksaan.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Ozcan on 27/04/2017.
  */
 
 public class LaporanAkhir {
+    @SerializedName("NO_PROYEK")
     private String noProject;
+    @SerializedName("NAMA_PROYEK")
     private String namaProject;
+    @SerializedName("TGL_TERBIT")
     private String tanggalTerbit;
+    @SerializedName("RINGKASAN_LAPORAN")
     private String ringkasan;
+    @SerializedName("LINK_DOKUMEN")
+    private String tautan;
 
     public String getNoProject() {
         return noProject;
@@ -40,5 +48,13 @@ public class LaporanAkhir {
 
     public void setRingkasan(String ringkasan) {
         this.ringkasan = ringkasan;
+    }
+
+    public String getTautan() {
+        return tautan;
+    }
+
+    public void setTautan(String tautan) {
+        this.tautan = tautan;
     }
 }
