@@ -6,7 +6,7 @@
               android:layout_margin="25dp"
               android:gravity="center"
               android:orientation="vertical"
-              tools:context="id.net.iconpln.kejaksaan.ui.AboutActivity"
+              tools:context=".ui.AboutActivity"
               tools:showIn="@layout/activity_about">
 
     <LinearLayout

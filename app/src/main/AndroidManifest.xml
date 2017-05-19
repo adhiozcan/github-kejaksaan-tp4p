@@ -1,117 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="id.net.iconpln.kejaksaan">
+          package="id.net.iconpln.apps.tp4">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:name=".KejaksaanApp"
+        android:name="id.net.iconpln.apps.tp4.KejaksaanApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.SplashActivity">
+
+        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
+        See README(https://goo.gl/l4GJaQ) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/tp4_logo"/>
+        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+         notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorPrimary"/>
+
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.NotificationActivity">
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.NotificationActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity"/>
-        </activity>
-        <activity android:name=".ui.LoginActivity"/>
-        <activity android:name=".ui.MainActivity"/>
-        <activity android:name=".ui.RekapProyekActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity"/>
-        </activity>
-        <activity android:name=".ui.WalmanInputActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.ListPenugasanActivity"/>
-        </activity>
-        <activity android:name=".ui.ListBeritaActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity"/>
-        </activity>
-        <activity android:name=".ui.BeritaActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.ListBeritaActivity"/>
-        </activity>
-        <activity android:name=".ui.ListJadwalActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity"/>
-        </activity>
-        <activity android:name=".ui.ListPermohonanActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity"/>
-        </activity>
-        <activity android:name=".ui.PenugasanActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.ListPermohonanActivity"/>
-        </activity>
-        <activity android:name=".ui.ListPenugasanActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity"/>
-        </activity>
-        <activity android:name=".ui.PermohonanDetailActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.ListPermohonanActivity"/>
-        </activity>
-        <activity android:name=".ui.ListProjectsActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.ListPermohonanActivity"/>
-        </activity>
-        <activity android:name=".ui.ListArchiveActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity"/>
-        </activity>
-        <activity android:name=".ui.SettingsActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity"/>
-        </activity>
-        <activity android:name=".ui.AboutActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity"/>
+                android:value="id.net.iconpln.apps.tp4.ui.MainActivity"/>
         </activity>
         <activity
-            android:name=".ui.ProfileActivity"
+            android:name="id.net.iconpln.apps.tp4.ui.LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.RekapProyekActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.net.iconpln.apps.tp4.ui.MainActivity"/>
+        </activity>
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.WalmanInputActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.net.iconpln.apps.tp4.ui.ListPenugasanActivity"/>
+        </activity>
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.ListBeritaActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.net.iconpln.apps.tp4.ui.MainActivity"/>
+        </activity>
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.BeritaActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.net.iconpln.apps.tp4.ui.ListBeritaActivity"/>
+        </activity>
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.ListJadwalActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.net.iconpln.apps.tp4.ui.MainActivity"/>
+        </activity>
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.ListPermohonanActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.net.iconpln.apps.tp4.ui.MainActivity"/>
+        </activity>
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.PenugasanActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.net.iconpln.apps.tp4.ui.ListPermohonanActivity"/>
+        </activity>
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.ListPenugasanActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.net.iconpln.apps.tp4.ui.MainActivity"/>
+        </activity>
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.PermohonanDetailActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.net.iconpln.apps.tp4.ui.ListPermohonanActivity"/>
+        </activity>
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.ListProjectsActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.net.iconpln.apps.tp4.ui.ListPermohonanActivity"/>
+        </activity>
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.ListArchiveActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.net.iconpln.apps.tp4.ui.MainActivity"/>
+        </activity>
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.SettingsActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.net.iconpln.apps.tp4.ui.MainActivity"/>
+        </activity>
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.AboutActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.net.iconpln.apps.tp4.ui.MainActivity"/>
+        </activity>
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.ProfileActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity"/>
+                android:value="id.net.iconpln.apps.tp4.ui.MainActivity"/>
         </activity>
         <activity
-            android:name=".ui.ListLaporanAkhirActivity"
+            android:name="id.net.iconpln.apps.tp4.ui.ListLaporanAkhirActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity"/>
+                android:value="id.net.iconpln.apps.tp4.ui.MainActivity"/>
         </activity>
-        <activity android:name=".ui.PimpinanHomeActivity">
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.PimpinanHomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.PerkembanganActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.HistoryPerkembanganActivity"
+            android:screenOrientation="portrait"/>
 
-        </activity>
-        <activity android:name=".ui.PerkembanganActivity">
-        </activity>
-        <activity android:name=".ui.HistoryPerkembanganActivity">
-        </activity>
+        <service
+            android:name="id.net.iconpln.apps.tp4.FirebaseToken">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <service android:name="id.net.iconpln.apps.tp4.FirebaseMessage">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

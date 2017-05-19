@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/valhalla"
-    tools:context="id.net.iconpln.kejaksaan.ui.AboutActivity">
+    tools:context=".ui.AboutActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

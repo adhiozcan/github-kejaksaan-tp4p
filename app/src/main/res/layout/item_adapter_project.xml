@@ -25,18 +25,10 @@
             android:textStyle="bold"/>
 
 
-        <TextView
-            android:id="@+id/content_penjelasan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/space_8dp"
-            android:layout_marginTop="@dimen/space_8dp"
-            android:text="Content Project"
-            android:textColor="@color/textColorBlack"/>
-
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_16dp">
 
             <TableRow>
 
@@ -150,24 +142,24 @@
         android:padding="@dimen/space_16dp">
 
         <TextView
-            android:padding="@dimen/space_8dp"
             android:id="@+id/btn_laporan_walman"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/button_round_orange"
             android:elevation="@dimen/space_2dp"
             android:gravity="center"
+            android:padding="@dimen/space_8dp"
             android:text="Laporan Walman"
             android:textStyle="bold"/>
 
         <TextView
-            android:layout_marginLeft="@dimen/space_16dp"
-            android:padding="@dimen/space_8dp"
             android:id="@+id/btn_laporan_tracking"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_16dp"
             android:background="@drawable/button_round_orange"
             android:gravity="center"
+            android:padding="@dimen/space_8dp"
             android:text="Perkembangan"
             android:textStyle="bold"/>
     </LinearLayout>

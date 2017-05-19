@@ -8,7 +8,7 @@
     android:background="@color/white"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context="id.net.iconpln.kejaksaan.ui.PimpinanHomeActivity">
+    tools:context=".ui.PimpinanHomeActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
