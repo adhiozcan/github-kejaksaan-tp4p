@@ -41,7 +41,7 @@ class Dispatcher {
     }
 
     protected Call<ProyekSummary[]> proyekSummary() {
-        return serviceApi.proyekSummary(KejaksaanApp.KEJAKSAAN_ID);
+        return serviceApi.proyekSummary(KejaksaanApp.kejaksaanId);
     }
 
     protected Call<Rekapitulasi[]> proyekSummaryDetail() {
@@ -57,19 +57,19 @@ class Dispatcher {
     }
 
     protected Call<Permohonan[]> listPermohonan() {
-        return serviceApi.listPermohonan(KejaksaanApp.KEJAKSAAN_ID);
+        return serviceApi.listPermohonan(KejaksaanApp.kejaksaanId);
     }
 
     protected Call<Proyek[]> listProyek() {
-        return serviceApi.listProyek(KejaksaanApp.KEJAKSAAN_ID);
+        return serviceApi.listProyek(KejaksaanApp.kejaksaanId);
     }
 
     protected Call<ArsipResponse> listArsip() {
-        return serviceApi.listArsip(KejaksaanApp.KEJAKSAAN_ID);
+        return serviceApi.listArsip(KejaksaanApp.kejaksaanId);
     }
 
     protected Call<LaporanAkhir[]> listLaporanAkhir() {
-        return serviceApi.listLaporanAkhir(KejaksaanApp.KEJAKSAAN_ID);
+        return serviceApi.listLaporanAkhir(KejaksaanApp.kejaksaanId);
     }
 
     /**

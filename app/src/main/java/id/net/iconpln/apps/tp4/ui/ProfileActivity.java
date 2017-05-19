@@ -31,7 +31,7 @@ public class ProfileActivity extends AppCompatActivity {
         mDaerahKejaksaan = (TextView) findViewById(R.id.area_kejaksaan);
         mStatus = (TextView) findViewById(R.id.status);
 
-        UserProfile user = KejaksaanApp.PROFILE;
+        UserProfile user = KejaksaanApp.profile;
 
         mNamaPetugas.setText(user.getNama());
         mJabatan.setText(user.getJabatan());

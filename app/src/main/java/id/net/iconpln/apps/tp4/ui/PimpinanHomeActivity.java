@@ -40,7 +40,7 @@ public class PimpinanHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pimpinan_home);
 
         CommonUtils.installToolbarForMain(this);
-        KejaksaanApp.KEJAKSAAN_ID = "5";
+        KejaksaanApp.kejaksaanId = "5";
 
         mTxtTotalNilaiProyek = (TextView) findViewById(R.id.nilai_proyek);
         mTxtStatMasuk = (TextView) findViewById(R.id.stat_masuk);

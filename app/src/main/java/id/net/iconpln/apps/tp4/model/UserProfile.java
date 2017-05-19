@@ -20,6 +20,7 @@ public class UserProfile {
     private String email;
     @SerializedName("mobile")
     private String mobile;
+    private String password;
 
     public String getIdKejaksaan() {
         return idKejaksaan;
@@ -77,16 +78,25 @@ public class UserProfile {
         this.mobile = mobile;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String toString() {
         return "UserProfile{" +
-                ", idKejaksaan='" + idKejaksaan + '\'' +
+                "idKejaksaan='" + idKejaksaan + '\'' +
                 ", unitKejaksaan='" + unitKejaksaan + '\'' +
                 ", nama='" + nama + '\'' +
                 ", jabatan='" + jabatan + '\'' +
                 ", alamat='" + alamat + '\'' +
                 ", email='" + email + '\'' +
                 ", mobile='" + mobile + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }
