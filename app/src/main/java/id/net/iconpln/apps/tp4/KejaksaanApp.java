@@ -2,6 +2,9 @@ package id.net.iconpln.apps.tp4;
 
 import android.app.Application;
 
+import com.orhanobut.hawk.Hawk;
+import com.orhanobut.hawk.HawkBuilder;
+
 import id.net.iconpln.apps.tp4.model.UserProfile;
 
 /**
@@ -9,7 +12,19 @@ import id.net.iconpln.apps.tp4.model.UserProfile;
  */
 
 public class KejaksaanApp extends Application {
-    public static String      USER_ID      = "";
-    public static String      KEJAKSAAN_ID = "";
-    public static UserProfile PROFILE      = new UserProfile();
+    public static String      userId;
+    public static String      kejaksaanId;
+    public static UserProfile profile;
+
+    static {
+        userId = "";
+        kejaksaanId = "";
+        profile = new UserProfile();
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Hawk.init(this).build();
+    }
 }

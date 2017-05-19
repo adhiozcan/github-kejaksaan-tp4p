@@ -87,13 +87,14 @@
                     android:textColorHint="@color/textColorWhite"
                     android:textSize="@dimen/text_size_16sp"/>
 
-                <TextView
-                    android:layout_width="match_parent"
+                <CheckBox
+                    android:id="@+id/remember_me"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/space_8dp"
-                    android:gravity="center|end"
-                    android:text="Lupa password ?"
-                    android:textColor="@color/textColorWhite"/>
+                    android:layout_toLeftOf="@+id/logo_kejaksaan"
+                    android:layout_toStartOf="@+id/logo_kejaksaan"
+                    android:text="Selalu ingat saya"/>
 
                 <TextView
                     android:id="@+id/button_login"
@@ -101,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/space_32dp"
                     android:layout_marginRight="@dimen/space_32dp"
-                    android:layout_marginTop="@dimen/space_24dp"
+                    android:layout_marginTop="@dimen/space_32dp"
                     android:background="@drawable/button_square_orange"
                     android:onClick="onLoginButtonClicked"
                     android:paddingBottom="@dimen/space_12dp"

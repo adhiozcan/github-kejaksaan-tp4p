@@ -6,11 +6,16 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
+
+import id.net.iconpln.apps.tp4.Config;
 import id.net.iconpln.apps.tp4.R;
+
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import com.flaviofaria.kenburnsview.KenBurnsView;
@@ -36,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     private CoordinatorLayout       coordinatorLayout;
     private EditText                edUsername;
     private EditText                edPassword;
+    private CheckBox                chkRemember;
     private BeautifulProgressDialog mProgressDialog;
 
     @Override
@@ -47,6 +53,27 @@ public class LoginActivity extends AppCompatActivity {
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
         edUsername = (EditText) findViewById(R.id.username);
         edPassword = (EditText) findViewById(R.id.password);
+        chkRemember = (CheckBox) findViewById(R.id.remember_me);
+        chkRemember.setChecked(Config.User.isAlwaysRemember());
+        chkRemember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                Config.User.setAlwaysRemember(b);
+            }
+        });
+
+        /**
+         * Get user information from local storage.
+         */
+        if (Config.User.isAlwaysRemember()) {
+            UserProfile user = Config.User.getLocalInfoUser();
+            if (user != null && user.getNama() != null) {
+                edUsername.setText(user.getNama());
+                edPassword.setText(user.getPassword());
+            } else {
+                chkRemember.setChecked(false);
+            }
+        }
 
         mProgressDialog = new BeautifulProgressDialog(this);
         mProgressDialog.setMessage("Autentikasi pengguna, harap tunggu ...");
@@ -66,18 +93,12 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private boolean checkIsEmpty(String field) {
-        if (TextUtils.isEmpty(field))
-            return true;
-        return false;
-    }
-
     private boolean validateInput(String username, String password) {
-        if (checkIsEmpty(username)) {
+        if (TextUtils.isEmpty(username)) {
             edUsername.setError("Username tidak boleh kosong");
             return false;
         }
-        if (checkIsEmpty(password)) {
+        if (TextUtils.isEmpty(password)) {
             edPassword.setError("Password tidak boleh kosong");
             return false;
         }
@@ -97,7 +118,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(LoginResponse response) {
                 mProgressDialog.dismiss();
                 if (response.getIsSuccess()) {
-                    saveUserInfo(response.getUserProfile());
+                    if (Config.User.isAlwaysRemember()) {
+                        Config.User.saveLocalInfoUser(response.getUserProfile());
+                    }
+                    createCurrentSession(response.getUserProfile());
                     navigateTo(MainActivity.class);
                 } else {
                     Snackbar snackbar = Snackbar.make(coordinatorLayout, "Username atau Password tidak ditemukan.", Snackbar.LENGTH_LONG);
@@ -116,15 +140,14 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void saveUserInfo(UserProfile userProfile) {
-        KejaksaanApp.PROFILE = userProfile;
-        KejaksaanApp.USER_ID = userProfile.getNama();
-        //KejaksaanApp.KEJAKSAAN_ID = userProfile.getIdKejaksaan();
-        KejaksaanApp.KEJAKSAAN_ID = "5";
+    private void createCurrentSession(UserProfile userProfile) {
+        KejaksaanApp.profile = userProfile;
+        KejaksaanApp.userId = userProfile.getNama();
+        //KejaksaanApp.kejaksaanId = userProfile.getIdKejaksaan();
+        KejaksaanApp.kejaksaanId = "5";
 
-
-        Log.d("LoginActivity", "saveUserInfo: ------------------------------------------------------------");
-        Log.d("LoginActivity", "saveUserInfo: " + userProfile.toString());
+        Log.d("LoginActivity", "createCurrentSession: ------------------------------------------------------------");
+        Log.d("LoginActivity", "createCurrentSession: " + userProfile.toString());
     }
 
     private void navigateTo(Class activity) {
