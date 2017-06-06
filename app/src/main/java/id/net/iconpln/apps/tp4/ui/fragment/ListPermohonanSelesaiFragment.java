@@ -1,10 +1,11 @@
-package id.net.iconpln.apps.tp4.ui;
+package id.net.iconpln.apps.tp4.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import id.net.iconpln.apps.tp4.R;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -16,24 +17,23 @@ import java.util.List;
 
 import id.net.iconpln.apps.tp4.adapter.ListPermohonanAdapter;
 import id.net.iconpln.apps.tp4.model.Permohonan;
-import id.net.iconpln.apps.tp4.R;
 import id.net.iconpln.apps.tp4.utility.CommonUtils;
 
 /**
- * Created by Ozcan on 13/03/2017.
+ * Created by Ozcan on 02/05/2017.
  */
 
-public class ListPermohonanDitolakFragment extends Fragment {
+public class ListPermohonanSelesaiFragment extends Fragment {
     private ListPermohonanAdapter mAdapter;
     private RecyclerView          mRecyclerView;
 
     private List<Permohonan> mPermohonanList;
 
-    public static ListPermohonanDitolakFragment newInstance(String permohonanList) {
+    public static ListPermohonanSelesaiFragment newInstance(String permohonanList) {
 
         Bundle args = new Bundle();
         args.putString("permohonan_list", permohonanList);
-        ListPermohonanDitolakFragment fragment = new ListPermohonanDitolakFragment();
+        ListPermohonanSelesaiFragment fragment = new ListPermohonanSelesaiFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -41,14 +41,14 @@ public class ListPermohonanDitolakFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_permohonan_ditolak, container, false);
+        View view = inflater.inflate(R.layout.fragment_permohonan_selesai, container, false);
 
         String       permohonanInString = getArguments().getString("permohonan_list");
         Permohonan[] permohonanArgs     = new Gson().fromJson(permohonanInString, Permohonan[].class);
 
         mPermohonanList = new ArrayList<>(Arrays.asList(permohonanArgs));
         mAdapter = new ListPermohonanAdapter(getActivity(), mPermohonanList);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_permohonan_ditolak);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list_permohonan_selesai);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(CommonUtils.getVerticalLayoutManager(getActivity()));
         return view;

@@ -137,7 +137,7 @@ public class PimpinanHomeActivity extends AppCompatActivity {
                 navigateTo(PerkembanganActivity.class);
                 break;
             case R.id.menu_proyek:
-                navigateTo(ListProjectsActivity.class);
+                navigateTo(ListProyekActivity.class);
                 break;
             case R.id.menu_data_permohonan:
                 navigateTo(ListPermohonanActivity.class);
@@ -146,7 +146,7 @@ public class PimpinanHomeActivity extends AppCompatActivity {
                 navigateTo(ListLaporanAkhirActivity.class);
                 break;
             case R.id.menu_arsip:
-                navigateTo(ListArchiveActivity.class);
+                navigateTo(ListArsipActivity.class);
                 break;
             case R.id.menu_user_profile:
                 navigateTo(ProfileActivity.class);

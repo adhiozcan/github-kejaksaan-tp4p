@@ -9,6 +9,8 @@ import com.google.gson.annotations.SerializedName;
 public class Proyek {
     @SerializedName("NO_PROYEK")
     private String noProject;
+    @SerializedName("NO_REGISTRASI")
+    private String noRegistrasi;
     @SerializedName("NAMA_PROYEK")
     private String namaProject;
     @SerializedName("NILAI")
@@ -31,6 +33,14 @@ public class Proyek {
 
     public void setNoProject(String noProject) {
         this.noProject = noProject;
+    }
+
+    public String getNoRegistrasi() {
+        return noRegistrasi;
+    }
+
+    public void setNoRegistrasi(String noRegistrasi) {
+        this.noRegistrasi = noRegistrasi;
     }
 
     public String getNamaProject() {

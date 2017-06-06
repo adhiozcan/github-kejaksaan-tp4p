@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:background="@color/snow"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:elevation="@dimen/space_8dp"
+        app:title="Arsip"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_below="@id/toolbar"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_tp4_gradient"/>
+
+    <LinearLayout
+        android:id="@+id/img_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="@dimen/space_32dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_archive_64"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/space_12dp"
+            android:fontFamily="sans-serif-light"
+            android:text="Cari Arsip dokumen dengan mudah"
+            android:textColor="@color/textColorWhite"
+            android:textSize="@dimen/text_size_18sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/space_12dp"
+            android:fontFamily="sans-serif-light"
+            android:text="Tampilkan data untuk tahun"
+            android:textColor="@color/textColorWhite"
+            android:textSize="@dimen/text_size_14sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/search_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_description"
+        android:layout_margin="@dimen/space_16dp"
+        android:background="@color/snow"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/space_8dp"
+        android:paddingLeft="@dimen/space_16dp"
+        android:paddingRight="@dimen/space_16dp"
+        android:paddingTop="@dimen/space_12dp">
+
+        <EditText
+            android:id="@+id/ed_search_box"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="Cari laporan..."
+            android:maxLines="1"
+            android:textColor="@color/textColorBlack"
+            android:textColorHint="@color/textColorBlack"/>
+
+        <ImageButton
+            android:id="@+id/ed_search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_round_orange"
+            android:onClick="onSearchButtonClicked"
+            android:padding="@dimen/space_8dp"
+            android:src="@drawable/ic_search"/>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_list_arsip"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/search_box"
+        android:background="@color/snow"/>
+</RelativeLayout>

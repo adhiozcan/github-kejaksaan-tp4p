@@ -16,7 +16,7 @@ import id.net.iconpln.apps.tp4.R;
  * Created by Ozcan on 26/04/2017.
  */
 
-public class ListNotificationAdapter extends KejaksaanBaseAdapter<ListNotificationAdapter.ViewHolder, Notifikasi> {
+public class ListNotificationAdapter extends BaseAdapter<ListNotificationAdapter.ViewHolder, Notifikasi> {
 
     private List<Notifikasi> notifikasiList;
 

@@ -16,7 +16,7 @@ import id.net.iconpln.apps.tp4.R;
  * Created by Ozcan on 26/04/2017.
  */
 
-public class RekapProyekAdapter extends KejaksaanBaseAdapter<RekapProyekAdapter.ViewHolder, Rekapitulasi> {
+public class RekapProyekAdapter extends BaseAdapter<RekapProyekAdapter.ViewHolder, Rekapitulasi> {
     private List<Rekapitulasi> rekapitulasiList;
     private OnItemSelected onItemSelected;
 

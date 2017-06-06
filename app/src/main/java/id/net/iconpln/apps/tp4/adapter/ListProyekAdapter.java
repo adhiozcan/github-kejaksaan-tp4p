@@ -10,19 +10,21 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import id.net.iconpln.apps.tp4.KejaksaanApp;
 import id.net.iconpln.apps.tp4.R;
 import id.net.iconpln.apps.tp4.model.Proyek;
-import id.net.iconpln.apps.tp4.ui.WalmanInputActivity;
+import id.net.iconpln.apps.tp4.ui.TrackingActivity;
+import id.net.iconpln.apps.tp4.ui.WalmanActivity;
 
 /**
  * Created by Ozcan on 10/03/2017.
  */
 
-public class ListProjectsAdapter extends KejaksaanBaseAdapter<ListProjectsAdapter.ViewHolder, Proyek> {
+public class ListProyekAdapter extends BaseAdapter<ListProyekAdapter.ViewHolder, Proyek> {
     private Context      context;
     private List<Proyek> proyekList;
 
-    public ListProjectsAdapter(Context context, List<Proyek> proyekList) {
+    public ListProyekAdapter(Context context, List<Proyek> proyekList) {
         this.context = context;
         this.proyekList = proyekList;
     }
@@ -32,12 +34,12 @@ public class ListProjectsAdapter extends KejaksaanBaseAdapter<ListProjectsAdapte
         Context mContext   = parent.getContext();
         int     itemLayout = R.layout.item_adapter_project;
         View    view       = LayoutInflater.from(mContext).inflate(itemLayout, parent, false);
-        return new ListProjectsAdapter.ViewHolder(view);
+        return new ListProyekAdapter.ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Proyek proyek = proyekList.get(position);
+        final Proyek proyek = proyekList.get(position);
         holder.judulProyek.setText(proyek.getNamaProject());
         holder.namaPemohon.setText(proyek.getNamaPemohon());
         holder.instansiPemohon.setText(proyek.getInstansiPemohon());
@@ -47,7 +49,16 @@ public class ListProjectsAdapter extends KejaksaanBaseAdapter<ListProjectsAdapte
         holder.btnLaporanWalman.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context, WalmanInputActivity.class));
+                KejaksaanApp.noProyek = proyek.getNoProject();
+                KejaksaanApp.noRegistrasi = proyek.getNoRegistrasi();
+                context.startActivity(new Intent(context, WalmanActivity.class));
+            }
+        });
+
+        holder.btnLaporanTracking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context.startActivity(new Intent(context, TrackingActivity.class));
             }
         });
     }
@@ -65,6 +76,7 @@ public class ListProjectsAdapter extends KejaksaanBaseAdapter<ListProjectsAdapte
         TextView tanggalMulai;
         TextView durasi;
         View     btnLaporanWalman;
+        View     btnLaporanTracking;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -75,6 +87,7 @@ public class ListProjectsAdapter extends KejaksaanBaseAdapter<ListProjectsAdapte
             tanggalMulai = (TextView) itemView.findViewById(R.id.starting_project);
             durasi = (TextView) itemView.findViewById(R.id.lama_pengerjaan);
             btnLaporanWalman = itemView.findViewById(R.id.btn_laporan_walman);
+            btnLaporanTracking = itemView.findViewById(R.id.btn_laporan_tracking);
         }
     }
 }

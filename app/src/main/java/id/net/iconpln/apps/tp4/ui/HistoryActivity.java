@@ -8,7 +8,7 @@ import android.view.View;
 
 import id.net.iconpln.apps.tp4.model.Rekapitulasi;
 
-public class HistoryPerkembanganActivity extends AppCompatActivity {
+public class HistoryActivity extends AppCompatActivity {
 
     private Rekapitulasi mRekap;
     @Override

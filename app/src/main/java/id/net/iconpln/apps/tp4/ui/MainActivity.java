@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import id.net.iconpln.apps.tp4.R;
+
 import android.view.View;
 import android.widget.TextView;
 
@@ -31,8 +33,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTxtStatSelesai;
     private TextView mTxtStatDitolak;
 
+    private View mNotifView;
+
     private ProyekSummary mProyekSummary;
-    private Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getDataFromNetwork() {
-        Map<String, String> param = new HashMap<>();
-        param.put(Param.USER_UNIT_ID, "5");
-        RequestServer request = new RequestServer(ServiceUrl.PROJECT_SUMMARY, param);
+        RequestServer request = new RequestServer(ServiceUrl.PROJECT_SUMMARY);
         request.execute(new ResponseListener<ProyekSummary[]>() {
             @Override
             public void onResponse(ProyekSummary[] response) {
@@ -77,14 +78,15 @@ public class MainActivity extends AppCompatActivity {
         mTxtStatSelesai.setText(mProyekSummary.getProyekSelesai());
         mTxtStatDitolak.setText(mProyekSummary.getProyekDitolak());
 
-        setNotifIntoIconToolbar(10);
-        setNotifIntoView(R.id.notif_stat_akun, 18);
+        //setNotifIntoIconToolbar(0);
+        //setNotifIntoView(R.id.notif_stat_akun, 18);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        this.menu = menu;
         getMenuInflater().inflate(R.menu.main_menu, menu);
+        mNotifView = menu.findItem(R.id.act_notif).getActionView();
+        setNotifIntoIconToolbar(0);
         return true;
     }
 
@@ -133,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
                 navigateTo(ListPenugasanActivity.class);
                 break;
             case R.id.menu_proyek:
-                navigateTo(ListProjectsActivity.class);
+                navigateTo(ListProyekActivity.class);
                 break;
             case R.id.menu_data_permohonan:
                 navigateTo(ListPermohonanActivity.class);
@@ -142,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                 navigateTo(ListLaporanAkhirActivity.class);
                 break;
             case R.id.menu_arsip:
-                navigateTo(ListArchiveActivity.class);
+                navigateTo(ListArsipActivity.class);
                 break;
             case R.id.menu_user_profile:
                 navigateTo(ProfileActivity.class);
@@ -161,17 +163,21 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intentActivity);
     }
 
-    private void setNotifIntoView(int viewId, int notf){
+    private void setNotifIntoView(int viewId, int notf) {
         TextView txtNotif = (TextView) findViewById(viewId);
         txtNotif.setVisibility(View.VISIBLE);
         txtNotif.setText(String.valueOf(notf));
     }
 
-    private void setNotifIntoIconToolbar(int notif){
-        View notifView = menu.findItem(R.id.act_notif).getActionView();
-        TextView txtViewCount = (TextView) notifView.findViewById(R.id.txtCount);
-        txtViewCount.setText(String.valueOf(notif));
-        notifView.findViewById(R.id.button_notif_menu).setOnClickListener(new View.OnClickListener() {
+    private void setNotifIntoIconToolbar(int notif) {
+        TextView txtViewCount = (TextView) mNotifView.findViewById(R.id.txtCount);
+        txtViewCount.setVisibility(View.GONE);
+        if (notif != 0) {
+            txtViewCount.setText(String.valueOf(notif));
+            txtViewCount.setVisibility(View.VISIBLE);
+        }
+
+        mNotifView.findViewById(R.id.button_notif_menu).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navigateTo(NotificationActivity.class);

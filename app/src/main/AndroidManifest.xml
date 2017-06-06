@@ -3,6 +3,9 @@
           package="id.net.iconpln.apps.tp4">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name="id.net.iconpln.apps.tp4.KejaksaanApp"
@@ -54,7 +57,7 @@
                 android:value="id.net.iconpln.apps.tp4.ui.MainActivity"/>
         </activity>
         <activity
-            android:name="id.net.iconpln.apps.tp4.ui.WalmanInputActivity"
+            android:name="id.net.iconpln.apps.tp4.ui.WalmanActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -110,15 +113,23 @@
                 android:value="id.net.iconpln.apps.tp4.ui.ListPermohonanActivity"/>
         </activity>
         <activity
-            android:name="id.net.iconpln.apps.tp4.ui.ListProjectsActivity"
+            android:name="id.net.iconpln.apps.tp4.ui.ListProyekActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="id.net.iconpln.apps.tp4.ui.ListPermohonanActivity"/>
         </activity>
         <activity
-            android:name="id.net.iconpln.apps.tp4.ui.ListArchiveActivity"
+            android:name="id.net.iconpln.apps.tp4.ui.TrackingActivity"
             android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.net.iconpln.apps.tp4.ui.ListProyekActivity"/>
+        </activity>
+        <activity
+            android:name="id.net.iconpln.apps.tp4.ui.ListArsipActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="id.net.iconpln.apps.tp4.ui.MainActivity"/>
@@ -160,7 +171,7 @@
             android:name="id.net.iconpln.apps.tp4.ui.PerkembanganActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="id.net.iconpln.apps.tp4.ui.HistoryPerkembanganActivity"
+            android:name="id.net.iconpln.apps.tp4.ui.HistoryActivity"
             android:screenOrientation="portrait"/>
 
         <service
@@ -173,6 +184,14 @@
         <service android:name="id.net.iconpln.apps.tp4.FirebaseMessage">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".jobservice.ReminderJob"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
             </intent-filter>
         </service>
     </application>

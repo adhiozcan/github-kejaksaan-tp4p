@@ -1,15 +1,25 @@
 package id.net.iconpln.apps.tp4.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Ozcan on 10/03/2017.
  */
 
 public class Penugasan {
+    @SerializedName("NO_PROYEK")
     private String  noProject;
+    @SerializedName("NO_REGISTRASI")
+    private String  noRegistrasi;
+    @SerializedName("NAMA_PROYEK")
     private String  namaProject;
+    @SerializedName("TGL_MASUK_PROYEK")
     private String  tanggalMasuk;
+    @SerializedName("KETERANGAN")
     private String  keterangan;
+    @SerializedName("NILAI_PROYEK")
     private String  nilai;
+    @SerializedName("IS_ACCEPTED")
     private boolean isAccept;
 
     public String getNoProject() {
@@ -18,6 +28,14 @@ public class Penugasan {
 
     public void setNoProject(String noProject) {
         this.noProject = noProject;
+    }
+
+    public String getNoRegistrasi() {
+        return noRegistrasi;
+    }
+
+    public void setNoRegistrasi(String noRegistrasi) {
+        this.noRegistrasi = noRegistrasi;
     }
 
     public String getNamaProject() {

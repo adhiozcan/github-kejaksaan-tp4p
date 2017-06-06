@@ -10,6 +10,17 @@
     android:orientation="vertical"
     tools:context=".ui.MainActivity">
 
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F5F4F7"
+        android:clipToPadding="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <include layout="@layout/view_dashboard_menu"/>
+
+    </android.support.v4.widget.NestedScrollView>
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -108,17 +119,18 @@
                     android:paddingTop="@dimen/space_8dp">
 
                     <TextView
-                        android:visibility="invisible"
-                        android:gravity="center"
                         android:id="@+id/notif_stat_masuk"
-                        android:maxLength="2"
-                        android:layout_marginRight="@dimen/space_16dp"
-                        android:textSize="@dimen/text_size_12sp"
-                        android:background="@drawable/rounded_red"
-                        android:text="10"
-                        android:layout_gravity="end"
                         android:layout_width="@dimen/space_16dp"
-                        android:layout_height="@dimen/space_16dp"/>
+                        android:layout_height="@dimen/space_16dp"
+                        android:layout_gravity="end"
+                        android:layout_marginRight="@dimen/space_16dp"
+                        android:background="@drawable/rounded_red"
+                        android:gravity="center"
+                        android:maxLength="2"
+                        android:text="10"
+                        android:textSize="@dimen/text_size_12sp"
+                        android:visibility="invisible"/>
+
                     <TextView
                         android:id="@+id/stat_masuk"
                         android:layout_width="wrap_content"
@@ -150,18 +162,20 @@
                     android:orientation="vertical"
                     android:paddingBottom="@dimen/space_8dp"
                     android:paddingTop="@dimen/space_8dp">
+
                     <TextView
-                        android:visibility="invisible"
-                        android:gravity="center"
                         android:id="@+id/notif_stat_ditangani"
-                        android:maxLength="2"
-                        android:layout_marginRight="@dimen/space_16dp"
-                        android:textSize="@dimen/text_size_12sp"
-                        android:background="@drawable/rounded_red"
-                        android:text="10"
-                        android:layout_gravity="end"
                         android:layout_width="@dimen/space_16dp"
-                        android:layout_height="@dimen/space_16dp"/>
+                        android:layout_height="@dimen/space_16dp"
+                        android:layout_gravity="end"
+                        android:layout_marginRight="@dimen/space_16dp"
+                        android:background="@drawable/rounded_red"
+                        android:gravity="center"
+                        android:maxLength="2"
+                        android:text="10"
+                        android:textSize="@dimen/text_size_12sp"
+                        android:visibility="invisible"/>
+
                     <TextView
                         android:id="@+id/stat_ditangani"
                         android:layout_width="wrap_content"
@@ -194,17 +208,17 @@
                     android:paddingTop="@dimen/space_8dp">
 
                     <TextView
-                        android:visibility="invisible"
-                        android:gravity="center"
                         android:id="@+id/notif_stat_selesai"
-                        android:maxLength="2"
-                        android:layout_marginRight="@dimen/space_16dp"
-                        android:textSize="@dimen/text_size_12sp"
-                        android:background="@drawable/rounded_red"
-                        android:text="10"
-                        android:layout_gravity="end"
                         android:layout_width="@dimen/space_16dp"
-                        android:layout_height="@dimen/space_16dp"/>
+                        android:layout_height="@dimen/space_16dp"
+                        android:layout_gravity="end"
+                        android:layout_marginRight="@dimen/space_16dp"
+                        android:background="@drawable/rounded_red"
+                        android:gravity="center"
+                        android:maxLength="2"
+                        android:text="10"
+                        android:textSize="@dimen/text_size_12sp"
+                        android:visibility="invisible"/>
 
                     <TextView
                         android:id="@+id/stat_selesai"
@@ -237,18 +251,20 @@
                     android:orientation="vertical"
                     android:paddingBottom="@dimen/space_8dp"
                     android:paddingTop="@dimen/space_8dp">
+
                     <TextView
-                        android:visibility="invisible"
-                        android:gravity="center"
                         android:id="@+id/notif_stat_ditolak"
-                        android:maxLength="2"
-                        android:layout_marginRight="@dimen/space_16dp"
-                        android:textSize="@dimen/text_size_12sp"
-                        android:background="@drawable/rounded_red"
-                        android:text="10"
-                        android:layout_gravity="end"
                         android:layout_width="@dimen/space_16dp"
-                        android:layout_height="@dimen/space_16dp"/>
+                        android:layout_height="@dimen/space_16dp"
+                        android:layout_gravity="end"
+                        android:layout_marginRight="@dimen/space_16dp"
+                        android:background="@drawable/rounded_red"
+                        android:gravity="center"
+                        android:maxLength="2"
+                        android:text="10"
+                        android:textSize="@dimen/text_size_12sp"
+                        android:visibility="invisible"/>
+
                     <TextView
                         android:id="@+id/stat_ditolak"
                         android:layout_width="wrap_content"
@@ -269,15 +285,4 @@
             </TableRow>
         </TableLayout>
     </android.support.design.widget.AppBarLayout>
-
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#F5F4F7"
-        android:clipToPadding="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <include layout="@layout/view_dashboard_menu"/>
-
-    </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>

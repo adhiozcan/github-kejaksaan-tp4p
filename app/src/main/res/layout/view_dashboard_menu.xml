@@ -53,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"
                     android:text="Berita"
-                    android:textColor="@color/ebony"/>
+                    android:textColor="@color/blue_grey_700"/>
             </LinearLayout>
 
             <LinearLayout
@@ -92,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"
                     android:text="Jadwal"
-                    android:textColor="@color/ebony"/>
+                    android:textColor="@color/blue_grey_700"/>
             </LinearLayout>
 
             <LinearLayout
@@ -127,12 +127,13 @@
                     android:src="@drawable/ic_permohonan"/>
 
                 <TextView
+                    android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"
                     android:text="Permohonan"
                     android:textAlignment="center"
-                    android:textColor="@color/ebony"/>
+                    android:textColor="@color/blue_grey_700"/>
             </LinearLayout>
 
             <LinearLayout
@@ -174,7 +175,7 @@
                     android:fontFamily="sans-serif-condensed"
                     android:text="Penugasan"
                     android:textAlignment="center"
-                    android:textColor="@color/ebony"/>
+                    android:textColor="@color/blue_grey_700"/>
             </LinearLayout>
         </TableRow>
 
@@ -220,7 +221,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"
                     android:text="Proyek"
-                    android:textColor="@color/ebony"/>
+                    android:textColor="@color/blue_grey_700"/>
             </LinearLayout>
 
             <LinearLayout
@@ -260,7 +261,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"
                     android:text="Laporan"
-                    android:textColor="@color/ebony"/>
+                    android:textColor="@color/blue_grey_700"/>
             </LinearLayout>
 
             <LinearLayout
@@ -302,7 +303,7 @@
                     android:fontFamily="sans-serif-condensed"
                     android:text="Arsip"
                     android:textAlignment="center"
-                    android:textColor="@color/ebony"/>
+                    android:textColor="@color/blue_grey_700"/>
             </LinearLayout>
 
             <LinearLayout
@@ -349,7 +350,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"
                     android:text="Akun"
-                    android:textColor="@color/ebony"/>
+                    android:textColor="@color/blue_grey_700"/>
             </LinearLayout>
         </TableRow>
     </TableLayout>

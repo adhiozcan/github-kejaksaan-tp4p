@@ -1,5 +1,6 @@
 package id.net.iconpln.apps.tp4.network;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -36,7 +37,10 @@ public class RestBuilder {
      * Create new Retrofit.Builder instance with certain configuration
      */
     private static Retrofit.Builder retrofitBuilder() {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        Gson gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                .create();
         return new Retrofit.Builder()
                 .baseUrl(BaseUrl.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson));

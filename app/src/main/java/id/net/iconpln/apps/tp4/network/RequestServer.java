@@ -65,8 +65,24 @@ public class RequestServer implements ClientApi {
                 return mDispatcher.listPermohonan();
             case ServiceUrl.PROJECT:
                 return mDispatcher.listProyek();
+            case ServiceUrl.ANEV:
+                return mDispatcher.listAnev();
+            case ServiceUrl.PENUGASAN:
+                return mDispatcher.penugasan();
+            case ServiceUrl.GET_KONFIRMASI:
+                return mDispatcher.getKonfirmasiStatus();
+            case ServiceUrl.DO_KONFIRMASI:
+                return mDispatcher.konfirmasiPenugasan();
+            case ServiceUrl.TRACKING:
+                return mDispatcher.trackingProject();
+            case ServiceUrl.WALMAN:
+                return mDispatcher.prosesWalman();
+            case ServiceUrl.WALMAN_UPLOAD_PHOTO:
+                return mDispatcher.prosesWalmanPhoto();
             case ServiceUrl.LAPORAN_AKHIR:
                 return mDispatcher.listLaporanAkhir();
+            case ServiceUrl.ARSIP:
+                return mDispatcher.listArsip();
             default:
                 return null;
         }

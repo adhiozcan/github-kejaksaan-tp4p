@@ -19,6 +19,10 @@ import id.net.iconpln.apps.tp4.R;
 import id.net.iconpln.apps.tp4.network.RequestServer;
 import id.net.iconpln.apps.tp4.network.ResponseListener;
 import id.net.iconpln.apps.tp4.network.ServiceUrl;
+import id.net.iconpln.apps.tp4.ui.fragment.ListPermohonanDitanganiFragment;
+import id.net.iconpln.apps.tp4.ui.fragment.ListPermohonanDitolakFragment;
+import id.net.iconpln.apps.tp4.ui.fragment.ListPermohonanMasukFragment;
+import id.net.iconpln.apps.tp4.ui.fragment.ListPermohonanSelesaiFragment;
 import id.net.iconpln.apps.tp4.utility.CommonUtils;
 import id.net.iconpln.apps.tp4.adapter.PermohonanViewPagerAdapter;
 

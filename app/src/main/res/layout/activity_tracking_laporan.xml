@@ -10,11 +10,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        app:title="Jadwal"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_daftar_jadwal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"/>
+        app:title="Tracking Laporan"/>
 </LinearLayout>

@@ -78,6 +78,7 @@
                     android:drawableLeft="@drawable/ic_key"
                     android:drawablePadding="@dimen/space_8dp"
                     android:hint="Password"
+                    android:inputType="textPassword"
                     android:maxLines="1"
                     android:paddingBottom="@dimen/space_8dp"
                     android:paddingLeft="@dimen/space_8dp"

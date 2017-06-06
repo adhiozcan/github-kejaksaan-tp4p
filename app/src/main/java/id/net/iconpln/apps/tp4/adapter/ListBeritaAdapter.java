@@ -18,7 +18,7 @@ import id.net.iconpln.apps.tp4.ui.BeritaActivity;
  * Created by Ozcan on 15/03/2017.
  */
 
-public class ListBeritaAdapter extends KejaksaanBaseAdapter<ListBeritaAdapter.ViewHolder, Berita> {
+public class ListBeritaAdapter extends BaseAdapter<ListBeritaAdapter.ViewHolder, Berita> {
     private Context      context;
     private List<Berita> listBerita;
 

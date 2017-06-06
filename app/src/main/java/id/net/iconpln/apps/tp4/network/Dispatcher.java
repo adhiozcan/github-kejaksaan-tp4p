@@ -5,15 +5,23 @@ import android.support.annotation.NonNull;
 import java.util.Map;
 
 import id.net.iconpln.apps.tp4.KejaksaanApp;
+import id.net.iconpln.apps.tp4.model.Anev;
+import id.net.iconpln.apps.tp4.model.Arsip;
 import id.net.iconpln.apps.tp4.model.ArsipResponse;
 import id.net.iconpln.apps.tp4.model.Berita;
 import id.net.iconpln.apps.tp4.model.Jadwal;
+import id.net.iconpln.apps.tp4.model.KonfirmasiResponse;
 import id.net.iconpln.apps.tp4.model.LaporanAkhir;
 import id.net.iconpln.apps.tp4.model.LoginResponse;
+import id.net.iconpln.apps.tp4.model.Penugasan;
 import id.net.iconpln.apps.tp4.model.Permohonan;
 import id.net.iconpln.apps.tp4.model.Proyek;
 import id.net.iconpln.apps.tp4.model.ProyekSummary;
 import id.net.iconpln.apps.tp4.model.Rekapitulasi;
+import id.net.iconpln.apps.tp4.model.TrackingProject;
+import id.net.iconpln.apps.tp4.model.WalmanPhotoResponse;
+import id.net.iconpln.apps.tp4.model.WalmanResponse;
+import id.net.iconpln.apps.tp4.utility.RequestBody;
 import retrofit2.Call;
 
 /**
@@ -64,7 +72,44 @@ class Dispatcher {
         return serviceApi.listProyek(KejaksaanApp.kejaksaanId);
     }
 
-    protected Call<ArsipResponse> listArsip() {
+    protected Call<Penugasan[]> penugasan() {
+        return serviceApi.listPenugasan(KejaksaanApp.userId);
+    }
+
+    protected Call<KonfirmasiResponse> getKonfirmasiStatus() {
+        return serviceApi.getKonfirmasi(KejaksaanApp.noRegistrasi, KejaksaanApp.userId);
+    }
+
+    protected Call<KonfirmasiResponse> konfirmasiPenugasan() {
+        return serviceApi.konfirmasiPenugasan(KejaksaanApp.noRegistrasi, KejaksaanApp.userId);
+    }
+
+    protected Call<Anev[]> listAnev() {
+        return serviceApi.listAnev();
+    }
+
+    protected Call<WalmanResponse> prosesWalman() {
+        return serviceApi.prosesWalman(
+                KejaksaanApp.noRegistrasi,
+                KejaksaanApp.anev,
+                KejaksaanApp.uraian,
+                KejaksaanApp.userId);
+    }
+
+    protected Call<WalmanPhotoResponse> prosesWalmanPhoto() {
+        return serviceApi.prosesWalmanPhoto(
+                RequestBody.create(KejaksaanApp.noRegistrasi),
+                RequestBody.create(KejaksaanApp.sequence),
+                RequestBody.create(KejaksaanApp.namaPhoto),
+                RequestBody.create(KejaksaanApp.anev),
+                RequestBody.createImage(KejaksaanApp.filePhoto));
+    }
+
+    protected Call<TrackingProject[]> trackingProject() {
+        return serviceApi.trackingProyek(KejaksaanApp.userId);
+    }
+
+    protected Call<Arsip[]> listArsip() {
         return serviceApi.listArsip(KejaksaanApp.kejaksaanId);
     }
 

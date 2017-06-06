@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 import id.net.iconpln.apps.tp4.model.Penugasan;
@@ -18,7 +20,7 @@ import id.net.iconpln.apps.tp4.R;
  * Created by Ozcan on 10/03/2017.
  */
 
-public class ListPenugasanAdapter extends KejaksaanBaseAdapter<ListPenugasanAdapter.ViewHolder, Penugasan> {
+public class ListPenugasanAdapter extends BaseAdapter<ListPenugasanAdapter.ViewHolder, Penugasan> {
     private Context         context;
     private List<Penugasan> penugasanList;
 
@@ -37,13 +39,23 @@ public class ListPenugasanAdapter extends KejaksaanBaseAdapter<ListPenugasanAdap
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Penugasan penugasan = penugasanList.get(position);
+        final Penugasan penugasan = penugasanList.get(position);
+        holder.noProyek.setText(penugasan.getNoProject() + ", ");
         holder.judulPenugasan.setText(penugasan.getNamaProject());
-        holder.contentPenugasan.setText(penugasan.getNilai());
-        holder.btnDetailPenugasan.setOnClickListener(new View.OnClickListener() {
+        holder.tanggalProyek.setText(penugasan.getTanggalMasuk());
+        //holder.contentPenugasan.setText(penugasan.getNilai());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context, PenugasanActivity.class));
+                Intent intent = new Intent(context, PenugasanActivity.class);
+                intent.putExtra("no_proyek", penugasan.getNoProject());
+                intent.putExtra("no_registrasi", penugasan.getNoRegistrasi());
+                intent.putExtra("nama_proyek", penugasan.getNamaProject());
+                intent.putExtra("tanggal_masuk", penugasan.getTanggalMasuk());
+                intent.putExtra("keterangan", penugasan.getKeterangan());
+                intent.putExtra("nilai_proyek", penugasan.getNilai());
+                intent.putExtra("is_accept", penugasan.isAccept());
+                context.startActivity(intent);
             }
         });
     }
@@ -54,13 +66,17 @@ public class ListPenugasanAdapter extends KejaksaanBaseAdapter<ListPenugasanAdap
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        TextView noProyek;
         TextView judulPenugasan;
+        TextView tanggalProyek;
         TextView contentPenugasan;
         TextView btnDetailPenugasan;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            noProyek = (TextView) itemView.findViewById(R.id.nomor_proyek);
             judulPenugasan = (TextView) itemView.findViewById(R.id.judul_penugasan);
+            tanggalProyek = (TextView) itemView.findViewById(R.id.tanggal_proyek);
             contentPenugasan = (TextView) itemView.findViewById(R.id.content_penugasan);
             btnDetailPenugasan = (TextView) itemView.findViewById(R.id.btn_detail_penugasan);
         }

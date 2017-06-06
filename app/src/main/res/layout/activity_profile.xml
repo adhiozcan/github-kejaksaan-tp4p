@@ -1,136 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"/>
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
     </android.support.design.widget.AppBarLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:scrollbars="none"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:scrollbars="none">
+            android:padding="@dimen/space_16dp">
+
+            <ImageView
+                android:layout_width="92dp"
+                android:layout_height="92dp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/space_16dp"
+                android:src="@drawable/tp4_logo"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DATA PENGGUNA"
+                android:textColor="#727272"
+                android:textSize="@dimen/text_size_14sp"
+                android:textStyle="bold"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:background="@drawable/background_kejaksaan"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="128dp"
-                    android:layout_height="128dp"
-                    android:src="@mipmap/ic_launcher"/>
-            </LinearLayout>
-
-            <TableLayout
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/space_32dp">
-
-                <TableRow
-                    android:layout_marginTop="@dimen/space_8dp">
-
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Nama Petugas"/>
-
-                    <TextView
-                        android:id="@+id/nama_petugas"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="..."/>
-                </TableRow>
-
-                <TableRow
-                    android:layout_marginTop="@dimen/space_8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Jabatan"/>
-
-                    <TextView
-                        android:id="@+id/jabatan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="..."/>
-                </TableRow>
-
-                <TableRow
-                    android:layout_marginTop="@dimen/space_8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Daerah Kejaksaan"/>
-
-                    <TextView
-                        android:id="@+id/area_kejaksaan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="..."/>
-                </TableRow>
-
-                <TableRow
-                    android:layout_marginTop="@dimen/space_8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Status"/>
-
-                    <TextView
-                        android:id="@+id/status"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="..."/>
-                </TableRow>
+                android:layout_marginTop="@dimen/space_8dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="@dimen/space_16dp">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Username"
+                    android:textColor="#727272"
+                    android:textSize="@dimen/text_size_14sp"/>
+
+                <TextView
+                    android:id="@+id/nama_petugas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="rizmaulana"
+                    android:textColor="#424242"
+                    android:textSize="@dimen/text_size_16sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/space_32dp"
-                    android:background="@drawable/button_round_orange"
-                    android:gravity="center"
-                    android:onClick="logout"
-                    android:paddingBottom="@dimen/space_12dp"
-                    android:paddingLeft="@dimen/space_16dp"
-                    android:paddingRight="@dimen/space_16dp"
-                    android:paddingTop="@dimen/space_12dp"
-                    android:text="Logout"
-                    android:textStyle="bold"/>
-            </TableLayout>
+                    android:text="Jabatan"
+                    android:textColor="#727272"
+                    android:textSize="@dimen/text_size_14sp"/>
+
+                <TextView
+                    android:id="@+id/jabatan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rizki Maulana"
+                    android:textColor="#424242"
+                    android:textSize="@dimen/text_size_16sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_32dp"
+                    android:text="Status"
+                    android:textColor="#727272"
+                    android:textSize="@dimen/text_size_14sp"/>
+
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Aktif"
+                    android:textColor="#424242"
+                    android:textSize="@dimen/text_size_16sp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16dp"
+                android:text="UNIT"
+                android:textColor="#727272"
+                android:textSize="@dimen/text_size_14sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="@dimen/space_16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daerah Kejaksaan"
+                    android:textColor="#727272"
+                    android:textSize="@dimen/text_size_14sp"/>
+
+                <TextView
+                    android:id="@+id/area_kejaksaan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8674"
+                    android:textColor="#424242"
+                    android:textSize="@dimen/text_size_16sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_32dp"
+                android:background="@drawable/button_round_orange"
+                android:gravity="center"
+                android:onClick="logout"
+                android:paddingBottom="@dimen/space_12dp"
+                android:paddingLeft="@dimen/space_16dp"
+                android:paddingRight="@dimen/space_16dp"
+                android:paddingTop="@dimen/space_12dp"
+                android:text="Logout"
+                android:textStyle="bold"/>
         </LinearLayout>
     </ScrollView>
 
-</android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

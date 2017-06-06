@@ -16,7 +16,7 @@ import id.net.iconpln.apps.tp4.R;
  * Created by Ozcan on 02/05/2017.
  */
 
-public class ListLaporanAkhirAdapter extends KejaksaanBaseAdapter<ListLaporanAkhirAdapter.ViewHolder, LaporanAkhir> {
+public class ListLaporanAkhirAdapter extends BaseAdapter<ListLaporanAkhirAdapter.ViewHolder, LaporanAkhir> {
     private Context            context;
     private List<LaporanAkhir> laporanList;
 

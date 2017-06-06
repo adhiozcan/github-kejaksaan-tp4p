@@ -52,7 +52,7 @@ public class PerkembanganActivity extends AppCompatActivity {
         mAdapter.setOnItemSelected(new RekapProyekAdapter.OnItemSelected() {
             @Override
             public void onClick(View view, int position) {
-                startActivity(new Intent(getApplicationContext(), HistoryPerkembanganActivity.class)
+                startActivity(new Intent(getApplicationContext(), HistoryActivity.class)
                              .putExtra("data", mRekapList.get(position)));
 
             }

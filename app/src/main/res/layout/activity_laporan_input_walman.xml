@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/container_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#DBE1E8"
@@ -57,12 +58,12 @@
                 android:paddingLeft="@dimen/space_12dp"
                 android:paddingRight="@dimen/space_12dp"
                 android:paddingTop="@dimen/space_4dp"
-                android:text="input Llaporan"
+                android:text="Input Laporan"
                 android:textColor="@android:color/primary_text_dark"
                 android:textStyle="bold"/>
 
             <EditText
-                android:id="@+id/txt_judul"
+                android:id="@+id/ed_judul"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
@@ -97,100 +98,81 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_8dp"
-                        android:text="Tanggal Aktifitas"
+                        android:text="No. Registrasi"
                         android:textAllCaps="true"
                         android:textColor="@color/textColorBlack"
                         android:textSize="@dimen/text_size_12sp"/>
 
-                    <TableRow
+                    <EditText
+                        android:id="@+id/ed_noreg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/space_4dp">
-
-                        <EditText
-                            android:id="@+id/ed_date"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:paddingBottom="@dimen/space_8dp"
-                            android:paddingTop="@dimen/space_8dp"
-                            android:textColor="@color/ebony"
-                            android:textSize="@dimen/text_size_16sp"/>
-
-                        <ImageButton
-                            android:id="@+id/action_date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/button_round_orange"
-                            android:padding="@dimen/space_2dp"
-                            android:src="@drawable/ic_date"/>
-                    </TableRow>
+                        android:enabled="false"
+                        android:hint="-"
+                        android:paddingBottom="@dimen/space_8dp"
+                        android:paddingTop="@dimen/space_8dp"
+                        android:textColor="@color/textColorBlack"
+                        android:textColorHint="@color/textColorBlack"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/space_8dp"
-                        android:text="Waktu"
+                        android:layout_marginTop="@dimen/space_16dp"
+                        android:text="No. Proyek"
                         android:textAllCaps="true"
                         android:textColor="@color/textColorBlack"
                         android:textSize="@dimen/text_size_12sp"/>
 
-                    <TableRow
+                    <EditText
+                        android:id="@+id/ed_noproyek"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/space_4dp">
-
-                        <EditText
-                            android:id="@+id/ed_time"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:paddingBottom="@dimen/space_8dp"
-                            android:paddingTop="@dimen/space_8dp"
-                            android:textSize="@dimen/text_size_16sp"/>
-
-                        <ImageButton
-                            android:id="@+id/action_time"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/button_round_orange"
-                            android:padding="@dimen/space_2dp"
-                            android:src="@drawable/ic_watch_time"/>
-                    </TableRow>
+                        android:enabled="false"
+                        android:hint="-"
+                        android:paddingBottom="@dimen/space_8dp"
+                        android:paddingRight="@dimen/space_16dp"
+                        android:paddingTop="@dimen/space_8dp"
+                        android:textColor="@color/textColorBlack"
+                        android:textColorHint="@color/textColorBlack"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/space_8dp"
-                        android:text="Lokasi"
+                        android:layout_marginTop="@dimen/space_16dp"
+                        android:text="Jenis Kegiatan"
                         android:textAllCaps="true"
                         android:textColor="@color/textColorBlack"
                         android:textSize="@dimen/text_size_12sp"/>
 
-                    <TableRow
+                    <Spinner
+                        android:id="@+id/anev"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/space_4dp">
+                        android:spinnerMode="dialog"/>
 
-                        <EditText
-                            android:id="@+id/ed_lokasi"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="Cari lokasi"
-                            android:paddingBottom="@dimen/space_8dp"
-                            android:paddingRight="@dimen/space_16dp"
-                            android:paddingTop="@dimen/space_8dp"
-                            android:textSize="@dimen/text_size_16sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_32dp"
+                        android:text="Uraian Kegiatan"
+                        android:textAllCaps="true"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="@dimen/text_size_12sp"/>
 
-                        <ImageButton
-                            android:id="@+id/action_maps"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/button_round_orange"
-                            android:padding="@dimen/space_2dp"
-                            android:src="@drawable/ic_maps"/>
-                    </TableRow>
+                    <EditText
+                        android:id="@+id/ed_uraian"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="-"
+                        android:inputType="textMultiLine"
+                        android:overScrollMode="always"
+                        android:paddingBottom="@dimen/space_8dp"
+                        android:paddingTop="@dimen/space_8dp"
+                        android:scrollHorizontally="false"
+                        android:scrollbars="vertical"
+                        android:textColor="@color/textColorBlack"
+                        android:textColorHint="@color/textColorBlack"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -199,7 +181,8 @@
                         android:text="Koordinat"
                         android:textAllCaps="true"
                         android:textColor="@color/textColorBlack"
-                        android:textSize="@dimen/text_size_12sp"/>
+                        android:textSize="@dimen/text_size_12sp"
+                        android:visibility="gone"/>
 
                     <EditText
                         android:id="@+id/ed_koordinat"
@@ -212,48 +195,10 @@
                         android:inputType="none"
                         android:paddingBottom="@dimen/space_8dp"
                         android:paddingTop="@dimen/space_8dp"
-                        android:textSize="@dimen/text_size_16sp"/>
+                        android:textSize="@dimen/text_size_16sp"
+                        android:visibility="gone"/>
                 </TableLayout>
-            </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/panel_uraian"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/panel_content"
-                android:layout_marginLeft="@dimen/space_8dp"
-                android:layout_marginRight="@dimen/space_8dp"
-                android:layout_marginTop="@dimen/space_16dp"
-                app:cardBackgroundColor="@color/snow"
-                app:cardElevation="@dimen/space_4dp">
-
-                <TableLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/space_16dp">
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/space_16dp"
-                        android:text="Uraian Kegiatan"
-                        android:textAllCaps="true"
-                        android:textColor="@color/textColorBlack"
-                        android:textSize="@dimen/text_size_12sp"/>
-
-                    <EditText
-                        android:id="@+id/ed_uraian"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textMultiLine"
-                        android:minHeight="96dp"
-                        android:paddingBottom="@dimen/space_8dp"
-                        android:paddingTop="@dimen/space_8dp"
-                        android:text="-"/>
-                </TableLayout>
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
@@ -267,102 +212,80 @@
                 app:cardBackgroundColor="@color/snow"
                 app:cardElevation="@dimen/space_4dp">
 
-                <TableLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/panel_uraian"
-                    android:layout_marginBottom="@dimen/space_12dp"
-                    android:layout_marginLeft="@dimen/space_8dp"
-                    android:layout_marginRight="@dimen/space_8dp"
-                    android:layout_marginTop="@dimen/space_12dp"
-                    android:padding="@dimen/space_8dp">
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/space_16dp"
-                        android:layout_marginTop="@dimen/space_16dp"
+                        android:layout_margin="@dimen/space_16dp"
                         android:text="Tambahkan Bukti Foto"
                         android:textAllCaps="true"
                         android:textColor="@color/textColorBlack"
                         android:textSize="@dimen/text_size_12sp"/>
 
-                    <TableRow>
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/space_16dp">
 
-                        <ImageView
-                            android:id="@+id/photo1"
-                            android:layout_width="110dp"
-                            android:layout_height="100dp"
-                            android:layout_marginLeft="@dimen/space_2dp"
-                            android:layout_marginRight="@dimen/space_2dp"
-                            android:background="@drawable/button_dashed"
-                            android:onClick="takePicture"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/ic_camera"
-                            android:tag=""/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
-                        <ImageView
-                            android:id="@+id/photo2"
-                            android:layout_width="110dp"
-                            android:layout_height="100dp"
-                            android:layout_marginLeft="@dimen/space_2dp"
-                            android:layout_marginRight="@dimen/space_2dp"
-                            android:background="@drawable/button_dashed"
-                            android:onClick="takePicture"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/ic_camera"
-                            android:tag=""/>
+                            <ImageView
+                                android:id="@+id/photo1"
+                                android:layout_width="140dp"
+                                android:layout_height="130dp"
+                                android:layout_marginLeft="@dimen/space_16dp"
+                                android:layout_marginRight="@dimen/space_2dp"
+                                android:background="@drawable/button_dashed"
+                                android:onClick="onTakePictureClicked"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_camera"
+                                android:tag=""/>
 
-                        <ImageView
-                            android:id="@+id/photo3"
-                            android:layout_width="110dp"
-                            android:layout_height="100dp"
-                            android:layout_marginLeft="@dimen/space_2dp"
-                            android:background="@drawable/button_dashed"
-                            android:onClick="takePicture"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/ic_camera"
-                            android:tag=""/>
-                    </TableRow>
+                            <ImageView
+                                android:id="@+id/photo2"
+                                android:layout_width="140dp"
+                                android:layout_height="130dp"
+                                android:layout_marginLeft="@dimen/space_2dp"
+                                android:layout_marginRight="@dimen/space_2dp"
+                                android:background="@drawable/button_dashed"
+                                android:onClick="onTakePictureClicked"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_camera"
+                                android:tag=""/>
 
-                    <TableRow>
+                            <ImageView
+                                android:id="@+id/photo3"
+                                android:layout_width="140dp"
+                                android:layout_height="130dp"
+                                android:layout_marginLeft="@dimen/space_2dp"
+                                android:layout_marginRight="@dimen/space_2dp"
+                                android:background="@drawable/button_dashed"
+                                android:onClick="onTakePictureClicked"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_camera"
+                                android:tag=""/>
 
-                        <ImageView
-                            android:id="@+id/photo4"
-                            android:layout_width="110dp"
-                            android:layout_height="100dp"
-                            android:layout_marginLeft="@dimen/space_2dp"
-                            android:layout_marginRight="@dimen/space_2dp"
-                            android:background="@drawable/button_dashed"
-                            android:onClick="takePicture"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/ic_camera"
-                            android:tag=""/>
-
-                        <ImageView
-                            android:id="@+id/photo5"
-                            android:layout_width="110dp"
-                            android:layout_height="100dp"
-                            android:layout_marginLeft="@dimen/space_2dp"
-                            android:layout_marginRight="@dimen/space_2dp"
-                            android:background="@drawable/button_dashed"
-                            android:onClick="takePicture"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/ic_camera"
-                            android:tag=""/>
-
-                        <ImageView
-                            android:id="@+id/photo6"
-                            android:layout_width="110dp"
-                            android:layout_height="100dp"
-                            android:layout_marginLeft="@dimen/space_2dp"
-                            android:background="@drawable/button_dashed"
-                            android:onClick="takePicture"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/ic_camera"
-                            android:tag=""/>
-                    </TableRow>
-                </TableLayout>
+                            <ImageView
+                                android:id="@+id/photo4"
+                                android:layout_width="140dp"
+                                android:layout_height="130dp"
+                                android:layout_marginLeft="@dimen/space_2dp"
+                                android:layout_marginRight="@dimen/space_16dp"
+                                android:background="@drawable/button_dashed"
+                                android:onClick="onTakePictureClicked"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_camera"
+                                android:tag=""/>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                </LinearLayout>
             </android.support.v7.widget.CardView>
 
             <View
@@ -384,7 +307,8 @@
                 android:background="@drawable/button_square_orange"
                 android:gravity="center"
                 android:minHeight="48dp"
-                android:text="Selanjutnya"
+                android:onClick="onUpdateButtonClicked"
+                android:text="Simpan"
                 android:textAlignment="center"
                 android:textColor="@android:color/primary_text_dark"
                 android:textSize="@dimen/text_size_16sp"

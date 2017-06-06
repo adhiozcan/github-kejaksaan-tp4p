@@ -1,16 +1,25 @@
 package id.net.iconpln.apps.tp4.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Ozcan on 27/04/2017.
  */
 
 public class Arsip {
+    @SerializedName("NO_PROYEK")
     private String noProject;
+    @SerializedName("NAMA_PROYEK")
     private String namaProject;
+    @SerializedName("NAMA_PEMOHON")
     private String pemohon;
+    @SerializedName("INSTANSI_PEMOHON")
     private String instansiPemohon;
+    @SerializedName("TAHUN_PROYEK")
     private String tahun;
+    @SerializedName("TGL_MASUK")
     private String tanggalMasuk;
+    @SerializedName("TGL_SELESAI")
     private String tanggalSelesai;
 
     public String getNoProject() {

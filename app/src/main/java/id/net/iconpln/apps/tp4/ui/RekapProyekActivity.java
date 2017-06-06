@@ -5,7 +5,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+
 import id.net.iconpln.apps.tp4.R;
+
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +21,7 @@ import com.db.chart.model.LineSet;
 import com.db.chart.renderer.AxisRenderer;
 import com.db.chart.tooltip.Tooltip;
 import com.db.chart.view.LineChartView;
+import com.flaviofaria.kenburnsview.KenBurnsView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,8 +32,9 @@ import id.net.iconpln.apps.tp4.model.Rekapitulasi;
 import id.net.iconpln.apps.tp4.network.RequestServer;
 import id.net.iconpln.apps.tp4.network.ResponseListener;
 import id.net.iconpln.apps.tp4.network.ServiceUrl;
-import id.net.iconpln.apps.tp4.utility.ChartUtil;
+import id.net.iconpln.apps.tp4.utility.ChartUtils;
 import id.net.iconpln.apps.tp4.utility.CommonUtils;
+import id.net.iconpln.apps.tp4.utility.QueryUtils;
 
 /**
  * Created by Ozcan on 26/04/2017.
@@ -52,20 +56,24 @@ public class RekapProyekActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rekap_proyek);
         initToolbar();
 
+        //mRekapList = new ArrayList<>(QueryUtils.provideRekapitulasiData(this));
         mRekapList = new ArrayList<>();
+
         mAdapter = new RekapProyekAdapter(mRekapList);
         mRecycleView = (RecyclerView) findViewById(R.id.rv_list_rekap_proyek);
         mChart = (LineChartView) findViewById(R.id.chart1);
         mRecycleView.setAdapter(mAdapter);
         mRecycleView.setLayoutManager(CommonUtils.getVerticalLayoutManager(this));
 
-        //provideDummy();
+        KenBurnsView kbv = (KenBurnsView) findViewById(R.id.kenburns_effect);
+        kbv.restart();
+
         getDataFromNetwork();
-     //   initChart();
     }
 
     private void initChart() {
-        LineSet dataset = new LineSet(ChartUtil.getShortMonthLabel(), ChartUtil.getRekapMonthValue(mRekapList));
+        LineSet dataset = new LineSet(ChartUtils.getShortMonthLabel(), ChartUtils.getRekapMonthValue(mRekapList));
+
         //dataset
         mChart.dismissAllTooltips();
         dataset.setColor(ContextCompat.getColor(this, R.color.white));
@@ -90,6 +98,7 @@ public class RekapProyekActivity extends AppCompatActivity {
                 }, 1000);
             }
         };
+
         //animation
         Animation anim = new Animation();
         anim.setEndAction(run);
@@ -100,11 +109,13 @@ public class RekapProyekActivity extends AppCompatActivity {
     }
 
     private void initToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("");
-        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
-        setSupportActionBar(toolbar);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeButtonEnabled(true);
+        }
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
@@ -113,8 +124,8 @@ public class RekapProyekActivity extends AppCompatActivity {
         mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.CollapsingToolbarLayout1);
         mCollapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.collapsedappbar);
         mCollapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.expandedappbar);
-        mCollapsingToolbarLayout.setContentScrimColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
-        mCollapsingToolbarLayout.setStatusBarScrimColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
+        mCollapsingToolbarLayout.setContentScrimColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimaryDark));
+        mCollapsingToolbarLayout.setStatusBarScrimColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimaryDark));
     }
 
     private void getDataFromNetwork() {
@@ -133,19 +144,6 @@ public class RekapProyekActivity extends AppCompatActivity {
 
             }
         });
-
-    }
-
-    private void provideDummy() {
-        for (int i = 0; i < 10; i++) {
-            Rekapitulasi rekap = new Rekapitulasi();
-            rekap.setNomorProyek("TP4P-201704-" + (i + 4));
-            rekap.setNamaProyek(getString(R.string.ipsum_short));
-            rekap.setNilai("1280000");
-
-            mRekapList.add(rekap);
-        }
-        mAdapter.notifyDataSetChanged();
     }
 
     public void setTooltip(boolean enable) {

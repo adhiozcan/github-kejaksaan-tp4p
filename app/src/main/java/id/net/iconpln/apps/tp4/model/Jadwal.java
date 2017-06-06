@@ -90,6 +90,7 @@ public class Jadwal {
     }
 
     public String getJatuhTempo() {
+        if (jatuhTempo.equals("-1")) return "Sudah lewat";
         return jatuhTempo;
     }
 

@@ -30,7 +30,7 @@ public class ListJadwalActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_schedule);
+        setContentView(R.layout.activity_list_jadwal);
         CommonUtils.installToolbar(this);
 
         mJadwalList = new ArrayList<>();

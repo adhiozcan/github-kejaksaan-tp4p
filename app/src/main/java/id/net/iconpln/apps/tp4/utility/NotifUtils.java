@@ -16,7 +16,7 @@ import static android.content.Context.NOTIFICATION_SERVICE;
  * Created by Ozcan on 18/04/2017.
  */
 
-public class Notif {
+public class NotifUtils {
     public static void showMessage(Context context) {
         Toast.makeText(context, "Ini notifikasi", Toast.LENGTH_SHORT).show();
     }

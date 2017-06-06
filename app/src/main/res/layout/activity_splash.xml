@@ -40,6 +40,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/space_12dp"
-        android:text="Copyright 2017 | Build [025-D] Edition."
+        android:text="@string/version"
         android:textSize="@dimen/text_size_12sp"/>
 </RelativeLayout>

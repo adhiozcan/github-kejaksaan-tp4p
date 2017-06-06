@@ -8,14 +8,15 @@ import id.net.iconpln.apps.tp4.R;
 import id.net.iconpln.apps.tp4.utility.CommonUtils;
 
 /**
- * Created by Ozcan on 16/03/2017.
+ * Created by Ozcan on 29/05/2017.
  */
 
-public class WalmanInputActivity extends AppCompatActivity {
+public class TrackingActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_laporan_input_walman);
+        setContentView(R.layout.activity_tracking_laporan);
         CommonUtils.installToolbar(this);
     }
 }

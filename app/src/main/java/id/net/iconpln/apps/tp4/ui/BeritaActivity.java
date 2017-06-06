@@ -17,10 +17,10 @@ import id.net.iconpln.apps.tp4.utility.CommonUtils;
  */
 
 public class BeritaActivity extends AppCompatActivity {
-    private TextView mTxtJudul;
-    private TextView mTxtTanggal;
-    private TextView mTxtPenulis;
-    private TextView mTxtContent;
+    private TextView                mTxtJudul;
+    private TextView                mTxtTanggal;
+    private TextView                mTxtPenulis;
+    private TextView                mTxtContent;
     private CollapsingToolbarLayout mCollapsingToolbarLayout;
 
     private Berita mBerita;
@@ -43,7 +43,7 @@ public class BeritaActivity extends AppCompatActivity {
         setToolbar();
     }
 
-    private void setToolbar(){
+    private void setToolbar() {
         mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsible_toolbar);
         mCollapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.collapsedappbar);
         mCollapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.expandedappbar);

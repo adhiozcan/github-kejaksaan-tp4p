@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import id.net.iconpln.apps.tp4.R;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.List;
 import id.net.iconpln.apps.tp4.adapter.ListNotificationAdapter;
 import id.net.iconpln.apps.tp4.model.Notifikasi;
 import id.net.iconpln.apps.tp4.utility.CommonUtils;
+import id.net.iconpln.apps.tp4.utility.QueryUtils;
 
 /**
  * Created by Ozcan on 07/03/2017.
@@ -32,13 +34,13 @@ public class NotificationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notification);
         installToolbar();
 
+        //mNotifList = new ArrayList<>(QueryUtils.provideNotificationData(this));
         mNotifList = new ArrayList<>();
+
         mAdapter = new ListNotificationAdapter(mNotifList);
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(CommonUtils.getVerticalLayoutManager(this));
-
-        provideDummyData();
     }
 
     private void installToolbar() {
@@ -48,17 +50,6 @@ public class NotificationActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeButtonEnabled(true);
         }
-    }
-
-    private void provideDummyData() {
-        for (int i = 0; i < 5; i++) {
-            Notifikasi notif = new Notifikasi();
-            notif.setType("Type of Notification");
-            notif.setContent(getString(R.string.ipsum_short));
-            mNotifList.add(notif);
-        }
-
-        mRecyclerView.getAdapter().notifyDataSetChanged();
     }
 
     @Override

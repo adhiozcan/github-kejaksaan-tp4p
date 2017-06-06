@@ -16,7 +16,7 @@ import id.net.iconpln.apps.tp4.model.Jadwal;
  * Created by Ozcan on 09/03/2017.
  */
 
-public class ListJadwalAdapter extends KejaksaanBaseAdapter<ListJadwalAdapter.ViewHolder, Jadwal> {
+public class ListJadwalAdapter extends BaseAdapter<ListJadwalAdapter.ViewHolder, Jadwal> {
 
     private Context      context;
     private List<Jadwal> jadwalList;

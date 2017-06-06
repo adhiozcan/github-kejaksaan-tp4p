@@ -18,7 +18,7 @@ import id.net.iconpln.apps.tp4.model.Permohonan;
  * Created by Ozcan on 08/03/2017.
  */
 
-public class ListPermohonanAdapter extends KejaksaanBaseAdapter<ListPermohonanAdapter.ViewHolder, Permohonan> {
+public class ListPermohonanAdapter extends BaseAdapter<ListPermohonanAdapter.ViewHolder, Permohonan> {
     private Context          context;
     private List<Permohonan> listPermohonan;
 

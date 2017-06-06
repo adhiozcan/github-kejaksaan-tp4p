@@ -8,7 +8,7 @@ import id.net.iconpln.apps.tp4.adapter.listener.JaksaAdapterOnItemClickListener;
  * Created by Ozcan on 13/03/2017.
  */
 
-public abstract class KejaksaanBaseAdapter<VH extends RecyclerView.ViewHolder, ModelType extends Object>
+public abstract class BaseAdapter<VH extends RecyclerView.ViewHolder, ModelType extends Object>
         extends RecyclerView.Adapter<VH>
         implements JaksaAdapterOnItemClickListener<ModelType> {
 

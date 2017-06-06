@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="default_corner_radius">16dp</dimen>
+    <dimen name="default_corner_radius">8dp</dimen>
     <dimen name="default_elevation_2dp">2dp</dimen>
 
     <dimen name="space_2dp">2dp</dimen>

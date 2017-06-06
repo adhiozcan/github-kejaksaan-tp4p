@@ -18,6 +18,9 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import com.firebase.jobdispatcher.FirebaseJobDispatcher;
+import com.firebase.jobdispatcher.GooglePlayDriver;
+import com.firebase.jobdispatcher.Job;
 import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.google.firebase.messaging.FirebaseMessaging;
 
@@ -25,6 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import id.net.iconpln.apps.tp4.KejaksaanApp;
+import id.net.iconpln.apps.tp4.jobservice.ReminderJob;
 import id.net.iconpln.apps.tp4.model.LoginResponse;
 import id.net.iconpln.apps.tp4.model.UserProfile;
 import id.net.iconpln.apps.tp4.network.Param;
@@ -32,6 +36,7 @@ import id.net.iconpln.apps.tp4.network.RequestServer;
 import id.net.iconpln.apps.tp4.network.ResponseListener;
 import id.net.iconpln.apps.tp4.network.ServiceUrl;
 import id.net.iconpln.apps.tp4.utility.BeautifulProgressDialog;
+import id.net.iconpln.apps.tp4.utility.NetworkUtil;
 
 /**
  * Created by Ozcan on 07/03/2017.
@@ -80,13 +85,31 @@ public class LoginActivity extends AppCompatActivity {
 
         KenBurnsView kbv = (KenBurnsView) findViewById(R.id.kenburns_effect);
         kbv.resume();
+
+        // Create a new dispatcher using the Google Play driver.
+        FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(this));
+        Job myJob = dispatcher.newJobBuilder()
+                .setService(ReminderJob.class) // the JobService that will be called
+                .setTag("my-unique-tag")        // uniquely identifies the job
+                .build();
+
+        dispatcher.mustSchedule(myJob);
     }
 
     public void onLoginButtonClicked(View buttonId) {
-        //String username = edUsername.getText().toString();
-        //String password = edPassword.getText().toString();
-        String username = "petugas";
-        String password = "tp4pass";
+        if (!NetworkUtil.isConnectToInternet(this)) {
+            Snackbar snackbar = Snackbar.make(findViewById(R.id.container_layout),
+                    "Tidak ada jaringan internet",
+                    Snackbar.LENGTH_LONG);
+            snackbar.getView().setBackgroundColor(ContextCompat.getColor(this, R.color.pink_A200));
+            snackbar.show();
+            return;
+        }
+
+        String username = edUsername.getText().toString();
+        String password = edPassword.getText().toString();
+        //String username = "petugas";
+        //String password = "tp4pass";
 
         if (validateInput(username, password)) {
             doLogin(username, password);
@@ -142,9 +165,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private void createCurrentSession(UserProfile userProfile) {
         KejaksaanApp.profile = userProfile;
-        KejaksaanApp.userId = userProfile.getNama();
-        //KejaksaanApp.kejaksaanId = userProfile.getIdKejaksaan();
-        KejaksaanApp.kejaksaanId = "5";
+        KejaksaanApp.userId = edUsername.getText().toString();
+        KejaksaanApp.kejaksaanId = userProfile.getIdKejaksaan();
+        //KejaksaanApp.kejaksaanId = "5";
 
         Log.d("LoginActivity", "createCurrentSession: ------------------------------------------------------------");
         Log.d("LoginActivity", "createCurrentSession: " + userProfile.toString());
