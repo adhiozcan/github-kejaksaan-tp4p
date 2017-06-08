@@ -26,13 +26,13 @@ public class ProfileActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         CommonUtils.installToolbar(this);
+
         mNamaPetugas = (TextView) findViewById(R.id.nama_petugas);
         mJabatan = (TextView) findViewById(R.id.jabatan);
         mDaerahKejaksaan = (TextView) findViewById(R.id.area_kejaksaan);
         mStatus = (TextView) findViewById(R.id.status);
 
         UserProfile user = KejaksaanApp.profile;
-
         mNamaPetugas.setText(user.getNama());
         mJabatan.setText(user.getJabatan());
         mDaerahKejaksaan.setText(user.getUnitKejaksaan());

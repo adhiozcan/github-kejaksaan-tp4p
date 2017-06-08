@@ -40,9 +40,11 @@ public class ListPenugasanAdapter extends BaseAdapter<ListPenugasanAdapter.ViewH
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Penugasan penugasan = penugasanList.get(position);
-        holder.noProyek.setText(penugasan.getNoProject() + ", ");
+        holder.noProyek.setText(penugasan.getNoProject());
         holder.judulPenugasan.setText(penugasan.getNamaProject());
         holder.tanggalProyek.setText(penugasan.getTanggalMasuk());
+        holder.namaPemohon.setText(penugasan.getNamaPemohon());
+        holder.instansiPemohon.setText(penugasan.getInstansiPemohon());
         //holder.contentPenugasan.setText(penugasan.getNilai());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +54,9 @@ public class ListPenugasanAdapter extends BaseAdapter<ListPenugasanAdapter.ViewH
                 intent.putExtra("no_registrasi", penugasan.getNoRegistrasi());
                 intent.putExtra("nama_proyek", penugasan.getNamaProject());
                 intent.putExtra("tanggal_masuk", penugasan.getTanggalMasuk());
+                intent.putExtra("tanggal_paparan", penugasan.getTanggalPaparan());
+                intent.putExtra("nama_pemohon", penugasan.getNamaPemohon());
+                intent.putExtra("instansi_pemohon", penugasan.getInstansiPemohon());
                 intent.putExtra("keterangan", penugasan.getKeterangan());
                 intent.putExtra("nilai_proyek", penugasan.getNilai());
                 intent.putExtra("is_accept", penugasan.isAccept());
@@ -69,6 +74,8 @@ public class ListPenugasanAdapter extends BaseAdapter<ListPenugasanAdapter.ViewH
         TextView noProyek;
         TextView judulPenugasan;
         TextView tanggalProyek;
+        TextView namaPemohon;
+        TextView instansiPemohon;
         TextView contentPenugasan;
         TextView btnDetailPenugasan;
 
@@ -77,6 +84,8 @@ public class ListPenugasanAdapter extends BaseAdapter<ListPenugasanAdapter.ViewH
             noProyek = (TextView) itemView.findViewById(R.id.nomor_proyek);
             judulPenugasan = (TextView) itemView.findViewById(R.id.judul_penugasan);
             tanggalProyek = (TextView) itemView.findViewById(R.id.tanggal_proyek);
+            namaPemohon = (TextView) itemView.findViewById(R.id.nama_pemohon);
+            instansiPemohon = (TextView) itemView.findViewById(R.id.instansi_pemohon);
             contentPenugasan = (TextView) itemView.findViewById(R.id.content_penugasan);
             btnDetailPenugasan = (TextView) itemView.findViewById(R.id.btn_detail_penugasan);
         }

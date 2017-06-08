@@ -13,9 +13,16 @@
         android:background="@color/colorPrimary"
         app:title="Jadwal"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_daftar_jadwal"
+    <android.support.v4.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"/>
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_daftar_jadwal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>

@@ -15,8 +15,14 @@ public class Penugasan {
     private String  namaProject;
     @SerializedName("TGL_MASUK_PROYEK")
     private String  tanggalMasuk;
+    @SerializedName("TGL_PAPARAN")
+    private String  tanggalPaparan;
     @SerializedName("KETERANGAN")
     private String  keterangan;
+    @SerializedName("NAMA_PEMOHON")
+    private String  namaPemohon;
+    @SerializedName("INSTANSI_PEMOHON")
+    private String  instansiPemohon;
     @SerializedName("NILAI_PROYEK")
     private String  nilai;
     @SerializedName("IS_ACCEPTED")
@@ -54,12 +60,36 @@ public class Penugasan {
         this.tanggalMasuk = tanggalMasuk;
     }
 
+    public String getTanggalPaparan() {
+        return tanggalPaparan;
+    }
+
+    public void setTanggalPaparan(String tanggalPaparan) {
+        this.tanggalPaparan = tanggalPaparan;
+    }
+
     public String getKeterangan() {
         return keterangan;
     }
 
     public void setKeterangan(String keterangan) {
         this.keterangan = keterangan;
+    }
+
+    public String getNamaPemohon() {
+        return namaPemohon;
+    }
+
+    public void setNamaPemohon(String namaPemohon) {
+        this.namaPemohon = namaPemohon;
+    }
+
+    public String getInstansiPemohon() {
+        return instansiPemohon;
+    }
+
+    public void setInstansiPemohon(String instansiPemohon) {
+        this.instansiPemohon = instansiPemohon;
     }
 
     public String getNilai() {
@@ -76,5 +106,20 @@ public class Penugasan {
 
     public void setAccept(boolean accept) {
         isAccept = accept;
+    }
+
+    @Override
+    public String toString() {
+        return "Penugasan{" +
+                "noProject='" + noProject + '\'' +
+                ", noRegistrasi='" + noRegistrasi + '\'' +
+                ", namaProject='" + namaProject + '\'' +
+                ", tanggalMasuk='" + tanggalMasuk + '\'' +
+                ", keterangan='" + keterangan + '\'' +
+                ", namaPemohon='" + namaPemohon + '\'' +
+                ", instansiPemohon='" + instansiPemohon + '\'' +
+                ", nilai='" + nilai + '\'' +
+                ", isAccept=" + isAccept +
+                '}';
     }
 }

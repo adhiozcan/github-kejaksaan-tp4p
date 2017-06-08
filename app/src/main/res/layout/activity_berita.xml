@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/snow"
     android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
@@ -15,12 +16,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
+            android:minHeight="320dp"
             app:contentScrim="@color/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
                 <com.flaviofaria.kenburnsview.KenBurnsView
                     android:id="@+id/kenburns_effect"
@@ -34,6 +36,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentBottom="true"
+                    android:gravity="bottom"
                     android:orientation="vertical"
                     android:padding="@dimen/space_16dp"
                     android:paddingBottom="@dimen/space_16dp">
@@ -51,6 +54,7 @@
                         android:layout_marginLeft="@dimen/space_16dp"
                         android:fontFamily="sans-serif-light"
                         android:text="Judul Berita"
+                        android:textColor="@color/textColorWhite"
                         android:textSize="@dimen/text_size_24sp"
                         android:textStyle="bold"/>
 
@@ -68,7 +72,9 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"/>
+                android:title=""
+                app:layout_collapseMode="pin"
+                app:title=""/>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
@@ -89,7 +95,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/space_16dp"
-                android:text="16 Maret 2017"/>
+                android:text="16 Maret 2017"
+                android:textColor="@color/textColorBlack"/>
 
             <TextView
                 android:id="@+id/content_berita"
@@ -98,7 +105,8 @@
                 android:layout_marginLeft="@dimen/space_16dp"
                 android:layout_marginRight="@dimen/space_16dp"
                 android:layout_marginTop="@dimen/space_16dp"
-                android:text="@string/ipsum_long"/>
+                android:text="@string/ipsum_long"
+                android:textColor="@color/textColorBlack"/>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 

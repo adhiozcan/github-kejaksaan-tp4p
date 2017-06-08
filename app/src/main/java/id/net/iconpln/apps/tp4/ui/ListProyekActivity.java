@@ -2,6 +2,7 @@ package id.net.iconpln.apps.tp4.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 
@@ -16,6 +17,7 @@ import id.net.iconpln.apps.tp4.network.ResponseListener;
 import id.net.iconpln.apps.tp4.network.ServiceUrl;
 import id.net.iconpln.apps.tp4.utility.CommonUtils;
 import id.net.iconpln.apps.tp4.R;
+import id.net.iconpln.apps.tp4.utility.L;
 import id.net.iconpln.apps.tp4.utility.QueryUtils;
 
 /**
@@ -29,6 +31,8 @@ public class ListProyekActivity extends AppCompatActivity {
 
     private List<Proyek> mProyekList;
 
+    private SwipeRefreshLayout mSwipeRefresh;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +42,19 @@ public class ListProyekActivity extends AppCompatActivity {
         //mProyekList = new ArrayList<>(QueryUtils.provideListProyekData(this));
         mProyekList = new ArrayList<>();
 
+        mSwipeRefresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
+
         mAdapter = new ListProyekAdapter(this, mProyekList);
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_list_projects);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(CommonUtils.getVerticalLayoutManager(this));
+
+        mSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getDataFromNetwork();
+            }
+        });
 
         getDataFromNetwork();
     }
@@ -55,11 +68,13 @@ public class ListProyekActivity extends AppCompatActivity {
                 mProyekList.addAll(Arrays.asList(response));
                 System.out.println(response.toString());
                 mAdapter.notifyDataSetChanged();
+                mSwipeRefresh.setRefreshing(false);
             }
 
             @Override
             public void onFailed(String message) {
-
+                mSwipeRefresh.setRefreshing(false);
+                L.d("Get Data Berita", message);
             }
         });
 

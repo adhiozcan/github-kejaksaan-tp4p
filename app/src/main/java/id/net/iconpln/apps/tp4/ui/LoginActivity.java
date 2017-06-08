@@ -72,8 +72,8 @@ public class LoginActivity extends AppCompatActivity {
          */
         if (Config.User.isAlwaysRemember()) {
             UserProfile user = Config.User.getLocalInfoUser();
-            if (user != null && user.getNama() != null) {
-                edUsername.setText(user.getNama());
+            if (user != null && user.getUsername() != null) {
+                edUsername.setText(user.getUsername());
                 edPassword.setText(user.getPassword());
             } else {
                 chkRemember.setChecked(false);
@@ -131,6 +131,9 @@ public class LoginActivity extends AppCompatActivity {
     private void doLogin(String username, String password) {
         mProgressDialog.show();
 
+        KejaksaanApp.username = username;
+        KejaksaanApp.password = password;
+
         Map<String, String> param = new HashMap<>();
         param.put(Param.USERNAME, username);
         param.put(Param.PASSWORD, password);
@@ -142,7 +145,10 @@ public class LoginActivity extends AppCompatActivity {
                 mProgressDialog.dismiss();
                 if (response.getIsSuccess()) {
                     if (Config.User.isAlwaysRemember()) {
-                        Config.User.saveLocalInfoUser(response.getUserProfile());
+                        UserProfile userProfile = response.getUserProfile();
+                        userProfile.setUsername(KejaksaanApp.username);
+                        userProfile.setPassword(KejaksaanApp.password);
+                        Config.User.saveLocalInfoUser(userProfile);
                     }
                     createCurrentSession(response.getUserProfile());
                     navigateTo(MainActivity.class);

@@ -1,9 +1,17 @@
 package id.net.iconpln.apps.tp4.ui;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,6 +24,8 @@ import id.net.iconpln.apps.tp4.network.ResponseListener;
 import id.net.iconpln.apps.tp4.network.ServiceUrl;
 import id.net.iconpln.apps.tp4.R;
 import id.net.iconpln.apps.tp4.utility.CommonUtils;
+import id.net.iconpln.apps.tp4.utility.L;
+import id.net.iconpln.apps.tp4.utility.QueryUtils;
 
 /**
  * Created by Ozcan on 01/05/2017.
@@ -27,18 +37,31 @@ public class ListLaporanAkhirActivity extends AppCompatActivity {
     private ListLaporanAkhirAdapter mAdapter;
     private RecyclerView            mRecyclerView;
 
+    private SwipeRefreshLayout mSwipeRefresh;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_laporan_akhir);
         CommonUtils.installToolbar(this);
 
+        mSwipeRefresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
+
+        //laporanAkhirList = new ArrayList<>(QueryUtils.provideLaporanAkhirList());
         laporanAkhirList = new ArrayList<>();
+
         mAdapter = new ListLaporanAkhirAdapter(this, laporanAkhirList);
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(CommonUtils.getVerticalLayoutManager(this));
         //provideMockupDataMode();
+
+        mSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getDataFromNetwork();
+            }
+        });
 
         getDataFromNetwork();
     }
@@ -51,38 +74,48 @@ public class ListLaporanAkhirActivity extends AppCompatActivity {
                 laporanAkhirList.clear();
                 laporanAkhirList.addAll(Arrays.asList(response));
                 mAdapter.notifyDataSetChanged();
+                mSwipeRefresh.setRefreshing(false);
             }
 
             @Override
             public void onFailed(String message) {
-
+                mSwipeRefresh.setRefreshing(false);
+                L.d("Get Data Berita", message);
             }
         });
     }
 
-    private void provideMockupDataMode() {
-        LaporanAkhir laporanAkhir = new LaporanAkhir();
-        laporanAkhir.setNoProject("201701-TP4-01");
-        laporanAkhir.setNamaProject("Sosialisasi TP4P Kejaksaan Agung RI Guna Mendukung Proyek Strategis di Kementrian PUPR di Surabaya");
-        laporanAkhir.setTanggalTerbit("16 Januari 2017");
-        laporanAkhir.setRingkasan("Selayang pandang TP4 dan Pengawalan dan Pengamanan Proyek Strategis Nasional. Tindak Pidana Korupsi, Mekanisme pengadaan tanah bagi pembangunan untuk kepentingn Umum berdasarkan Undang-Undang No.2 Tahu  2004");
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the options menu from XML
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.laporan_menu, menu);
 
-        LaporanAkhir laporanAkhir2 = new LaporanAkhir();
-        laporanAkhir2.setNoProject("201703-TP4-2");
-        laporanAkhir2.setNamaProject("Sosialisasi TP4P Kejaksaan Agung RI di badan Kependudukan dan Keluarga Berencana Nasional Kantor Pusat");
-        laporanAkhir2.setTanggalTerbit("18 Maret 2017");
-        laporanAkhir2.setRingkasan("Pengenalan Tim Pengawalan dan Pengamanan Pemerintahan dan Pembangunan dan Pengadaan Barang/Jasa Pemerintah berdasarkan Perpres No.54 Tahun 2010");
+        MenuItem   searchItem = menu.findItem(R.id.act_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
 
-        LaporanAkhir laporanAkhir3 = new LaporanAkhir();
-        laporanAkhir3.setNoProject("2017-TP4-3");
-        laporanAkhir3.setNamaProject("Sosialisasi TP4P Kejagung RI Guna Mendukung Proyek Ketenagalistrikan 35.000 MW di Surabaya");
-        laporanAkhir3.setTanggalTerbit("19 April 2017");
-        laporanAkhir3.setRingkasan("Sosialisasi Tim TP4P untuk mendukung Proyek Ketenagalistrikan 35.000 MW pada Regional Jawa Bali. Strategi Pengawalan Proyek oleh TP4P");
+        SearchView.OnQueryTextListener queryListener = new SearchView.OnQueryTextListener() {
 
-        laporanAkhirList.add(laporanAkhir);
-        laporanAkhirList.add(laporanAkhir2);
-        laporanAkhirList.add(laporanAkhir3);
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
-        mAdapter.notifyDataSetChanged();
+            @Override
+            public boolean onQueryTextChange(String constraint) {
+                mAdapter.getFilter().filter(constraint);
+                return true;
+            }
+        };
+        searchView.setOnQueryTextListener(queryListener);
+        return true;
     }
+
+    /*@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.act_search) {
+
+        }
+        return super.onOptionsItemSelected(item);
+    }*/
 }

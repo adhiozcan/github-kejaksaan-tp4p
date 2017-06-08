@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:layout_marginLeft="@dimen/space_8dp"
-              android:layout_marginRight="@dimen/space_8dp"
+              android:layout_marginLeft="@dimen/space_4dp"
+              android:layout_marginRight="@dimen/space_4dp"
               android:layout_marginTop="@dimen/space_8dp"
-              android:background="@color/white"
+              android:background="@drawable/button_default_white"
               android:elevation="@dimen/default_elevation_2dp"
               android:orientation="vertical">
 

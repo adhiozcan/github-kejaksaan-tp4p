@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#F5F4F7"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
@@ -15,98 +16,197 @@
         app:title="Penugasan"/>
 
     <ImageView
-        android:id="@+id/imageView4"
         android:layout_width="match_parent"
         android:layout_height="210dp"
+        android:layout_below="@id/toolbar"
         android:scaleType="centerCrop"
-        android:src="@drawable/img_tp4_gradient"/>
+        android:src="@drawable/img_tp4_gradient"
+        android:visibility="invisible"/>
 
-    <LinearLayout
-        android:id="@+id/rl_header"
+    <View
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginLeft="@dimen/space_16dp"
-        android:layout_marginRight="@dimen/space_16dp"
-        android:layout_weight="1"
-        android:background="@color/snow"
-        android:elevation="@dimen/space_4dp"
-        android:orientation="vertical"
-        android:padding="@dimen/space_24dp">
+        android:layout_height="120dp"
+        android:layout_below="@id/toolbar"
+        android:background="@color/colorPrimary"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical">
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_laporan_akhir"/>
-
-            <TextView
-                android:id="@+id/judul_permohonan"
+            <LinearLayout
+                android:id="@+id/rl_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/space_12dp"
-                android:paddingRight="@dimen/space_12dp"
-                android:text="Judul Permohonan"
-                android:textColor="@color/textColorBlack"
-                android:textSize="@dimen/text_size_24sp"
+                android:layout_marginBottom="@dimen/space_8dp"
+                android:layout_marginLeft="@dimen/space_4dp"
+                android:layout_marginRight="@dimen/space_4dp"
+                android:layout_marginTop="@dimen/space_8dp"
+                android:background="@color/snow"
+                android:orientation="vertical"
+                android:padding="@dimen/space_24dp">
+
+                <TextView
+                    android:id="@+id/nomor_proyek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Penugasan"
+                    android:textColor="@color/orange_500"
+                    android:textSize="@dimen/text_size_12sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/judul_permohonan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Judul Permohonan"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/text_size_18sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tanggal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="24 Maret 2017"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/text_size_12sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8dp"
+                    android:text="Identitas Pemohon"
+                    android:textColor="@color/textColorBlack"/>
+
+                <TextView
+                    android:id="@+id/identitas_pengirim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ir. Putra Pratama, M.Eng"
+                    android:textColor="@color/textColorBlack"/>
+
+                <TextView
+                    android:id="@+id/identitas_perusahaan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kantor Pusat PLN Trunojoyo"
+                    android:textColor="@color/textColorBlack"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/container_nilai_proyek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_header"
+                android:layout_marginBottom="@dimen/space_8dp"
+                android:layout_marginLeft="@dimen/space_4dp"
+                android:layout_marginRight="@dimen/space_4dp"
+                android:background="@color/snow"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/space_16dp"
+                android:paddingLeft="@dimen/space_24dp"
+                android:paddingRight="@dimen/space_24dp"
+                android:paddingTop="@dimen/space_16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nilai Proyek"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/text_size_16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/nilai_proyek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp 800 Milyar"
+                    android:textColor="@color/textColorBlack"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/container_paparan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/container_nilai_proyek"
+                android:layout_marginBottom="@dimen/space_8dp"
+                android:layout_marginLeft="@dimen/space_4dp"
+                android:layout_marginRight="@dimen/space_4dp"
+                android:background="@color/snow"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/space_16dp"
+                android:paddingLeft="@dimen/space_24dp"
+                android:paddingRight="@dimen/space_24dp"
+                android:paddingTop="@dimen/space_16dp">
+
+                <TextView
+                    android:id="@+id/lbl_jadwal_pemaparan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jadwal Paparan"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/text_size_16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/jadwal_paparan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selasa, 9 April 2017 | 10.00 WIB - 15.00 WIB"
+                    android:textColor="@color/textColorBlack"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/container_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/container_paparan"
+                android:layout_marginLeft="@dimen/space_4dp"
+                android:layout_marginRight="@dimen/space_4dp"
+                android:background="@color/snow"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_24dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/space_12dp"
+                    android:src="@drawable/ic_laporan_akhir"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Anda mendapatkan tugas baru !"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/text_size_16sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btn_konfirmasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/container_info"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/space_16dp"
+                android:background="@drawable/button_square_orange"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:onClick="onConfirmButtonClicked"
+                android:padding="16dp"
+                android:text="Terima"
+                android:textColor="@color/textColorWhite"
+                android:textSize="@dimen/text_size_16sp"
                 android:textStyle="bold"/>
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/tanggal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="48dp"
-            android:text="24 Maret 2017"
-            android:textColor="@color/ebony"
-            android:textSize="@dimen/text_size_12sp"/>
-
-        <TextView
-            android:id="@+id/identitas_pengirim"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="48dp"
-            android:layout_marginRight="@dimen/space_16dp"
-            android:text="Ir. Putra Pratama, M.Eng | Kantor Pusat PLN Trunojoyo"
-            android:textColor="@color/textColorBlack"/>
-
-        <TextView
-            android:id="@+id/lbl_jadwal_pemaparan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="48dp"
-            android:layout_marginRight="@dimen/space_16dp"
-            android:layout_marginTop="@dimen/space_12dp"
-            android:text="Jadwal Paparan"
-            android:textColor="@color/textColorBlack"
-            android:textSize="@dimen/text_size_16sp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/jadwal_paparan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="48dp"
-            android:layout_marginRight="@dimen/space_16dp"
-            android:text="Selasa, 9 April 2017 | 10.00 WIB - 15.00 WIB"
-            android:textColor="@color/textColorBlack"/>
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="@dimen/space_16dp"
-        android:background="@drawable/button_square_orange"
-        android:fontFamily="sans-serif-light"
-        android:gravity="center"
-        android:onClick="onConfirmButtonClicked"
-        android:padding="16dp"
-        android:text="Terima"
-        android:textSize="@dimen/text_size_16sp"
-        android:textStyle="bold"/>
-</LinearLayout>
+    </ScrollView>
+</RelativeLayout>

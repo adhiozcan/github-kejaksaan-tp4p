@@ -76,11 +76,11 @@ class Dispatcher {
         return serviceApi.listPenugasan(KejaksaanApp.userId);
     }
 
-    protected Call<KonfirmasiResponse> getKonfirmasiStatus() {
+    protected Call<KonfirmasiResponse[]> getKonfirmasiStatus() {
         return serviceApi.getKonfirmasi(KejaksaanApp.noRegistrasi, KejaksaanApp.userId);
     }
 
-    protected Call<KonfirmasiResponse> konfirmasiPenugasan() {
+    protected Call<KonfirmasiResponse[]> konfirmasiPenugasan() {
         return serviceApi.konfirmasiPenugasan(KejaksaanApp.noRegistrasi, KejaksaanApp.userId);
     }
 
@@ -106,7 +106,7 @@ class Dispatcher {
     }
 
     protected Call<TrackingProject[]> trackingProject() {
-        return serviceApi.trackingProyek(KejaksaanApp.userId);
+        return serviceApi.trackingProyek(KejaksaanApp.noRegistrasi);
     }
 
     protected Call<Arsip[]> listArsip() {

@@ -58,6 +58,7 @@ public class ListProyekAdapter extends BaseAdapter<ListProyekAdapter.ViewHolder,
         holder.btnLaporanTracking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                KejaksaanApp.noRegistrasi = proyek.getNoRegistrasi();
                 context.startActivity(new Intent(context, TrackingActivity.class));
             }
         });

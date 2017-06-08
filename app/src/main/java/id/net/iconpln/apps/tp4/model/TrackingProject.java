@@ -1,14 +1,20 @@
 package id.net.iconpln.apps.tp4.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Ozcan on 27/04/2017.
  */
 
 public class TrackingProject {
+    @SerializedName("NO_PROYEK")
     private String noProject;
     private String namaProject;
+    @SerializedName("NAMA_KEGIATAN")
     private String namaUpdate;
+    @SerializedName("TGL_UPDATE")
     private String tanggalUpdate;
+    @SerializedName("KETERANGAN")
     private String keterangan;
 
     public String getNoProject() {

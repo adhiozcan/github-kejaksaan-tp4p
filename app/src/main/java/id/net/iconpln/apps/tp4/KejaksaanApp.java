@@ -3,10 +3,12 @@ package id.net.iconpln.apps.tp4;
 import android.app.Application;
 import android.net.Uri;
 
+import com.crashlytics.android.Crashlytics;
 import com.orhanobut.hawk.Hawk;
 import com.orhanobut.hawk.HawkBuilder;
 
 import id.net.iconpln.apps.tp4.model.UserProfile;
+import io.fabric.sdk.android.Fabric;
 import okhttp3.MultipartBody;
 
 /**
@@ -15,6 +17,8 @@ import okhttp3.MultipartBody;
 
 public class KejaksaanApp extends Application {
     public static String      userId;
+    public static String      username;
+    public static String      password;
     public static String      kejaksaanId;
     public static String      noRegistrasi;
     public static String      noProyek;
@@ -27,6 +31,8 @@ public class KejaksaanApp extends Application {
 
     static {
         userId = "";
+        username = "";
+        password = "";
         kejaksaanId = "";
         noRegistrasi = "";
         noProyek = "";
@@ -40,6 +46,7 @@ public class KejaksaanApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Fabric.with(this, new Crashlytics());
         Hawk.init(this).build();
     }
 }

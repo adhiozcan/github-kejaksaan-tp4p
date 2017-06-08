@@ -60,7 +60,7 @@ public interface ServiceApi {
     @FormUrlEncoded
     @POST(ServiceUrl.TRACKING)
     Call<TrackingProject[]> trackingProyek(
-            @Field("userid") String userId);
+            @Field("noregistrasi") String userId);
 
     @FormUrlEncoded
     @POST(ServiceUrl.ARSIP)
@@ -79,14 +79,14 @@ public interface ServiceApi {
 
     @FormUrlEncoded
     @POST(ServiceUrl.GET_KONFIRMASI)
-    Call<KonfirmasiResponse> getKonfirmasi(
+    Call<KonfirmasiResponse[]> getKonfirmasi(
             @Field("noregistrasi") String noRegistrasi,
             @Field("userid") String userId);
 
 
     @FormUrlEncoded
     @POST(ServiceUrl.DO_KONFIRMASI)
-    Call<KonfirmasiResponse> konfirmasiPenugasan(
+    Call<KonfirmasiResponse[]> konfirmasiPenugasan(
             @Field("noregistrasi") String noRegistrasi,
             @Field("userid") String userId);
 

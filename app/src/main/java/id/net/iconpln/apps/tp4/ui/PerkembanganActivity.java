@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import id.net.iconpln.apps.tp4.R;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,6 +24,7 @@ public class PerkembanganActivity extends AppCompatActivity {
     private List<Rekapitulasi> mRekapList;
     private RekapProyekAdapter mAdapter;
     private RecyclerView       mRecycleView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,7 @@ public class PerkembanganActivity extends AppCompatActivity {
         getDataFromNetwork();
     }
 
-    private void initToolbar(){
+    private void initToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Perkembangan");
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
@@ -46,14 +48,14 @@ public class PerkembanganActivity extends AppCompatActivity {
         });
     }
 
-    private void initView(){
+    private void initView() {
         mRekapList = new ArrayList<>();
         mAdapter = new RekapProyekAdapter(mRekapList);
         mAdapter.setOnItemSelected(new RekapProyekAdapter.OnItemSelected() {
             @Override
             public void onClick(View view, int position) {
                 startActivity(new Intent(getApplicationContext(), HistoryActivity.class)
-                             .putExtra("data", mRekapList.get(position)));
+                        .putExtra("data", mRekapList.get(position)));
 
             }
         });

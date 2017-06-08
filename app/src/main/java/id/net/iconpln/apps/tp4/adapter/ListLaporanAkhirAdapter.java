@@ -5,10 +5,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import id.net.iconpln.apps.tp4.model.Arsip;
 import id.net.iconpln.apps.tp4.model.LaporanAkhir;
 import id.net.iconpln.apps.tp4.R;
 
@@ -16,13 +20,18 @@ import id.net.iconpln.apps.tp4.R;
  * Created by Ozcan on 02/05/2017.
  */
 
-public class ListLaporanAkhirAdapter extends BaseAdapter<ListLaporanAkhirAdapter.ViewHolder, LaporanAkhir> {
+public class ListLaporanAkhirAdapter extends BaseAdapter<ListLaporanAkhirAdapter.ViewHolder, LaporanAkhir> implements Filterable {
     private Context            context;
+    private LaporanAkhirFilter laporanFilter;
     private List<LaporanAkhir> laporanList;
+    private List<LaporanAkhir> filteredList;
 
     public ListLaporanAkhirAdapter(Context context, List<LaporanAkhir> laporanList) {
         this.context = context;
         this.laporanList = laporanList;
+        this.filteredList = laporanList;
+
+        getFilter();
     }
 
     @Override
@@ -35,7 +44,7 @@ public class ListLaporanAkhirAdapter extends BaseAdapter<ListLaporanAkhirAdapter
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        LaporanAkhir laporanAkhir = laporanList.get(position);
+        LaporanAkhir laporanAkhir = filteredList.get(position);
         holder.txtNoProyek.setText(laporanAkhir.getNoProject());
         holder.txtTanggalTerbit.setText(laporanAkhir.getTanggalTerbit());
         holder.txtNamaProyek.setText(laporanAkhir.getNamaProject());
@@ -44,7 +53,15 @@ public class ListLaporanAkhirAdapter extends BaseAdapter<ListLaporanAkhirAdapter
 
     @Override
     public int getItemCount() {
-        return laporanList.size();
+        return filteredList.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        if (laporanFilter == null) {
+            laporanFilter = new LaporanAkhirFilter();
+        }
+        return laporanFilter;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -59,6 +76,41 @@ public class ListLaporanAkhirAdapter extends BaseAdapter<ListLaporanAkhirAdapter
             txtTanggalTerbit = (TextView) itemView.findViewById(R.id.tanggal_terbit);
             txtNamaProyek = (TextView) itemView.findViewById(R.id.nama_proyek);
             txtKeterangan = (TextView) itemView.findViewById(R.id.keterangan);
+        }
+    }
+
+    private class LaporanAkhirFilter extends Filter {
+
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            FilterResults filterResults = new FilterResults();
+            if (constraint != null && constraint.length() > 0) {
+                List<LaporanAkhir> tempList = new ArrayList<>();
+
+                //search content in arsip data
+                for (LaporanAkhir laporan : laporanList) {
+                    String noWalman = laporan.getNoProject().toLowerCase();
+                    String proyek   = laporan.getNamaProject().toLowerCase();
+                    if (noWalman.contains(constraint.toString().toLowerCase())) {
+                        tempList.add(laporan);
+                    } else if (proyek.contains(constraint.toString().toLowerCase())) {
+                        tempList.add(laporan);
+                    }
+                }
+
+                filterResults.count = tempList.size();
+                filterResults.values = tempList;
+            } else {
+                filterResults.count = laporanList.size();
+                filterResults.values = laporanList;
+            }
+            return filterResults;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            filteredList = new ArrayList<>((List<LaporanAkhir>) filterResults.values);
+            ListLaporanAkhirAdapter.this.notifyDataSetChanged();
         }
     }
 }

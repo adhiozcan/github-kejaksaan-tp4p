@@ -43,7 +43,8 @@ public class RequestServer implements ClientApi {
             @Override
             public void onFailure(Call call, Throwable t) {
                 fsoListener.onFailed(t.getLocalizedMessage());
-                L.e(t, t.getLocalizedMessage(), call);
+                if (t != null)
+                    L.e(t, t.getLocalizedMessage(), call);
             }
         });
     }

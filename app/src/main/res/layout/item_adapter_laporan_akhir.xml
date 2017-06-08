@@ -73,6 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_12dp"
+                android:autoLink="web"
                 android:drawableLeft="@drawable/ic_doc"
                 android:drawablePadding="@dimen/space_16dp"
                 android:fontFamily="sans-serif-light"
