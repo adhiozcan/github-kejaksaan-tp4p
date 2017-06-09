@@ -5,8 +5,10 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BaseTransientBottomBar;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -220,34 +222,41 @@ public class WalmanActivity extends AppCompatActivity implements AdapterView.OnI
         KejaksaanApp.uraian = mFieldValue.uraian;
         L.d("Param Field Value : " + mFieldValue.toString());
 
-        if (attemptUploadData()) {
-            attemptUploadPhoto();
-        }
+        attemptUploadData();
     }
 
     private boolean attemptUploadData() {
         updateStatus = true;
         RequestServer request = new RequestServer(ServiceUrl.WALMAN);
-        request.execute(new ResponseListener<WalmanResponse>() {
+        request.execute(new ResponseListener<WalmanResponse[]>() {
             @Override
-            public void onResponse(WalmanResponse response) {
+            public void onResponse(WalmanResponse[] response) {
                 mProgressDialog.dismiss();
-                if (response.status.equals("1")) {
+                if (response[0].status.equals("1")) {
                     updateStatus = true;
-                    Snackbar snackbar = Snackbar.make(findViewById(R.id.container_layout),
-                            "Laporan berhasil diunggah",
-                            Snackbar.LENGTH_LONG);
-                    snackbar.getView().setBackgroundColor(
-                            ContextCompat.getColor(WalmanActivity.this,
-                                    R.color.light_green_500));
-                    snackbar.show();
-                } else {
-                    Snackbar snackbar = Snackbar.make(findViewById(R.id.container_layout),
-                            "Gagal mengunggah update laporan",
-                            Snackbar.LENGTH_LONG);
-                    snackbar.getView().setBackgroundColor(
-                            ContextCompat.getColor(WalmanActivity.this, R.color.pink_A200)
-                    );
+                    if (attemptUploadPhoto() == true) {
+                        Snackbar snackbar = Snackbar.make(findViewById(R.id.container_layout),
+                                "Laporan berhasil diunggah",
+                                Snackbar.LENGTH_LONG);
+                        snackbar.getView().setBackgroundColor(
+                                ContextCompat.getColor(WalmanActivity.this,
+                                        R.color.light_green_500));
+                        snackbar.addCallback(new BaseTransientBottomBar.BaseCallback<Snackbar>() {
+                            @Override
+                            public void onDismissed(Snackbar transientBottomBar, int event) {
+                                super.onDismissed(transientBottomBar, event);
+                                WalmanActivity.this.finish();
+                            }
+                        });
+                        snackbar.show();
+                    } else {
+                        Snackbar snackbar = Snackbar.make(findViewById(R.id.container_layout),
+                                "Gagal mengunggah update laporan",
+                                Snackbar.LENGTH_LONG);
+                        snackbar.getView().setBackgroundColor(
+                                ContextCompat.getColor(WalmanActivity.this, R.color.pink_A200)
+                        );
+                    }
                 }
             }
 
@@ -297,7 +306,6 @@ public class WalmanActivity extends AppCompatActivity implements AdapterView.OnI
                 }
             });
         }
-        WalmanActivity.this.finish();
         return true;
     }
 
