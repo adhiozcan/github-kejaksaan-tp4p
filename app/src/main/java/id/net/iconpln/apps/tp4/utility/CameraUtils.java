@@ -97,11 +97,13 @@ public class CameraUtils {
 
     public static Bitmap setOptimumPict(Context context, Uri photoPath) {
         Log.d("Photo Image", "\n[Starting]-------------------------------------------------");
-        Log.d("Photo Image", "[Step 1/3] Preparing");
+        Log.d("Photo Image", "[Step 1/3] Preparing, CQ " + COMPRESSION_QUALITY);
 
         Bitmap bitmap = CameraUtils.uriToBitmap(context, Uri.parse("file://" + photoPath));
         bitmap = scaleDown(bitmap, IMG_HEIGHT, IMG_WIDTH);
         bitmap = compressImage(bitmap);
+        resetCompressionQuality();
+        Log.d("Photo Image", "Compression finish, reset the compression quality to default " + COMPRESSION_QUALITY);
         return bitmap;
     }
 
@@ -111,7 +113,7 @@ public class CameraUtils {
     }
 
     private static Bitmap compressImage(Bitmap bitmap) {
-        Log.d("Photo Image", "[Step 3/3] Compression");
+        Log.d("Photo Image", "[Step 3/3] Compression, CQ " + COMPRESSION_QUALITY);
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
         byte[] byteFormat = stream.toByteArray();
