@@ -1,7 +1,9 @@
 package id.net.iconpln.apps.tp4.ui;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -23,8 +25,15 @@ import com.firebase.jobdispatcher.GooglePlayDriver;
 import com.firebase.jobdispatcher.Job;
 import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
+import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import id.net.iconpln.apps.tp4.KejaksaanApp;
@@ -94,11 +103,32 @@ public class LoginActivity extends AppCompatActivity {
                 .build();
 
         dispatcher.mustSchedule(myJob);
+
+        checkRuntimePermission();
+    }
+
+    private void checkRuntimePermission() {
+        Dexter.withActivity(this)
+                .withPermissions(
+                        Manifest.permission.CAMERA,
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.INTERNET
+                ).withListener(new MultiplePermissionsListener() {
+            @Override
+            public void onPermissionsChecked(MultiplePermissionsReport report) {
+            }
+
+            @Override
+            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                token.continuePermissionRequest();
+            }
+        }).check();
     }
 
     public void onLoginButtonClicked(View buttonId) {
         if (!NetworkUtil.isConnectToInternet(this)) {
-            Snackbar snackbar = Snackbar.make(findViewById(R.id.container_layout),
+            Snackbar snackbar = Snackbar.make(coordinatorLayout,
                     "Tidak ada jaringan internet",
                     Snackbar.LENGTH_LONG);
             snackbar.getView().setBackgroundColor(ContextCompat.getColor(this, R.color.pink_A200));
