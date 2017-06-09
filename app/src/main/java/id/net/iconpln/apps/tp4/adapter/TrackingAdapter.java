@@ -28,9 +28,14 @@ public class TrackingAdapter extends BaseAdapter<TrackingAdapter.ViewHolder, Tra
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Context mContext   = parent.getContext();
-        int     itemLayout = R.layout.item_adapter_tracking;
-        View    view       = LayoutInflater.from(mContext).inflate(itemLayout, parent, false);
+        int itemLayout;
+        if (viewType == 0) {
+            itemLayout = R.layout.item_adapter_tracking_last;
+        } else {
+            itemLayout = R.layout.item_adapter_tracking;
+        }
+        Context mContext = parent.getContext();
+        View    view     = LayoutInflater.from(mContext).inflate(itemLayout, parent, false);
         return new ViewHolder(view);
     }
 
@@ -40,6 +45,12 @@ public class TrackingAdapter extends BaseAdapter<TrackingAdapter.ViewHolder, Tra
         holder.txtTanggal.setText(tracking.getTanggalUpdate());
         holder.txtNamaKegiatan.setText(tracking.getNamaUpdate());
         holder.txtKeterangan.setText(tracking.getKeterangan());
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if (position == getItemCount() - 1) return 0;
+        else return 1;
     }
 
     @Override
