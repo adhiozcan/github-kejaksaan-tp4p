@@ -88,7 +88,7 @@ class Dispatcher {
         return serviceApi.listAnev();
     }
 
-    protected Call<WalmanResponse> prosesWalman() {
+    protected Call<WalmanResponse[]> prosesWalman() {
         return serviceApi.prosesWalman(
                 KejaksaanApp.noRegistrasi,
                 KejaksaanApp.anev,

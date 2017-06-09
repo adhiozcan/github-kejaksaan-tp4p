@@ -95,7 +95,7 @@ public interface ServiceApi {
 
     @FormUrlEncoded
     @POST(ServiceUrl.WALMAN)
-    Call<WalmanResponse> prosesWalman(
+    Call<WalmanResponse[]> prosesWalman(
             @Field("noregistrasi") String noRegistrasi,
             @Field("anev") String anev,
             @Field("uraian") String uraian,
