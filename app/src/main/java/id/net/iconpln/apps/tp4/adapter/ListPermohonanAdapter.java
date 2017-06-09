@@ -38,14 +38,24 @@ public class ListPermohonanAdapter extends BaseAdapter<ListPermohonanAdapter.Vie
 
     @Override
     public void onBindViewHolder(ListPermohonanAdapter.ViewHolder holder, int position) {
-        Permohonan permohonan = listPermohonan.get(position);
+        final Permohonan permohonan = listPermohonan.get(position);
+        permohonan.createIdentitasPemohon();
+
         holder.judulPermohonan.setText(permohonan.getJudul());
         holder.namaPengirim.setText(permohonan.getPemohon());
         holder.instansiPengirim.setText(permohonan.getInstansi());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context, PermohonanDetailActivity.class));
+                Intent intent = new Intent(context, PermohonanDetailActivity.class);
+                intent.putExtra("judul_permohonan", permohonan.getJudul());
+                intent.putExtra("tanggal", permohonan.getTanggalPermohonan());
+                intent.putExtra("identitas", permohonan.getPemohonInstansi());
+                intent.putExtra("content", permohonan.getContent());
+                intent.putExtra("jadwal", permohonan.getTanggalPaparan() + " | " + permohonan.getWaktuPaparan());
+                intent.putExtra("keterangan", permohonan.getKeterangan());
+                context.startActivity(intent);
+
             }
         });
     }

@@ -108,7 +108,7 @@ public interface ServiceApi {
             @Part("noregistrasi") RequestBody noRegistrasi,
             @Part("seq") RequestBody sequence,
             @Part("nama") RequestBody nama,
-            @Part("anev") RequestBody anev,
+            @Part("idwalman") RequestBody walmanid,
             @Part MultipartBody.Part file);
 
     @FormUrlEncoded

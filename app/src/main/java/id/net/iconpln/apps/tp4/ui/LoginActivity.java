@@ -182,6 +182,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     createCurrentSession(response.getUserProfile());
                     navigateTo(MainActivity.class);
+                    finish();
                 } else {
                     Snackbar snackbar = Snackbar.make(coordinatorLayout, "Username atau Password tidak ditemukan.", Snackbar.LENGTH_LONG);
                     snackbar.getView().setBackgroundColor(ContextCompat.getColor(LoginActivity.this, R.color.pink_A200));

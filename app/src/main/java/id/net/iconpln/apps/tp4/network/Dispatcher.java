@@ -101,7 +101,7 @@ class Dispatcher {
                 RequestBody.create(KejaksaanApp.noRegistrasi),
                 RequestBody.create(KejaksaanApp.sequence),
                 RequestBody.create(KejaksaanApp.namaPhoto),
-                RequestBody.create(KejaksaanApp.anev),
+                RequestBody.create(KejaksaanApp.walmanId),
                 RequestBody.createImage(KejaksaanApp.filePhoto));
     }
 

@@ -11,4 +11,6 @@ public class WalmanResponse {
     public String status;
     @SerializedName("MESSAGE")
     public String message;
+    @SerializedName("ID_WALMAN")
+    public String walmanId;
 }

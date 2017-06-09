@@ -18,6 +18,7 @@ import okhttp3.MultipartBody;
 public class KejaksaanApp extends Application {
     public static String      userId;
     public static String      username;
+    public static String      walmanId;
     public static String      password;
     public static String      kejaksaanId;
     public static String      noRegistrasi;
@@ -32,6 +33,7 @@ public class KejaksaanApp extends Application {
     static {
         userId = "";
         username = "";
+        walmanId = "";
         password = "";
         kejaksaanId = "";
         noRegistrasi = "";

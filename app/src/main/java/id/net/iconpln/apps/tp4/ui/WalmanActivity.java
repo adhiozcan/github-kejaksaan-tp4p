@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BaseTransientBottomBar;
@@ -40,8 +39,6 @@ import id.net.iconpln.apps.tp4.utility.CameraUtils;
 import id.net.iconpln.apps.tp4.utility.CommonUtils;
 import id.net.iconpln.apps.tp4.utility.L;
 import id.net.iconpln.apps.tp4.utility.NetworkUtil;
-import id.net.iconpln.apps.tp4.utility.RequestBody;
-import okhttp3.MultipartBody;
 
 /**
  * Created by Ozcan on 16/03/2017.
@@ -234,28 +231,34 @@ public class WalmanActivity extends AppCompatActivity implements AdapterView.OnI
                 mProgressDialog.dismiss();
                 if (response[0].status.equals("1")) {
                     updateStatus = true;
-                    if (attemptUploadPhoto() == true) {
-                        Snackbar snackbar = Snackbar.make(findViewById(R.id.container_layout),
-                                "Laporan berhasil diunggah",
-                                Snackbar.LENGTH_LONG);
-                        snackbar.getView().setBackgroundColor(
-                                ContextCompat.getColor(WalmanActivity.this,
-                                        R.color.light_green_500));
-                        snackbar.addCallback(new BaseTransientBottomBar.BaseCallback<Snackbar>() {
-                            @Override
-                            public void onDismissed(Snackbar transientBottomBar, int event) {
-                                super.onDismissed(transientBottomBar, event);
-                                WalmanActivity.this.finish();
-                            }
-                        });
-                        snackbar.show();
+                    KejaksaanApp.walmanId = response[0].walmanId;
+                    if (!KejaksaanApp.walmanId.isEmpty()) {
+                        if (attemptUploadPhoto() == true) {
+                            Snackbar snackbar = Snackbar.make(findViewById(R.id.container_layout),
+                                    "Laporan berhasil diunggah",
+                                    Snackbar.LENGTH_LONG);
+                            snackbar.getView().setBackgroundColor(
+                                    ContextCompat.getColor(WalmanActivity.this,
+                                            R.color.light_green_500));
+                            snackbar.addCallback(new BaseTransientBottomBar.BaseCallback<Snackbar>() {
+                                @Override
+                                public void onDismissed(Snackbar transientBottomBar, int event) {
+                                    super.onDismissed(transientBottomBar, event);
+                                    WalmanActivity.this.finish();
+                                }
+                            });
+                            snackbar.show();
+                        } else {
+                            Snackbar snackbar = Snackbar.make(findViewById(R.id.container_layout),
+                                    "Gagal mengunggah update laporan",
+                                    Snackbar.LENGTH_LONG);
+                            snackbar.getView().setBackgroundColor(
+                                    ContextCompat.getColor(WalmanActivity.this, R.color.pink_A200)
+                            );
+                        }
                     } else {
-                        Snackbar snackbar = Snackbar.make(findViewById(R.id.container_layout),
-                                "Gagal mengunggah update laporan",
-                                Snackbar.LENGTH_LONG);
-                        snackbar.getView().setBackgroundColor(
-                                ContextCompat.getColor(WalmanActivity.this, R.color.pink_A200)
-                        );
+                        updateStatus = false;
+                        Log.d(TAG, "onResponse: Failed simpan data, Walman Id kosong");
                     }
                 }
             }

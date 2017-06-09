@@ -148,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.menu_user_profile:
                 navigateTo(ProfileActivity.class);
+                finish();
                 break;
         }
     }

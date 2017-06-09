@@ -9,4 +9,6 @@ import com.google.gson.annotations.SerializedName;
 public class WalmanPhotoResponse {
     @SerializedName("status")
     public String status;
+    @SerializedName("message")
+    public String message;
 }
