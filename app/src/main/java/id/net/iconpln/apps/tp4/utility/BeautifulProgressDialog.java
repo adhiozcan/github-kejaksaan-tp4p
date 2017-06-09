@@ -38,16 +38,18 @@ public class BeautifulProgressDialog {
         this.mDialog = dialog;
     }
 
-    public void setMessage(String message){
+    public void setMessage(String message) {
         this.mTxtMsg.setText(message);
     }
 
-    public void show(){
-        this.mDialog.show();
+    public void show() {
+        if (this.mDialog != null)
+            this.mDialog.show();
     }
 
-    public void dismiss(){
-        this.mDialog.dismiss();
+    public void dismiss() {
+        if (this.mDialog != null && this.mDialog.isShowing())
+            this.mDialog.dismiss();
     }
 
 
